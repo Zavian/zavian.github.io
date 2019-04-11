@@ -1,0 +1,28 @@
+{
+  "name": "rpg-cards",
+  "version": "1.0.0",
+  "description": "RPG card generator",
+  "main": "generator/generate.html",
+  "devDependencies": {
+    "fs-extra": "^3.0.0",
+    "mv": "^2.1.1",
+    "promise-streams": "^1.0.1",
+    "request": "^2.81.0",
+    "request-promise-native": "^1.0.3",
+    "unzip": "^0.1.11",
+    "walk": "^2.3.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crobi/rpg-cards.git"
+  },
+  "author": "Robert Autenrieth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crobi/rpg-cards/issues"
+  },
+  "homepage": "https://github.com/crobi/rpg-cards#readme"
+}
