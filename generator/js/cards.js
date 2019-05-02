@@ -15,8 +15,7 @@ function card_default_options() {
 		card_size: "75x50",
 		card_count: null,
 		icon_inline: true,
-		rounded_corners: true,
-		background_text_toggle: false
+		rounded_corners: true
 	};
 }
 
@@ -25,7 +24,9 @@ function card_default_data() {
 		count: 1,
 		title: "New card",
 		contents: [],
-		tags: []
+		tags: [],
+		background_text_toggle: false,
+		background_text: []
 	};
 }
 
