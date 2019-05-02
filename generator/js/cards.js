@@ -26,7 +26,7 @@ function card_default_data() {
 		contents: [],
 		tags: [],
 		background_text_toggle: false,
-		background_text: []
+		back_contents: []
 	};
 }
 
@@ -34,6 +34,7 @@ function card_init(card) {
 	card.title = card.title || "";
 	card.contents = card.contents || [];
 	card.tags = card.tags || [];
+	card.back_contents = card.back_contents || [];
 }
 
 function card_has_tag(card, tag) {
