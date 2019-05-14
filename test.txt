@@ -1,0 +1,1 @@
+node ./resources/tools/update-icons.js
