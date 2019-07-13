@@ -12,6 +12,10 @@ Click [here](https://zavian.github.io/generator/generate.html) for a live previe
 
 I will probably do changes to this awesome tool, implementing new commands and things similar to that, but be aware that there won't
 be too many changes and they will be very sparse in time.
+Among the things that I've added to the original project there is:
+
+-   The chance to upload on Imgur the card's back and front, for now, since there's basically noone using this feature there's no reason to add a way to use your own API key.
+-   The ability to create a card with both custom front AND back, the back uses the same syntax as the front. Just check the "Back" checkbox.
 
 # FAQ
 
@@ -23,6 +27,7 @@ be too many changes and they will be very sparse in time.
     -   See the section "updating icons" below.
 -   The layout of the cards is broken (e.g., cards are placed outside the page), what's wrong?
     -   Check your page size, card size, and cards/page settings. If you ask the generator to place 4x4 poker-sized cards on a A4 paper, they won't fit and they will overflow the page.
+   
 
 # updating icons
 
