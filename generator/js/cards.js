@@ -311,7 +311,8 @@ var card_element_generators = {
 	section: card_element_section,
 	disabled: card_element_empty,
 	picture: card_element_picture,
-	icon: card_element_inline_icon
+	icon: card_element_inline_icon,
+	lore: card_element_lore
 };
 
 // ============================================================================
@@ -447,6 +448,11 @@ function card_generate_empty(count, options) {
 	result += "</div>";
 
 	return card_repeat(result, count);
+}
+
+function card_element_lore(params, card_data, options) {
+	var lore = params[0] || "";
+	return '<div class="card-element card-lore">' + lore + "</div>";
 }
 
 // ============================================================================
