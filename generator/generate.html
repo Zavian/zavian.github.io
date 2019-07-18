@@ -14,6 +14,8 @@
 		<!-- Library: Color picker -->
 		<link href="lib/colorpicker/css/bootstrap-colorselector.css" rel="stylesheet" />
 		<script type="text/javascript" src="lib/colorpicker/js/bootstrap-colorselector.js" charset="utf-8"></script>
+		<!-- Library: bbcode2html -->
+		<script type="text/javascript" src="lib/bbcode2html/js/bbcode2html.js" charset="utf-8"></script>
 		<!-- Data -->
 		<script type="text/javascript" src="data/card_data_example.js"></script>
 		<!-- Javascript -->
@@ -100,6 +102,11 @@
 								<button type="button" class="btn btn-success btn-block" id="button-imgur">
 									Export to Imgur
 								</button>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12">
+								<button type="button" class="btn btn-info btn-block" id="button-help">Open Help<br> 💡 New Features Available</button>
 							</div>
 						</div>
 						<!--<span class="help-block">Generated cards open in a new tab or window.</span>-->
@@ -536,12 +543,8 @@
 					<div class="modal-body">
 						<ul>
 							<li>
-								Some RPG systems are protected by copyright. Even if some spell/item data is freely
-								available, it does not mean you may redistribute cards containing such data.
-							</li>
-							<li>
 								If you find a bug or have a feature request, post them at the
-								<a href="https://github.com/crobi/rpg-cards/issues">Github project site</a>.
+								<a href="https://github.com/Zavian/zavian.github.io/issues">Github project site</a>.
 							</li>
 							<li>
 								The user interface consists of three columns:
@@ -557,12 +560,16 @@
 							<li>
 								To use the generator, either load the sample card deck ("Load sample"), load a card deck
 								from a file ("Load from file"), or manually add some cards. When you're done, click on
-								"Generate" to generate a document with all your cards, which can then be printed.
+								"Export to Imgur" to generate an image of the selected card. Afterwards you can copy the imgur link.
 							</li>
 							<li>
 								To learn about what features are available to define a card, inspect the sample deck or
 								read some basic documentation at the
-								<a href="http://crobi.github.io/rpg-cards/">project site</a>.
+								<a href="https://github.com/Zavian/zavian.github.io/">project site</a>.
+							</li>
+							<li>
+								💡 <strong>BBCode Support!</strong>: Now BBCode is supported in the code, have a look 
+								<a href="https://www.bbcode.org">here</a> to have more info about it.
 							</li>
 						</ul>
 					</div>

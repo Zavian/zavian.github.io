@@ -372,6 +372,9 @@ function card_generate_front(data, options) {
 	result += card_element_title(data, options);
 	result += card_generate_contents(data.contents, data, options);
 	result += "</div>";
+	//result = card_text_italic(result);
+	//result = card_text_bold(result);
+	result = bbcodeParser.bbcodeToHtml(result);
 
 	return result;
 }
@@ -393,6 +396,9 @@ function card_generate_back_text(data, options) {
 	result += card_element_title(data, options);
 	result += card_generate_contents(data.back_contents, data, options);
 	result += "</div>";
+	//result = card_text_italic(result);
+	//result = card_text_bold(result);
+	result = bbcodeParser.bbcodeToHtml(result);
 
 	return result;
 }
@@ -453,6 +459,16 @@ function card_generate_empty(count, options) {
 function card_element_lore(params, card_data, options) {
 	var lore = params[0] || "";
 	return '<div class="card-element card-lore">' + lore + "</div>";
+}
+
+function card_text_italic(text) {
+	var tester = /\[i\]([a-zA-Z0-9]+)\[\/i\]/g;
+	return text.replace(tester, "<i>$1</i>");
+}
+
+function card_text_bold(text) {
+	var tester = /\[b\]([a-zA-Z0-9]+)\[\/b\]/g;
+	return text.replace(tester, "<strong>$1</strong>");
 }
 
 // ============================================================================
