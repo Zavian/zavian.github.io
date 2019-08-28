@@ -16,6 +16,9 @@ Among the things that I've added to the original project there is:
 
 -   The chance to upload on Imgur the card's back and front, for now, since there's basically noone using this feature there's no reason to add a way to use your own API key.
 -   The ability to create a card with both custom front AND back, the back uses the same syntax as the front. Just check the "Back" checkbox.
+-   BBCode format support! Most of the BBCode *should* work, however there are some hiccups when using an image. You can find more informations [here](https://coursesweb.net/javascript/convert-bbcode-html-javascript_cs) since that is the library I've implemented in the system.
+-   More tags!
+   -    lore | This will create a yellow tinted text, simulating the same way as quotes are shown in games such as diablo, world of warcraft and similar games.
 
 # FAQ
 
