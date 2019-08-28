@@ -588,6 +588,43 @@ $("#copyBack").click(function() {
 	document.execCommand("copy");
 });
 
+$("#copyAll").click(function() {
+	var front = $("#imgur-front").val();
+	var back = $("#imgur-back").val();
+	var color = $("#card-color").val();
+	var tc = colorCheck(color);
+	$("#clipboardManipulator").html("-" + tc + " " + front + " " + back);
+	var range = document.createRange(),
+		selection = window.getSelection();
+
+	var content = document.getElementById("clipboardManipulator");
+	// Clear selection from any previous data.
+	selection.removeAllRanges();
+
+	// Make the range select the entire content of the contentHolder paragraph.
+	range.selectNodeContents(content);
+
+	// Add that range to the selection.
+	selection.addRange(range);
+
+	// Copy the selection to clipboard.
+	document.execCommand("copy");
+
+	// Clear selection if you want to.
+	selection.removeAllRanges();
+});
+
+function colorCheck(color) {
+	var arr = [];
+	arr["Green"] = "u";
+	arr["Navy"] = "r";
+	arr["BlueViolet"] = "e";
+	arr["#c46709"] = "l";
+
+	if (arr[color] == null) return "w";
+	else return arr[color];
+}
+
 $(document).ready(function() {
 	local_store_load();
 	ui_setup_color_selector();
