@@ -312,7 +312,8 @@ var card_element_generators = {
 	disabled: card_element_empty,
 	picture: card_element_picture,
 	icon: card_element_inline_icon,
-	lore: card_element_lore
+	lore: card_element_lore,
+	stats: card_element_stats
 };
 
 // ============================================================================
@@ -459,6 +460,36 @@ function card_generate_empty(count, options) {
 function card_element_lore(params, card_data, options) {
 	var lore = params[0] || "";
 	return '<div class="card-element card-lore">' + lore + "</div>";
+}
+
+function card_element_stats(params, card_data, options) {
+	var stats = ["N/A", "N/A", "N/A", "N/A", "N/A", "N/A"];
+	//var mods = [0, 0, 0, 0, 0, 0];
+	for (var i = 0; i < 6; ++i) {
+		stats[i] = params[i]
+	}
+
+	var result = "";
+	result += '<table class="card-stats">';
+	result += "    <tbody><tr>";
+	result += '      <th class="card-stats-header">STR</th>';
+	result += '      <th class="card-stats-header">DEX</th>';
+	result += '      <th class="card-stats-header">CON</th>';
+	result += '      <th class="card-stats-header">INT</th>';
+	result += '      <th class="card-stats-header">WIS</th>';
+	result += '      <th class="card-stats-header">CHA</th>';
+	result += "    </tr>";
+	result += "    <tr>";
+	result += '      <td class="card-stats-cell">' + stats[0] + "</td>";
+	result += '      <td class="card-stats-cell">' + stats[1] + "</td>";
+	result += '      <td class="card-stats-cell">' + stats[2] + "</td>";
+	result += '      <td class="card-stats-cell">' + stats[3] + "</td>";
+	result += '      <td class="card-stats-cell">' + stats[4] + "</td>";
+	result += '      <td class="card-stats-cell">' + stats[5] + "</td>";
+	result += "    </tr>";
+	result += "  </tbody>";
+	result += "</table>";
+	return result;
 }
 
 function card_text_italic(text) {
