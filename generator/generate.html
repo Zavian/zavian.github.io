@@ -334,6 +334,16 @@
 									Duplicate card
 								</button>
 							</div>
+							
+							
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label"></label>
+							<div class="col-sm-10">
+								<button type="button" class="btn btn-info btn-block" id="btn-import-card">
+									Import by JSON
+								</button>
+							</div>
 						</div>
 						<div class="form-group">
 							<label for="card-title" class="col-sm-2 control-label">Name</label>
@@ -578,8 +588,11 @@
 								<a href="https://github.com/Zavian/zavian.github.io/">project site</a>.
 							</li>
 							<li>
-								💡 <strong>BBCode Support!</strong>: Now BBCode is supported in the code, have a look 
+								<strong>BBCode Support!</strong>: Now BBCode is supported in the code, have a look 
 								<a href="https://www.bbcode.org">here</a> to have more info about it.
+							</li>
+							<li>
+								💡 Added support to import specific JSON for cards.
 							</li>
 						</ul>
 					</div>
@@ -653,6 +666,48 @@ if (card_has_tag(card, "creature")) {
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" id="filter-execute">Filter</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Modal (Import)-->
+		<div class="modal" id="import-modal" tabindex="-1" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Import Card</h4>
+					</div>
+					<div class="modal-body">
+						<p>
+							Enter the JSON for a new card.</br>
+							It'll be added at the end of the deck.
+						</p>
+						<textarea class="form-control" rows="10" id="import-code" wrap="off">
+{
+	"count": 1,
+	"color": "#696969",
+	"title": "Abacus",
+	"icon": "mixed-swords",
+	"icon_back": "mixed-swords",
+	"contents": [
+		"subtitle | Adventuring Gear",
+		"rule",
+		"text | 2 gp, 2 lb."
+	],
+	"tags": [
+		"item",
+		"PHB",
+		"Adventuring Gear"
+	]
+}
+					</textarea
+						>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" id="import-execute">Import</button>
 					</div>
 				</div>
 			</div>

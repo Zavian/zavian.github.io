@@ -105,6 +105,13 @@ function ui_add_new_card() {
 	ui_select_card_by_index(card_data.length - 1);
 }
 
+function ui_add_new_card_with_data(data) {
+	card_init(data);
+	card_data = card_data.concat(data);
+	ui_update_card_list();
+	ui_select_card_by_index(card_data.length - 1);
+}
+
 function ui_duplicate_card() {
 	if (card_data.length > 0) {
 		var old_card = ui_selected_card();
@@ -462,6 +469,29 @@ function ui_filter_execute() {
 	ui_update_card_list();
 }
 
+function ui_import() {
+	$("#import-modal").modal("show");
+}
+
+function ui_import_execute() {
+	$("#import-modal").modal("hide");
+
+	var json = $("#import-code").val();
+	var data = JSON.parse(json);
+
+	data = clean_data(data);
+
+	ui_add_new_card_with_data(data);
+}
+
+function clean_data(data) {
+	for (let i = 0; i < data.contents.length; i++) {
+		data.contents[i] = data.contents[i].replace(/<a href=.{1,}>(.{1,})<\/a>/, "$1");
+		data.contents[i] = data.contents[i].replace(/<span class=.{1,}>(.{1,})<\/span>/, "$1");
+	}
+	return data;
+}
+
 function ui_apply_default_color() {
 	for (var i = 0; i < card_data.length; ++i) {
 		card_data[i].color = card_options.default_color;
@@ -667,6 +697,7 @@ $(document).ready(function() {
 	$("#button-filter").click(ui_filter);
 	$("#button-add-card").click(ui_add_new_card);
 	$("#button-duplicate-card").click(ui_duplicate_card);
+	$("#btn-import-card").click(ui_import);
 	$("#button-delete-card").click(ui_delete_card);
 	$("#button-help").click(ui_open_help);
 	$("#button-apply-color").click(ui_apply_default_color);
@@ -704,6 +735,7 @@ $(document).ready(function() {
 
 	$("#sort-execute").click(ui_sort_execute);
 	$("#filter-execute").click(ui_filter_execute);
+	$("#import-execute").click(ui_import_execute);
 
 	$("#back-text").change(ui_toggle_back_text);
 
