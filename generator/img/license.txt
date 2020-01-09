@@ -3,7 +3,7 @@ Icons provided under the Creative Commons 3.0 BY or CC0 if mentioned below.
 Each sub-folders in this archive correspond to a different contributor :
 
 - Lorc, http://lorcblog.blogspot.com
-- Delapouite, http://delapouite.com
+- Delapouite, https://delapouite.com
 - John Colburn, http://ninmunanmu.com
 - Felbrigg, http://blackdogofdoom.blogspot.co.uk
 - John Redman, http://www.uniquedicetowers.com
@@ -31,6 +31,10 @@ Each sub-folders in this archive correspond to a different contributor :
 - SpencerDub
 - GeneralAce135
 - Zajkonur
+- Catsu
+- Starseeker
+- Pepijn Poolman
+- Pierre Leducq
 
 Please, include a mention "Icons made by {author}" in your derivative work.
 
