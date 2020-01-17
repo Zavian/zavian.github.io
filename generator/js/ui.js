@@ -169,7 +169,7 @@ function ui_save_file() {
 
 	var a = $("#file-save-link")[0];
 	a.href = url;
-	a.download = prompt("Filename:", ui_save_file.filename);
+	a.download = "rpg_cards.json";
 	if (a.download) {
 		ui_save_file.filename = a.download;
 		a.click();
