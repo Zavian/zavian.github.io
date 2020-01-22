@@ -245,6 +245,7 @@
 
 .card-stats {
 	width: 100%;
+	background-color: inherit;
 }
 
 .card-stats-header {
