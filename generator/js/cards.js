@@ -313,6 +313,7 @@ var card_element_generators = {
 	picture: card_element_picture,
 	icon: card_element_inline_icon,
 	lore: card_element_lore,
+	centerlore: card_element_centerlore,
 	stats: card_element_stats
 };
 
@@ -462,11 +463,16 @@ function card_element_lore(params, card_data, options) {
 	return '<div class="card-element card-lore">' + lore + "</div>";
 }
 
+function card_element_centerlore(params, card_data, options) {
+	var lore = params[0] || "";
+	return '<div class="card-element card-lore card-center">' + lore + "</div>";
+}
+
 function card_element_stats(params, card_data, options) {
 	var stats = ["N/A", "N/A", "N/A", "N/A", "N/A", "N/A"];
 	//var mods = [0, 0, 0, 0, 0, 0];
 	for (var i = 0; i < 6; ++i) {
-		stats[i] = params[i]
+		stats[i] = params[i];
 	}
 
 	var result = "";
