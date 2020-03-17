@@ -276,15 +276,3 @@
 	margin-top: 0;
 	font-size: inherit;
 }
-
-.card-side {
-	position: absolute;
-	bottom: -7px;
-	right: 0;
-	content: url(../img/sideswipe.png);
-	width: 40px !important;
-	height: 32px !important;
-	-webkit-transform: scale(-1, -1);
-	transform: scale(-1, -1);
-	border-radius: 0px 0px 7px 0px;
-}

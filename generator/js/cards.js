@@ -295,12 +295,6 @@ function card_element_empty(params, card_data, options) {
 	return "";
 }
 
-function card_element_side(options) {
-	if (options.background_text_toggle)
-		return "<div class='card-side' style='background-color: " + options.color + "'></div>";
-	return "";
-}
-
 var card_element_generators = {
 	subtitle: card_element_subtitle,
 	property: card_element_property,
@@ -343,9 +337,7 @@ function card_generate_contents(contents, card_data, options) {
 			}
 		})
 		.join("\n");
-	result += card_element_side(card_data);
 	result += "</div>";
-
 	return result;
 }
 
@@ -381,7 +373,6 @@ function card_generate_front(data, options) {
 	result += card_element_icon(data, options);
 	result += card_element_title(data, options);
 	result += card_generate_contents(data.contents, data, options);
-
 	result += "</div>";
 	//result = card_text_italic(result);
 	//result = card_text_bold(result);
@@ -396,7 +387,7 @@ function card_generate_back_text(data, options) {
 
 	var result = "";
 	result +=
-		'<div class="card card-size card-size-' +
+		'<div class="card card-size-' +
 		options.card_size +
 		" " +
 		(options.rounded_corners ? "rounded-corners" : "") +
