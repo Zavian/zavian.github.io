@@ -149,6 +149,9 @@
 	font-weight: bold;
 	color: #e4986e !important;
 }
+.card-center {
+	text-align: center;
+}
 
 .card-picture {
 	height: 80px;
