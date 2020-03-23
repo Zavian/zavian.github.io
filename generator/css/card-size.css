@@ -12,90 +12,100 @@
     3) Fill each page with cards, arranged around the center of the page.
 */
 
-
 /* Center all content within a page */
 .page {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    page-break-after: always;
-    padding: 0;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	page-break-after: always;
+	padding: 0;
 }
 
 /* A4 paper area */
 /* Chrome has problems with page sizes given in metric units. Make the paper area slightly smaller to work around this. */
 page[size="A4"] {
-    width:  210mm; /* full: 210.0mm */
-    height: 296mm; /* full: 297.0mm */
+	width: 210mm; /* full: 210.0mm */
+	height: 296mm; /* full: 297.0mm */
 }
 
 /* US letter area */
 page[size="Letter"] {
-    width:  8.5in;
-    height: 11.0in;
+	width: 8.5in;
+	height: 11in;
 }
 
 page[size="25x35"] {
-    width: 2.5in;
-    height: 3.5in;
+	width: 2.5in;
+	height: 3.5in;
 }
 
 /* Default card size */
 .card {
-    width:2.5in;
-    height:3.5in;
+	width: 2.5in;
+	height: 3.5in;
 }
 
 /* Bridge card size */
 .card-size-225x35 {
-    width:2.25in;
-    height:3.5in;
+	width: 2.25in;
+	height: 3.5in;
 }
 .card-size-225x35 .card-back-icon {
-    width: 1in;
-    height: 1in;
+	width: 1in;
+	height: 1in;
 }
 
 /* Poker / Magic card size */
 .card-size-25x35 {
-    width:2.5in;
-    height:3.5in;
+	width: 2.5in;
+	height: 3.5in;
 }
 .card-size-25x35 .card-back-icon {
-    width: 1in;
-    height: 1in;
+	width: 1in;
+	height: 1in;
 }
 
 /* Poker / Magic card size */
 .card-size-35x50 {
-    width:3.5in;
-    min-width:3.5in;
-    height:5.0in;
+	width: 3.5in;
+	min-width: 3.5in;
+	height: 5in;
 }
 .card-size-35x50 .card-back-icon {
-    width: 1.5in;
-    height: 1.5in;
+	width: 1.5in;
+	height: 1.5in;
 }
 
 /* Landscape big card */
 .card-size-75x50 {
-    width:7.5in;
-    height:5.0in;
+	width: 7.5in;
+	height: 5in;
 }
 .card-size-75x50 .card-back-icon {
-    width: 2in;
-    height: 2in;
+	width: 2in;
+	height: 2in;
+}
+
+/* extra card */
+.card-size-29x29 {
+	width: 2.9in;
+	height: 2.9in;
+}
+
+.card-size-29x29 .card-back-icon {
+	width: 1.5in;
+	height: 1.5in;
 }
 
 /* Card sizes that fill out the entire sheet of paper (minimal margins) */
 .page[size="A4"] .card-size-full3x3 {
-    width:69mm;
-    height:98mm;
+	width: 69mm;
+	height: 98mm;
 }
 
 .page[size="Letter"] .card-size-full3x3 {
-    width:71mm;
-    height:92mm;
+	width: 71mm;
+	height: 92mm;
 }
