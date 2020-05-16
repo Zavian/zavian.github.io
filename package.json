@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/crobi/rpg-cards/issues"
   },
-  "homepage": "https://github.com/crobi/rpg-cards#readme"
+  "homepage": "https://github.com/crobi/rpg-cards#readme",
+  "dependencies": {
+    "fitty": "^2.3.0"
+  }
 }

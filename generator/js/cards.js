@@ -15,7 +15,7 @@ function card_default_options() {
 		card_size: "75x50",
 		card_count: null,
 		icon_inline: true,
-		rounded_corners: true
+		rounded_corners: true,
 	};
 }
 
@@ -26,7 +26,7 @@ function card_default_data() {
 		contents: [],
 		tags: [],
 		background_text_toggle: false,
-		back_contents: []
+		back_contents: [],
 	};
 }
 
@@ -53,7 +53,7 @@ function card_add_tag(card, tag) {
 
 function card_remove_tag(card, tag) {
 	tag = tag.trim().toLowerCase();
-	card.tags = card.tags.filter(function(t) {
+	card.tags = card.tags.filter(function (t) {
 		return tag !== t;
 	});
 }
@@ -79,7 +79,7 @@ function card_data_icon_back(card_data, options) {
 }
 
 function card_data_split_params(value) {
-	return value.split("|").map(function(str) {
+	return value.split("|").map(function (str) {
 		return str.trim();
 	});
 }
@@ -91,7 +91,7 @@ function card_data_split_params(value) {
 function card_element_title(card_data, options) {
 	var title = card_data.title || "";
 	var title_size = card_data.title_size || options.default_title_size || "normal";
-	return '<div class="card-title card-title-' + title_size + '">' + title + "</div>";
+	return '<div id="card-name" class="card-title card-title-' + title_size + '">' + title + "</div>";
 }
 
 function card_element_icon(card_data, options) {
@@ -314,7 +314,7 @@ var card_element_generators = {
 	icon: card_element_inline_icon,
 	lore: card_element_lore,
 	centerlore: card_element_centerlore,
-	stats: card_element_stats
+	stats: card_element_stats,
 };
 
 // ============================================================================
@@ -325,7 +325,7 @@ function card_generate_contents(contents, card_data, options) {
 	var result = "";
 	result += '<div class="card-content-container">';
 	result += contents
-		.map(function(value) {
+		.map(function (value) {
 			var parts = card_data_split_params(value);
 			var element_name = parts[0];
 			var element_params = parts.splice(1);
@@ -625,7 +625,7 @@ function card_pages_generate_html(card_data, options) {
 	// Generate the HTML for each card
 	var front_cards = [];
 	var back_cards = [];
-	card_data.forEach(function(data) {
+	card_data.forEach(function (data) {
 		var count = options.card_count || data.count || 1;
 		var front = card_generate_front(data, options);
 		var back = card_generate_back(data, options);
@@ -644,7 +644,7 @@ function card_pages_generate_html(card_data, options) {
 		var back_pages = card_pages_split(back_cards, rows, cols);
 
 		// Shuffle back cards so that they line up with their corresponding front cards
-		back_pages = back_pages.map(function(page) {
+		back_pages = back_pages.map(function (page) {
 			return cards_pages_flip_left_right(page, rows, cols);
 		});
 

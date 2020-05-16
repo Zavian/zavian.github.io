@@ -51,7 +51,7 @@ function ui_generate() {
 
 	// Send the generated HTML to the new window
 	// Use a delay to give the new window time to set up a message listener
-	setTimeout(function() {
+	setTimeout(function () {
 		tab.postMessage(card_html, "*");
 	}, 500);
 }
@@ -75,7 +75,7 @@ function ui_load_files(evt) {
 	for (var i = 0, f; (f = files[i]); i++) {
 		var reader = new FileReader();
 
-		reader.onload = function(reader) {
+		reader.onload = function (reader) {
 			var data = JSON.parse(this.result);
 			ui_add_cards(data);
 		};
@@ -88,7 +88,7 @@ function ui_load_files(evt) {
 }
 
 function ui_init_cards(data) {
-	data.forEach(function(card) {
+	data.forEach(function (card) {
 		card_init(card);
 	});
 }
@@ -151,11 +151,7 @@ function ui_update_card_list() {
 	$("#selected-card").empty();
 	for (var i = 0; i < card_data.length; ++i) {
 		var card = card_data[i];
-		$("#selected-card").append(
-			$("<option></option>")
-				.attr("value", i)
-				.text(card.title)
-		);
+		$("#selected-card").append($("<option></option>").attr("value", i).text(card.title));
 	}
 
 	ui_update_selected_card();
@@ -175,7 +171,7 @@ function ui_save_file() {
 		a.click();
 	}
 
-	setTimeout(function() {
+	setTimeout(function () {
 		URL.revokeObjectURL(url);
 	}, 500);
 }
@@ -192,9 +188,7 @@ function ui_update_selected_card() {
 		$("#card-background").val(card.background_image);
 		$("#card-contents").val(card.contents.join("\n"));
 		$("#card-tags").val(card.tags.join(", "));
-		$("#card-color")
-			.val(card.color)
-			.change();
+		$("#card-color").val(card.color).change();
 		$("#back-text").prop("checked", card.background_text_toggle);
 		if (card.background_text_toggle) $("#form-back").show();
 		else $("#form-back").hide();
@@ -208,9 +202,7 @@ function ui_update_selected_card() {
 		$("#card-background").val("");
 		$("#card-contents").val("");
 		$("#card-tags").val("");
-		$("#card-color")
-			.val("")
-			.change();
+		$("#card-color").val("").change();
 	}
 
 	ui_render_selected_card();
@@ -224,6 +216,8 @@ function ui_render_selected_card() {
 		var back = card_generate_back(card, card_options);
 		$("#preview-container").html(front + "\n" + back);
 	}
+	fitty("#card-name", { minSize: 4, multiLine: true });
+
 	local_store_save();
 }
 
@@ -237,39 +231,34 @@ function ui_select_icon() {
 
 function ui_setup_color_selector() {
 	// Insert colors
-	$.each(card_colors, function(name, val) {
-		$(".colorselector-data").append(
-			$("<option></option>")
-				.attr("value", name)
-				.attr("data-color", val)
-				.text(name)
-		);
+	$.each(card_colors, function (name, val) {
+		$(".colorselector-data").append($("<option></option>").attr("value", name).attr("data-color", val).text(name));
 	});
 
 	// Callbacks for when the user picks a color
 	$("#default_color_selector").colorselector({
-		callback: function(value, color, title) {
+		callback: function (value, color, title) {
 			$("#default-color").val(title);
 			ui_set_default_color(title);
-		}
+		},
 	});
 	$("#card_color_selector").colorselector({
-		callback: function(value, color, title) {
+		callback: function (value, color, title) {
 			$("#card-color").val(title);
 			ui_set_card_color(value);
-		}
+		},
 	});
 	$("#foreground_color_selector").colorselector({
-		callback: function(value, color, title) {
+		callback: function (value, color, title) {
 			$("#foreground-color").val(title);
 			ui_set_foreground_color(value);
-		}
+		},
 	});
 	$("#background_color_selector").colorselector({
-		callback: function(value, color, title) {
+		callback: function (value, color, title) {
 			$("#background-color").val(title);
 			ui_set_background_color(value);
-		}
+		},
 	});
 
 	// Styling
@@ -374,7 +363,7 @@ function ui_change_card_contents() {
 
 function ui_change_card_contents_keyup() {
 	clearTimeout(ui_change_card_contents_keyup.timeout);
-	ui_change_card_contents_keyup.timeout = setTimeout(function() {
+	ui_change_card_contents_keyup.timeout = setTimeout(function () {
 		$("#card-contents").trigger("change");
 	}, 200);
 }
@@ -392,7 +381,7 @@ function ui_change_back_contents() {
 
 function ui_change_back_contents_keyup() {
 	clearTimeout(ui_change_back_contents_keyup.timeout);
-	ui_change_back_contents_keyup.timeout = setTimeout(function() {
+	ui_change_back_contents_keyup.timeout = setTimeout(function () {
 		$("#back-contents").trigger("change");
 	}, 200);
 }
@@ -406,7 +395,7 @@ function ui_change_card_tags() {
 		if (value.trim().length === 0) {
 			card.tags = [];
 		} else {
-			card.tags = value.split(",").map(function(val) {
+			card.tags = value.split(",").map(function (val) {
 				return val.trim().toLowerCase();
 			});
 		}
@@ -442,7 +431,7 @@ function ui_sort_execute() {
 	var fn_code = $("#sort-function").val();
 	var fn = new Function("card_a", "card_b", fn_code);
 
-	card_data = card_data.sort(function(card_a, card_b) {
+	card_data = card_data.sort(function (card_a, card_b) {
 		var result = fn(card_a, card_b);
 		return result;
 	});
@@ -460,7 +449,7 @@ function ui_filter_execute() {
 	var fn_code = $("#filter-function").val();
 	var fn = new Function("card", fn_code);
 
-	card_data = card_data.filter(function(card) {
+	card_data = card_data.filter(function (card) {
 		var result = fn(card);
 		if (result === undefined) return true;
 		else return result;
@@ -535,18 +524,12 @@ function local_store_load() {
 	}
 }
 
-$("#button-imgur").click(function() {
-	$("#preview-container")
-		.children()
-		.first()
-		.attr("id", "cardFront");
-	$("#preview-container")
-		.children()
-		.last()
-		.attr("id", "cardBack");
+$("#button-imgur").click(function () {
+	$("#preview-container").children().first().attr("id", "cardFront");
+	$("#preview-container").children().last().attr("id", "cardBack");
 
 	$("#imgur-export").show();
-	html2canvas(document.querySelector("#cardFront")).then(canvas => {
+	html2canvas(document.querySelector("#cardFront")).then((canvas) => {
 		//canvas = canvas.setAttribute("class", "omegalul");
 		document.body.appendChild(canvas);
 		$("canvas").attr("class", "captured");
@@ -560,22 +543,22 @@ $("#button-imgur").click(function() {
 			url: "https://api.imgur.com/3/image",
 			type: "post",
 			headers: {
-				Authorization: "Client-ID f71d1c5e1627800"
+				Authorization: "Client-ID f71d1c5e1627800",
 			},
 			data: {
-				image: img
+				image: img,
 			},
 			dataType: "json",
-			success: function(response) {
+			success: function (response) {
 				if (response.success) {
 					//window.location = response.data.link;
 					console.log(response);
 					$("#imgur-front").val(response.data.link);
 				}
-			}
+			},
 		});
 	});
-	html2canvas(document.querySelector("#cardBack")).then(canvas => {
+	html2canvas(document.querySelector("#cardBack")).then((canvas) => {
 		//canvas = canvas.setAttribute("class", "omegalul");
 		document.body.appendChild(canvas);
 		$("canvas").attr("class", "captured");
@@ -589,36 +572,36 @@ $("#button-imgur").click(function() {
 			url: "https://api.imgur.com/3/image",
 			type: "post",
 			headers: {
-				Authorization: "Client-ID f71d1c5e1627800"
+				Authorization: "Client-ID f71d1c5e1627800",
 			},
 			data: {
-				image: img
+				image: img,
 			},
 			dataType: "json",
-			success: function(response) {
+			success: function (response) {
 				if (response.success) {
 					//window.location = response.data.link;
 					console.log(response);
 					$("#imgur-back").val(response.data.link);
 				}
-			}
+			},
 		});
 	});
 });
 
-$("#copyFront").click(function() {
+$("#copyFront").click(function () {
 	var copyText = document.getElementById("imgur-front");
 	copyText.select();
 	document.execCommand("copy");
 });
 
-$("#copyBack").click(function() {
+$("#copyBack").click(function () {
 	var copyText = document.getElementById("imgur-back");
 	copyText.select();
 	document.execCommand("copy");
 });
 
-$("#copyAll").click(function() {
+$("#copyAll").click(function () {
 	var front = $("#imgur-front").val();
 	var back = $("#imgur-back").val();
 	var color = $("#card-color").val();
@@ -655,24 +638,19 @@ function colorCheck(color) {
 	else return arr[color];
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
 	local_store_load();
 	ui_setup_color_selector();
 	$(".icon-list").typeahead({
 		source: icon_names,
 		items: "all",
-		render: function(items) {
+		render: function (items) {
 			var that = this;
 
-			items = $(items).map(function(i, item) {
+			items = $(items).map(function (i, item) {
 				i = $(that.options.item).data("value", item);
 				i.find("a").html(that.highlighter(item));
-				var classname =
-					"icon-" +
-					item
-						.split(" ")
-						.join("-")
-						.toLowerCase();
+				var classname = "icon-" + item.split(" ").join("-").toLowerCase();
 				i.find("a").append('<span class="' + classname + '"></span>');
 				return i[0];
 			});
@@ -682,11 +660,11 @@ $(document).ready(function() {
 			}
 			this.$menu.html(items);
 			return this;
-		}
+		},
 	});
 
 	$("#button-generate").click(ui_generate);
-	$("#button-load").click(function() {
+	$("#button-load").click(function () {
 		$("#file-load").click();
 	});
 	$("#file-load").change(ui_load_files);
