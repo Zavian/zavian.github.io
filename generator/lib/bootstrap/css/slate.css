@@ -607,13 +607,13 @@ legend{display:block;width:100%;margin-bottom:20px;font-size:21px;line-height:in
 label{display:inline-block;max-width:100%;margin-bottom:5px}
 input[type=search]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-appearance:none}
 input[type=checkbox],input[type=radio]{margin:4px 0 0;margin-top:1px\9;line-height:normal}
-.form-control,output{display:block;font-size:14px;line-height:1.42857143;color:#272b30}
+.form-control,output{display:block;font-size:14px;line-height:1.42857143;color:#cdc8c2}
 input[type=file]{display:block}
 input[type=range]{display:block;width:100%}
 select[multiple],select[size]{height:auto}
 input[type=file]:focus,input[type=checkbox]:focus,input[type=radio]:focus{outline:dotted thin;outline:-webkit-focus-ring-color auto 5px;outline-offset:-2px}
 output{padding-top:9px}
-.form-control{width:100%;height:38px;padding:8px 12px;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s}
+.form-control{width:100%;height:38px;padding:8px 12px;background-color:#181a1b;background-image:none;border:1px solid #3e4446;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s}
 .form-control:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}
 .form-control::-moz-placeholder{color:#7a8288;opacity:1}
 .form-control:-ms-input-placeholder{color:#7a8288}
@@ -806,7 +806,7 @@ select[multiple].input-group-lg>.form-control,select[multiple].input-group-lg>.i
 select.input-group-sm>.form-control,select.input-group-sm>.input-group-addon,select.input-group-sm>.input-group-btn>.btn{height:30px;line-height:30px}
 select[multiple].input-group-sm>.form-control,select[multiple].input-group-sm>.input-group-addon,select[multiple].input-group-sm>.input-group-btn>.btn,textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon,textarea.input-group-sm>.input-group-btn>.btn{height:auto}
 .input-group .form-control,.input-group-addon,.input-group-btn{display:table-cell}
-.input-group .form-control:not(:first-child):not(:last-child),.input-group-addon:not(:first-child):not(:last-child),.input-group-btn:not(:first-child):not(:last-child){border-radius:0}
+.input-group .form-control:not(:first-child):not(:last-child),.input-group-addon:not(:first-child):not(:last-child),.input-group-btn:not(:first-child):not(:last-child){border-radius:0; background: #3a3f44; border-color: #3a3f44}
 .input-group-addon,.input-group-btn{width:1%;white-space:nowrap;vertical-align:middle}
 .input-group-addon{padding:8px 12px;font-size:14px;font-weight:400;line-height:1;color:#272b30;background-color:#999;border:1px solid #ccc;border-radius:4px}
 .input-group-addon.input-sm{padding:5px 10px;font-size:12px;border-radius:3px}
