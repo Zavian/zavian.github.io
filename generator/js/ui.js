@@ -56,12 +56,6 @@ function ui_generate() {
 	}, 500);
 }
 
-function ui_load_sample() {
-	card_data = card_data_example;
-	ui_init_cards(card_data);
-	ui_update_card_list();
-}
-
 function ui_clear_all() {
 	card_data = [];
 	ui_update_card_list();
@@ -105,9 +99,16 @@ function ui_add_new_card() {
 	ui_select_card_by_index(card_data.length - 1);
 }
 
-function ui_add_new_card_with_data(data) {
+function ui_add_new_card_with_data(data, dontUpdate) {
 	card_init(data);
 	card_data = card_data.concat(data);
+	if (!dontUpdate) {
+		ui_update_card_list();
+		ui_select_card_by_index(card_data.length - 1);
+	}
+}
+
+function ui_update() {
 	ui_update_card_list();
 	ui_select_card_by_index(card_data.length - 1);
 }
@@ -421,8 +422,33 @@ function ui_toggle_back_text() {
 	ui_render_selected_card();
 }
 
-function ui_sort() {
-	$("#sort-modal").modal("show");
+function ui_sample() {
+	var sample_data = card_data_example;
+	sample_data.forEach((data) => {
+		ui_add_new_card_with_data(data, true);
+	});
+	ui_update();
+
+	//sample_data.append({
+	//	back_contents: [],
+	//	color: "#696969",
+	//	contents: (3) ["subtitle | Adventuring Gear", "rule", "text | 2 gp, 2 lb."],
+	//	count: 1,
+	//	icon: "mixed-swords",
+	//	icon_back: "mixed-swords",
+	//	tags: (3) ["item", "PHB", "Adventuring Gear"],
+	//	title: "Abacus"
+	//})
+	//sample_data.append({
+	//	back_contents: [],
+	//	color: "maroon",
+	//	contents: (3) ["subtitle | Adventuring Gear", "rule", "text | 2 gp, 2 lb."],
+	//	count: 1,
+	//	icon: "white-book-1",
+	//	icon_back: "robe",
+	//	tags: (3) ["item", "PHB", "Adventuring Gear"],
+	//	title: "Abacus"
+	//})
 }
 
 function ui_sort_execute() {
@@ -527,65 +553,22 @@ function local_store_load() {
 $("#button-imgur").click(function () {
 	$("#preview-container").children().first().attr("id", "cardFront");
 	$("#preview-container").children().last().attr("id", "cardBack");
+	var s = 2.5;
 
 	$("#imgur-export").show();
-	html2canvas(document.querySelector("#cardFront")).then((canvas) => {
+	html2canvas(document.querySelector("#cardFront"), { scale: s }).then((canvas) => {
 		//canvas = canvas.setAttribute("class", "omegalul");
 		document.body.appendChild(canvas);
 		$("canvas").attr("class", "captured");
 
-		try {
-			var img = canvas.toDataURL("image/jpeg", 0.9).split(",")[1];
-		} catch (e) {
-			var img = canvas.toDataURL().split(",")[1];
-		}
-		$.ajax({
-			url: "https://api.imgur.com/3/image",
-			type: "post",
-			headers: {
-				Authorization: "Client-ID f71d1c5e1627800",
-			},
-			data: {
-				image: img,
-			},
-			dataType: "json",
-			success: function (response) {
-				if (response.success) {
-					//window.location = response.data.link;
-					console.log(response);
-					$("#imgur-front").val(response.data.link);
-				}
-			},
-		});
+		uploadToImgur(canvas, "front");
 	});
-	html2canvas(document.querySelector("#cardBack")).then((canvas) => {
+	html2canvas(document.querySelector("#cardBack"), { scale: s }).then((canvas) => {
 		//canvas = canvas.setAttribute("class", "omegalul");
 		document.body.appendChild(canvas);
 		$("canvas").attr("class", "captured");
 
-		try {
-			var img = canvas.toDataURL("image/jpeg", 0.9).split(",")[1];
-		} catch (e) {
-			var img = canvas.toDataURL().split(",")[1];
-		}
-		$.ajax({
-			url: "https://api.imgur.com/3/image",
-			type: "post",
-			headers: {
-				Authorization: "Client-ID f71d1c5e1627800",
-			},
-			data: {
-				image: img,
-			},
-			dataType: "json",
-			success: function (response) {
-				if (response.success) {
-					//window.location = response.data.link;
-					console.log(response);
-					$("#imgur-back").val(response.data.link);
-				}
-			},
-		});
+		uploadToImgur(canvas, "back");
 	});
 });
 
@@ -626,6 +609,32 @@ $("#copyAll").click(function () {
 	// Clear selection if you want to.
 	selection.removeAllRanges();
 });
+
+function uploadToImgur(canvas, side) {
+	try {
+		var img = canvas.toDataURL("image/jpeg").split(",")[1];
+	} catch (e) {
+		var img = canvas.toDataURL().split(",")[1];
+	}
+	$.ajax({
+		url: "https://api.imgur.com/3/image",
+		type: "post",
+		headers: {
+			Authorization: "Client-ID f71d1c5e1627800",
+		},
+		data: {
+			image: img,
+		},
+		dataType: "json",
+		success: function (response) {
+			if (response.success) {
+				//window.location = response.data.link;
+				console.log(response);
+				$("#imgur-" + side).val(response.data.link);
+			}
+		},
+	});
+}
 
 function colorCheck(color) {
 	var arr = [];
@@ -669,9 +678,9 @@ $(document).ready(function () {
 	});
 	$("#file-load").change(ui_load_files);
 	$("#button-clear").click(ui_clear_all);
-	$("#button-load-sample").click(ui_load_sample);
+	//$("#button-load-sample").click(ui_load_sample);
 	//$("#button-save").click(ui_save_file);
-	$("#button-sort").click(ui_sort);
+	$("#button-sample").click(ui_sample);
 	$("#button-filter").click(ui_filter);
 	$("#button-add-card").click(ui_add_new_card);
 	$("#button-duplicate-card").click(ui_duplicate_card);
@@ -681,6 +690,7 @@ $(document).ready(function () {
 	$("#button-apply-color").click(ui_apply_default_color);
 	$("#button-apply-icon").click(ui_apply_default_icon);
 	$("#button-apply-icon-back").click(ui_apply_default_icon_back);
+	$("#button-to-last").click(ui_update);
 
 	$("#selected-card").change(ui_update_selected_card);
 
