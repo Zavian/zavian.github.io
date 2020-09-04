@@ -283,13 +283,13 @@
 }
 
 .card-image-small {
-	height: 15%;
+	max-height: 15%;
 }
 
 .card-image-medium {
-	height: 50%;
+	max-height: 50%;
 }
 
 .card-image-big {
-	height: 100%;
+	max-height: 100%;
 }
