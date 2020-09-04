@@ -276,3 +276,20 @@
 	margin-top: 0;
 	font-size: inherit;
 }
+
+.card-image {
+	max-width: 100%;
+	object-fit: contain;
+}
+
+.card-image-small {
+	height: 15%;
+}
+
+.card-image-medium {
+	height: 50%;
+}
+
+.card-image-big {
+	height: 100%;
+}

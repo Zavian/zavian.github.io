@@ -315,6 +315,7 @@ var card_element_generators = {
 	lore: card_element_lore,
 	centerlore: card_element_centerlore,
 	stats: card_element_stats,
+	image: card_element_image,
 };
 
 // ============================================================================
@@ -466,6 +467,12 @@ function card_element_lore(params, card_data, options) {
 function card_element_centerlore(params, card_data, options) {
 	var lore = params[0] || "";
 	return '<div class="card-element card-lore card-center">' + lore + "</div>";
+}
+
+function card_element_image(params, card_data, options) {
+	var size = params[0] || "";
+	var img = params[1] || "";
+	return '<img class="card-element card-center card-image card-image-' + size + '" src="' + img + '"/>';
 }
 
 function card_element_stats(params, card_data, options) {
