@@ -472,7 +472,13 @@ function card_element_centerlore(params, card_data, options) {
 function card_element_image(params, card_data, options) {
 	var size = params[0] || "";
 	var img = params[1] || "";
-	return '<img class="card-element card-center card-image" src="' + img + '" style="max-height: ' + size + '%;"/>';
+	return (
+		'<img class="card-element card-center card-image" crossorigin="anonymous" src="' +
+		img +
+		'" style="max-height: ' +
+		size +
+		'%;"/>'
+	);
 }
 
 function card_element_stats(params, card_data, options) {
