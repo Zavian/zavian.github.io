@@ -8,7 +8,7 @@ const unzip = require("unzip");
 const child_process = require("child_process");
 const ncp = require("ncp");
 
-const gameIconsUrl = "https://game-icons.net/archives/png/zip/ffffff/000000/game-icons.net.png.zip";
+const gameIconsUrl = "https://game-icons.net/archives/png/zip/ffffff/transparent/game-icons.net.png.zip";
 const tempFilePath = "./temp.zip";
 const tempDir = "./temp";
 const imgDir = "./generator/img";
@@ -24,7 +24,7 @@ const processIconsCmd = `mogrify -alpha copy -channel-fx "red=100%, blue=100%, g
 function downloadFile(url, dest) {
 	console.log("Downloading...");
 	return new Promise((resolve, reject) => {
-		http.get(url, response => {
+		http.get(url, (response) => {
 			const file = fs.createWriteStream(dest);
 			response.pipe(file);
 			file.on("close", resolve);
@@ -41,7 +41,7 @@ function unzipAll(src, dest) {
 	return new Promise((resolve, reject) => {
 		fs.createReadStream(tempFilePath)
 			.pipe(unzip.Parse())
-			.on("entry", entry => {
+			.on("entry", (entry) => {
 				const fileName = entry.path;
 				const baseName = path.basename(fileName);
 				const type = entry.type;
@@ -83,9 +83,9 @@ function generateCSS(src, dest) {
 				reject(err);
 			} else {
 				const content = files
-					.map(name => `.icon-${name.replace(".png", "")} { background-image: url(../img/${name});}\n`)
+					.map((name) => `.icon-${name.replace(".png", "")} { background-image: url(../img/${name});}\n`)
 					.join("");
-				fs.writeFile(dest, content, err => {
+				fs.writeFile(dest, content, (err) => {
 					if (err) {
 						reject(err);
 					} else {
@@ -109,7 +109,7 @@ function generateJS(src, dest) {
 			} else {
 				const content =
 					"var icon_names = [\n" +
-					files.map(name => `    "${name.replace(".png", "")}"`).join(",\n") +
+					files.map((name) => `    "${name.replace(".png", "")}"`).join(",\n") +
 					`
 ];
 
@@ -130,7 +130,7 @@ var class_icon_names = [
 
 icon_names = icon_names.concat(class_icon_names);
 `;
-				fs.writeFile(dest, content, err => {
+				fs.writeFile(dest, content, (err) => {
 					if (err) {
 						reject(err);
 					} else {
@@ -148,7 +148,7 @@ icon_names = icon_names.concat(class_icon_names);
 function copyAll(src, dest) {
 	console.log("Copying...");
 	return new Promise((resolve, reject) => {
-		fse.copy(src, dest, err => {
+		fse.copy(src, dest, (err) => {
 			if (err) {
 				reject(err);
 			} else {
@@ -162,8 +162,7 @@ fse.emptyDir(tempDir)
 	.then(() => unzipAll(tempFilePath, tempDir))
 	.then(() => copyAll(tempDir, imgDir))
 	.then(() => copyAll(customIconDir, imgDir))
-	.then(() => processAll(imgDir))
 	.then(() => generateCSS(imgDir, cssPath))
 	.then(() => generateJS(imgDir, jsPath))
 	.then(() => console.log("Done."))
-	.catch(err => console.log("Error", err));
+	.catch((err) => console.log("Error", err));
