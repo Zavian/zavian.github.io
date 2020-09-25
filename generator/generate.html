@@ -29,6 +29,7 @@
 		<script type="text/javascript" src="js/colors.js"></script>
 		<script type="text/javascript" src="js/icons.js"></script>
 		<script type="text/javascript" defer src="js/ui.js"></script>
+		<script type="text/javascript" defer src="js/bbcoder.js"></script>
 		<!-- CSS -->
 		<link href="css/ui.css" rel="stylesheet" />
 		<link href="css/cards.css" rel="stylesheet" />
@@ -36,6 +37,7 @@
 		<link href="css/icons.css" rel="stylesheet" />
 		<link href="css/class-icons.css" rel="stylesheet" />
 		<link href="css/custom-icons.css" rel="stylesheet" />
+		<link href="css/bbcoder.css" rel="stylesheet" />
 		<!-- Fonts -->
 		<link
 			href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic"
@@ -452,6 +454,11 @@
 						<div class="form-group">
 							<label for="card-contents" class="col-sm-2 control-label">Contents</label>
 							<div class="col-sm-10">
+								<div class="styling-block">
+									<button id="bold-front" type="button" class="btn btn-sm btn-default">B</button>
+									<button id="italic-front" type="button" class="btn btn-sm btn-default">I</button>
+									<button id="underline-front" type="button" class="btn btn-sm btn-default">U</button>
+								</div>
 								<textarea class="form-control" rows="14" id="card-contents"></textarea>
 							</div>
 						</div>
@@ -469,6 +476,11 @@
 						<div class="form-group" id="form-back">
 							<label for="back-contents" class="col-sm-2 control-label">Back Contents</label>
 							<div class="col-sm-10">
+								<div class="styling-block">
+									<button id="bold-back" type="button" class="btn btn-sm btn-default">B</button>
+									<button id="italic-back" type="button" class="btn btn-sm btn-default">I</button>
+									<button id="underline-back" type="button" class="btn btn-sm btn-default">U</button>
+								</div>
 								<textarea class="form-control" rows="14" id="back-contents"></textarea>
 							</div>
 						</div>
