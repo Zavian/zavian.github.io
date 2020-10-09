@@ -2,3 +2,15 @@
 	margin-bottom: 5px;
 	padding-top: 13px;
 }
+
+.bold-btn {
+	font-weight: 700;
+}
+
+.italics-btn {
+	font-style: italic;
+}
+
+.underline-btn {
+	text-decoration: underline;
+}

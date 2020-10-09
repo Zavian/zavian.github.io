@@ -77,9 +77,16 @@ $(document).ready(function () {
 
 	$("#card-contents").mouseup(function () {
 		checkButtons("front");
+		checkTag("front");
 	});
 	$("#back-contents").mouseup(function () {
 		checkButtons("back");
+		checkTag("back");
+	});
+
+	$("#tag-selector-front").change(function () {
+		var tag = $("option:selected", this).val();
+		$("#tag-selector-explanation").html(card_elemement_generators_expanation[tag]);
 	});
 });
 
@@ -95,6 +102,54 @@ function checkButtons(side) {
 
 	if (isUnderlined(textWithTags)) $("#underline-" + side).addClass("btn-success");
 	else $("#underline-" + side).removeClass("btn-success");
+}
+
+function checkTag(side) {
+	var element = side == "front" ? "card-contents" : "back-contents";
+	var cursorPos = getCursorPos(element);
+	var tag = findTag(cursorPos, document.getElementById(element).value);
+	if (tag != "") $("#tag-selector-" + side).val(tag);
+}
+
+function getCursorPos(element) {
+	return $("#" + element).prop("selectionStart");
+}
+
+function changeTag(currentTag, newTag) {}
+
+function findTag(cursorPos, text) {
+	var beg = findBeginningOfLine(cursorPos, text);
+	var end = findEndOfLine(cursorPos, text);
+	var line = text.substring(beg, end);
+	return line.split("|")[0].trim();
+}
+
+function findBeginningOfLine(cursorPos, val) {
+	//console.log(val);
+	var index = cursorPos;
+	if (val[index] == "\n") index--;
+	do {
+		var curr = val[index];
+		if (curr == "\n") {
+			return index;
+		}
+		index--;
+	} while (val[index]);
+	return -1;
+}
+
+function findEndOfLine(cursorPos, val) {
+	//console.log(val);
+	var index = cursorPos;
+	if (val[index] == "\n") index--;
+	do {
+		var curr = val[index];
+		if (curr == "\n") {
+			return index;
+		}
+		index++;
+	} while (val[index]);
+	return -1;
 }
 
 function isBolded(text) {

@@ -226,6 +226,10 @@ function ui_open_help() {
 	$("#help-modal").modal("show");
 }
 
+function ui_open_tags() {
+	$("#tags-modal").modal("show");
+}
+
 function ui_select_icon() {
 	window.open("http://game-icons.net/", "_blank");
 }
@@ -876,5 +880,14 @@ $(document).ready(function () {
 
 	$("#form-back").hide();
 
+	$("#button-tags").click(ui_open_tags);
+
 	ui_update_card_list();
+
+	var $dropdown = $("#tag-selector-front");
+	$.each(Object.keys(card_element_generators), function () {
+		$dropdown.append($("<option />").val(this).text(card_element_generators_translator[this]));
+	});
+
+	$('[data-toggle="tooltip"]').tooltip();
 });

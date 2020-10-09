@@ -108,69 +108,30 @@
 								<button type="button" class="btn btn-info btn-block" id="button-help">Open Help<br> 💡 New Features Available</button>
 							</div>
 						</div>
-						<!--<span class="help-block">Generated cards open in a new tab or window.</span>-->
-					</form>
-					<h3>Page settings</h3>
-					<form role="form" class="form-horizontal">
 						<div class="form-group">
-							<label for="page-size" class="col-sm-4 control-label">Page Size</label>
-							<div class="col-sm-8">
-								<select class="form-control" id="page-size" data-option="page_size">
-									<option value="A4" selected>A4</option>
-									<option value="Letter">US letter</option>
-									<option value="25x35">2.5&quot; x 3.5&quot;</option>
-								</select>
+							<div class="col-sm-12">
+								<button type="button" class="btn btn-tags btn-block border border-warning" id="button-tags">Available Tags</button>
 							</div>
 						</div>
+						<!--<span class="help-block">Generated cards open in a new tab or window.</span>-->
+					</form>
+					<h3>Card settings</h3>
+					<form role="form" class="form-horizontal">
 						<div class="form-group">
-							<label for="card-size" class="col-sm-4 control-label">Card Size</label>
-							<div class="col-sm-8">
+							<label for="card-size" class="col-sm-3 control-label">Card Size</label>
+							<div class="col-sm-9">
 								<select class="form-control" id="card-size" data-option="card_size">
 									<option value="225x35">2.25&quot; x 3.5&quot; (Bridge)</option>
-									<option value="25x35" selected>2.5&quot; x 3.5&quot; (Poker)</option>
+									<option value="25x35" >2.5&quot; x 3.5&quot; (Poker)</option>
 									<option value="35x50">3.5&quot; x 5.0&quot;</option>
-									<option value="75x50">7.5&quot; x 5.0&quot;</option>
+									<option value="75x50" selected>7.5&quot; x 5.0&quot;</option>
 									<option value="29x29">2.9&quot; x 2.9&quot;</option>
 								</select>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="card-size" class="col-sm-4 control-label">Cards/page</label>
-							<div class="col-sm-3">
-								<input
-									type="text"
-									id="page-rows"
-									class="form-control"
-									data-option="page_rows"
-									value="3"
-								/>
-							</div>
-							<div class="col-sm-2">
-								<p class="form-control-static">x</p>
-							</div>
-							<div class="col-sm-3">
-								<input
-									type="text"
-									id="page-columns"
-									class="form-control"
-									data-option="page_columns"
-									value="3"
-								/>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="card-arrangement" class="col-sm-4 control-label">Arrangement</label>
-							<div class="col-sm-8">
-								<select class="form-control" id="card-arrangement" data-option="card_arrangement">
-									<option value="doublesided" selected>Double sided printing</option>
-									<option value="front_only">Front side only</option>
-									<option value="side_by_side">Side by side</option>
-								</select>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="rounded-corners" class="col-sm-4 control-label">Corners</label>
-							<div class="col-sm-8">
+							<label for="rounded-corners" class="col-sm-3 control-label">Corners</label>
+							<div class="col-sm-9">
 								<div class="checkbox">
 									<label>
 										<input
@@ -185,44 +146,12 @@
 								</div>
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="foreground-color" class="col-sm-4 control-label">Front color</label>
-							<div class="col-sm-8">
-								<div class="input-group">
-									<select id="foreground_color_selector" class="colorselector-data"></select>
-									<input
-										type="text"
-										id="foreground-color"
-										class="form-control"
-										placeholder="Front page color"
-										data-property="color"
-										value="white"
-									/>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="background-color" class="col-sm-4 control-label">Back color</label>
-							<div class="col-sm-8">
-								<div class="input-group">
-									<select id="background_color_selector" class="colorselector-data"></select>
-									<input
-										type="text"
-										id="background-color"
-										class="form-control"
-										placeholder="Back page color"
-										data-property="color"
-										value="white"
-									/>
-								</div>
-							</div>
-						</div>
 					</form>
 					<h3>Default values</h3>
 					<form role="form" class="form-horizontal">
 						<div class="form-group">
-							<label for="small-icons" class="col-sm-2 control-label">Icon</label>
-							<div class="col-sm-10">
+							<label for="small-icons" class="col-sm-3 control-label">Icon</label>
+							<div class="col-sm-9">
 								<div class="checkbox">
 									<label>
 										<input type="checkbox" checked id="small-icons" /> Use small front icons
@@ -231,8 +160,8 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="default-color" class="col-sm-2 control-label">Color</label>
-							<div class="col-sm-10">
+							<label for="default-color" class="col-sm-3 control-label">Color</label>
+							<div class="col-sm-9">
 								<div class="input-group">
 									<select id="default_color_selector" class="colorselector-data"></select>
 									<input
@@ -247,8 +176,8 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="default-icon" class="col-sm-2 control-label">Icon</label>
-							<div class="col-sm-10">
+							<label for="default-icon" class="col-sm-3 control-label">Icon</label>
+							<div class="col-sm-9">
 								<div class="input-group">
 									<span class="input-group-btn">
 										<button class="btn btn-default icon-select-button" type="button">Search</button>
@@ -263,8 +192,8 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="default-title-size" class="col-sm-2 control-label">Title</label>
-							<div class="col-sm-10">
+							<label for="default-title-size" class="col-sm-3 control-label">Title</label>
+							<div class="col-sm-9">
 								<select class="form-control" id="default-title-size">
 									<option value="16">16pt font</option>
 									<option value="15">15pt font</option>
@@ -455,11 +384,14 @@
 							<label for="card-contents" class="col-sm-2 control-label">Contents</label>
 							<div class="col-sm-10">
 								<div class="styling-block">
-									<button id="bold-front" type="button" class="btn btn-sm btn-default">B</button>
-									<button id="italic-front" type="button" class="btn btn-sm btn-default">I</button>
-									<button id="underline-front" type="button" class="btn btn-sm btn-default">U</button>
+									<div>
+										<button data-toggle="tooltip" title="Make Bold" id="bold-front" type="button" class="btn btn-sm btn-default bold-btn">B</button>
+										<button data-toggle="tooltip" title="Make Italic" id="italic-front" type="button" class="btn btn-sm btn-default italics-btn">I</button>
+										<button data-toggle="tooltip"  title="Make Underline" id="underline-front" type="button" class="btn btn-sm btn-default underline-btn">U</button>
+									</div>
+									
 								</div>
-								<textarea class="form-control" rows="14" id="card-contents"></textarea>
+								<textarea class="form-control" rows="12" id="card-contents"></textarea>
 							</div>
 						</div>
 						<div class="form-group">
@@ -477,11 +409,11 @@
 							<label for="back-contents" class="col-sm-2 control-label">Back Contents</label>
 							<div class="col-sm-10">
 								<div class="styling-block">
-									<button id="bold-back" type="button" class="btn btn-sm btn-default">B</button>
-									<button id="italic-back" type="button" class="btn btn-sm btn-default">I</button>
-									<button id="underline-back" type="button" class="btn btn-sm btn-default">U</button>
+									<button data-toggle="tooltip" title="Make Bold" id="bold-back" type="button" class="btn btn-sm btn-default bold-btn">B</button>
+									<button data-toggle="tooltip" title="Make Italic" id="italic-back" type="button" class="btn btn-sm btn-default italics-btn">I</button>
+									<button data-toggle="tooltip" title="Make Underline" id="underline-back" type="button" class="btn btn-sm btn-default underline-btn">U</button>
 								</div>
-								<textarea class="form-control" rows="14" id="back-contents"></textarea>
+								<textarea class="form-control" rows="12" id="back-contents"></textarea>
 							</div>
 						</div>
 					</form>
@@ -573,7 +505,7 @@
 						<button type="button" class="close" data-dismiss="modal">
 							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">RGP card generator</h4>
+						<h4 class="modal-title" id="myModalLabel">RPG card generator</h4>
 					</div>
 					<div class="modal-body">
 						<ul>
@@ -723,6 +655,31 @@ if (card_has_tag(card, "creature")) {
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" id="import-execute">Import</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Modal (Tags)-->
+		<div class="modal" id="tags-modal" tabindex="-1" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title">RPG Tags</h4>
+					</div>
+					<div class="modal-body">
+						<div>
+							Discover all of the available tags and their function!
+						</div>
+						<select id="tag-selector-front" class="form-control tag-selector">
+							<option>(select tag)</option>
+						</select>
+						<div id="tag-selector-explanation"></div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>

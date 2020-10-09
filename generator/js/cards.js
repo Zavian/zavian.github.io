@@ -299,7 +299,6 @@ var card_element_generators = {
 	subtitle: card_element_subtitle,
 	property: card_element_property,
 	rule: card_element_ruler,
-	ruler: card_element_ruler,
 	boxes: card_element_boxes,
 	description: card_element_description,
 	dndstats: card_element_dndstats,
@@ -315,8 +314,125 @@ var card_element_generators = {
 	lore: card_element_lore,
 	centerlore: card_element_centerlore,
 	stats: card_element_stats,
-	image: card_element_image,
 };
+
+var card_element_generators_translator = {
+	subtitle: "Subtitle tag",
+	property: "Property tag",
+	rule: "Line Tag",
+	boxes: "Box Tag",
+	description: "Description Tag",
+	dndstats: "Dnd Stats Tag",
+	text: "Text Tag",
+	center: "Center Tag",
+	justify: "Justify Tag",
+	bullet: "Bullet Tag",
+	fill: "Fill Tag",
+	section: "Section Tag",
+	disabled: "Disabled Tag",
+	picture: "Picture Tag",
+	icon: "Icon Tag",
+	lore: "Lore Tag",
+	centerlore: "Center Lore Tag",
+	stats: "Stats Tag",
+};
+
+var card_elemement_generators_expanation = {
+	subtitle: "Appears in italics and colored of the selected card color." + preCode("subtitle"),
+	property:
+		"Appears as a bold text followed by a second parameter (with a white space in-between)." + preCode("property"),
+	rule: "Appears as a horizontal line of the selected card color." + preCode("rule"),
+	boxes: "Appears as a square box, accepts 3 parameters, one being optional (the last one)." + preCode("boxes"),
+	description:
+		"Appears as a italic bold text followed by a second parameter (with a period in-between)." +
+		preCode("description"),
+	dndstats:
+		"Appears as a formatted table of the selected card color with the various stats. <br/>Useful for when you make statblocks." +
+		preCode("dndstats"),
+	text:
+		"Standard text with no formatting. Remember that you can use the BBCode to enhance it further." +
+		preCode("text"),
+	center:
+		"Centered text with no formatting. Remember that you can use the BBCode to enhance it further." +
+		preCode("center"),
+	justify:
+		"Justified text with no formatting. Remember that you can use the BBCode to enhance it further." +
+		preCode("justify"),
+	bullet: "Appears with a bullet point in front of it." + preCode("bullet"),
+	fill:
+		"Fills a space with nothingness, usefull to create footers or headers without anyhting near it." +
+		preCode("fill"),
+	section:
+		"Appears as monospace text with a line beneath it colored the same as the selected color." + preCode("section"),
+	disabled:
+		"Appears as empty text. Useful for when creating notes on a card that won't appear." + preCode("disabled"),
+	picture: "<div style='color:red'>Disabled until further notice.</div>",
+	icon:
+		"Appears as a smaller version of a selected icon. It uses the same method that the card back icon uses and is colored like the card color.<br/>" +
+		"You can add extra parameters such as size and alignment." +
+		preCode("icon"),
+	lore: "Appears as italic orange-ish color, usefull to add an extra depth into the card." + preCode("lore"),
+	centerlore: "Appears like lore but centered." + preCode("centerlore"),
+	stats: "Appears like dndstats but without the modifier value." + preCode("stats"),
+};
+
+function preCode(tag) {
+	var returner = "<div class='tag-code'>" + tag + " ";
+	switch (tag) {
+		case "subtitle":
+			returner += "| (text)";
+			break;
+		case "property":
+			returner += "| (bold text) | (normal text)";
+			break;
+		case "rule":
+			returner += "";
+			break;
+		case "boxes":
+			returner += "| (number of boxes) [| (size of each box)]";
+			break;
+		case "description":
+			returner += "| (bold text) | (normal text)";
+			break;
+		case "dndstats":
+			returner += "| (str) | (dex) | (con) | (int) | (wis) | (cha)";
+			break;
+		case "text":
+			returner += "| (text)";
+			break;
+		case "center":
+			returner += "| (text)";
+			break;
+		case "justify":
+			returner += "| (text)";
+			break;
+		case "bullet":
+			returner += "| (text)";
+			break;
+		case "fill":
+			returner += "| (numeric value)";
+			break;
+		case "section":
+			returner += "| (text)";
+			break;
+		case "disabled":
+			returner += "| (text)";
+			break;
+		case "icon":
+			returner += "| (icon name) [| (icon size) | (icon alignment)]";
+			break;
+		case "lore":
+			returner += "| (text)";
+			break;
+		case "centerlore":
+			returner += "| (text)";
+			break;
+		case "stats":
+			returner += "| (str) | (dex) | (con) | (int) | (wis) | (cha)";
+			break;
+	}
+	return returner + "</div>";
+}
 
 // ============================================================================
 // Card generating functions
@@ -469,17 +585,17 @@ function card_element_centerlore(params, card_data, options) {
 	return '<div class="card-element card-lore card-center">' + lore + "</div>";
 }
 
-function card_element_image(params, card_data, options) {
-	var size = params[0] || "";
-	var img = params[1] || "";
-	return (
-		'<img class="card-element card-center card-image" crossorigin="anonymous" src="' +
-		img +
-		'" style="max-height: ' +
-		size +
-		'%;"/>'
-	);
-}
+//function card_element_image(params, card_data, options) {
+//	var size = params[0] || "";
+//	var img = params[1] || "";
+//	return (
+//		'<img class="card-element card-center card-image" crossorigin="anonymous" src="' +
+//		img +
+//		'" style="max-height: ' +
+//		size +
+//		'%;"/>'
+//	);
+//}
 
 function card_element_stats(params, card_data, options) {
 	var stats = ["N/A", "N/A", "N/A", "N/A", "N/A", "N/A"];

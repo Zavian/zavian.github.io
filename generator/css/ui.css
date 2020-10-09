@@ -78,3 +78,27 @@
 	top: 50%;
 	margin-top: -12px;
 }
+
+.btn-tags {
+	color: white;
+	background-color: royalblue;
+}
+
+/* .btn-tags:hover {
+	transition: border-color 0.5s ease;
+	border-color: powderblue;
+} */
+
+.tag-selector {
+	display: inline-flex;
+	margin-bottom: 1.5em;
+	margin-top: 1.5em;
+}
+
+.tag-code {
+	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+	padding: 5px;
+	background: #181a1b;
+	margin-top: 5px;
+	border: 1px solid #3e4446;
+}
