@@ -88,7 +88,53 @@ $(document).ready(function () {
 		var tag = $("option:selected", this).val();
 		$("#tag-selector-explanation").html(card_elemement_generators_expanation[tag]);
 	});
+
+	$("#mkweapon-front").click(function () {
+		let quality = colorTranslator($("#card-color").val());
+		let txt =
+			`subtitle | ${quality} Weapon Type (Attunement)\n` +
+			"rule\n" +
+			"property | Damage | damage\n" +
+			"property | Modifier | mod\n" +
+			"property | Properties | props\n" +
+			"rule\n";
+		let curr = $("#card-contents").val();
+		$("#card-contents")
+			.val(curr.length > 0 ? `${curr}\n${txt}` : txt)
+			.change();
+	});
+	$("#mkweapon-back").click(function () {
+		let quality = colorTranslator($("#card-color").val());
+		let txt =
+			`subtitle | ${quality} Weapon Type (Attunement)\n` +
+			"rule\n" +
+			"property | Damage | damage\n" +
+			"property | Modifier | mod\n" +
+			"property | Properties | props\n" +
+			"rule\n";
+		let curr = $("#back-contents").val();
+		$("#back-contents")
+			.val(curr.length > 0 ? `${curr}\n${txt}` : txt)
+			.change();
+	});
 });
+
+function colorTranslator(color) {
+	switch (color) {
+		case "green":
+		case "#008000":
+			return "Uncommon";
+		case "navy":
+		case "#000080":
+			return "Rare";
+		case "blueviolet":
+		case "#8a2be2":
+			return "Very Rare";
+		case "#c46709":
+			return "Legendary";
+	}
+	return "Color";
+}
 
 function checkButtons(side) {
 	var element = side == "front" ? "card-contents" : "back-contents";

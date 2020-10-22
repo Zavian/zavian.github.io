@@ -881,13 +881,25 @@ $(document).ready(function () {
 	$("#form-back").hide();
 
 	$("#button-tags").click(ui_open_tags);
+	$("#color-palette button").click(function () {
+		let color = rgb2hex($(this).css("background-color"));
+		$("#card-color").val(color).change();
+	});
 
 	ui_update_card_list();
 
-	var $dropdown = $("#tag-selector-front");
-	$.each(Object.keys(card_element_generators), function () {
-		$dropdown.append($("<option />").val(this).text(card_element_generators_translator[this]));
-	});
+	//var $dropdown = $("#tag-selector-front");
+	//$.each(Object.keys(card_element_generators), function () {
+	//	$dropdown.append($("<option />").val(this).text(card_element_generators_translator[this]));
+	//});
 
 	$('[data-toggle="tooltip"]').tooltip();
 });
+
+function rgb2hex(rgb) {
+	rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+	function hex(x) {
+		return ("0" + parseInt(x).toString(16)).slice(-2);
+	}
+	return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+}

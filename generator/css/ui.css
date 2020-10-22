@@ -102,3 +102,40 @@
 	margin-top: 5px;
 	border: 1px solid #3e4446;
 }
+
+.color-palette button {
+	width: 30px;
+	height: 30px;
+	margin: 2px;
+}
+
+.uncommon-btn,
+.uncommon-btn:hover,
+.uncommon-btn:focus {
+	background-color: green;
+}
+.rare-btn,
+.rare-btn:hover,
+.rare-btn:focus {
+	background-color: navy;
+}
+.vrare-btn,
+.vrare-btn:hover,
+.vrare-btn:focus {
+	background-color: blueviolet;
+}
+.legendary-btn,
+.legendary-btn:hover,
+.legendary-btn:focus {
+	background-color: #c46709;
+}
+.scroll-btn,
+.scroll-btn:hover,
+.scroll-btn:focus {
+	background-color: #4a6898;
+}
+.recipe-btn,
+.recipe-btn:hover,
+.recipe-btn:focus {
+	background-color: burlywood;
+}
