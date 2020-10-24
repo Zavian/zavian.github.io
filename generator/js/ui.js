@@ -888,10 +888,10 @@ $(document).ready(function () {
 
 	ui_update_card_list();
 
-	//var $dropdown = $("#tag-selector-front");
-	//$.each(Object.keys(card_element_generators), function () {
-	//	$dropdown.append($("<option />").val(this).text(card_element_generators_translator[this]));
-	//});
+	var $dropdown = $("#tag-selector");
+	$.each(Object.keys(card_element_generators), function () {
+		$dropdown.append($("<option />").val(this).text(card_element_generators_translator[this]));
+	});
 
 	$('[data-toggle="tooltip"]').tooltip();
 });

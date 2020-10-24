@@ -77,14 +77,14 @@ $(document).ready(function () {
 
 	$("#card-contents").mouseup(function () {
 		checkButtons("front");
-		checkTag("front");
+		//checkTag("front");
 	});
 	$("#back-contents").mouseup(function () {
 		checkButtons("back");
-		checkTag("back");
+		//checkTag("back");
 	});
 
-	$("#tag-selector-front").change(function () {
+	$("#tag-selector").change(function () {
 		var tag = $("option:selected", this).val();
 		$("#tag-selector-explanation").html(card_elemement_generators_expanation[tag]);
 	});
