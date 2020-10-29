@@ -3,3 +3,4 @@
 /generator/js/*.d.ts
 /temp
 /temp.zip
+/.vscode/*

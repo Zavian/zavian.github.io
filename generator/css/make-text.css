@@ -1,0 +1,42 @@
+body {
+    width: 60%;
+    margin: auto;
+    padding: 5em;
+}
+
+::-webkit-scrollbar {
+    width: 1em !important;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #202324 !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #454a4d !important;
+}
+
+::-webkit-resizer {
+    background-color: #454a4d;
+    -webkit-box-shadow: inset 2px 2px 4px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: inset 2px 2px 4px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 2px 2px 4px 0px rgba(0, 0, 0, 0.75);
+}
+
+#text-contents {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.styling-box button {
+    padding: 5px;
+}
+
+.size-control {
+    width: 60px;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: push-button;
+}

@@ -1,0 +1,59 @@
+﻿<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Library: jQuery -->
+    <script type="text/javascript" src="lib/jquery/jquery.min.js" charset="utf-8"></script>
+    <!-- Library: Bootstrap -->
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/slate.css" />
+    <!-- Library: Bootstrap typeahead -->
+    <script type="text/javascript" src="lib/typeahead/bootstrap3-typeahead.min.js" charset="utf-8"></script>
+    <!-- Library: bbcode2html -->
+    <script type="text/javascript" src="lib/bbcode2html/js/bbcode2html.js"></script>
+    <!-- Javascript -->
+    <script type="text/javascript" src="js/fonts.js"></script>
+    <script type="text/javascript" src="js/bbcoder.js"></script>
+    <script type="text/javascript" defer src="js/make text.js"></script>
+    <!-- CSS -->
+    <link href="css/make-text.css" rel="stylesheet" />
+    <link href="css/fonts.css" rel="stylesheet" />
+    <link href="css/bbcoder.css" rel="stylesheet" />
+    <title>Make Text</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>
+                    Make a card <i class="fas fa-adjust"></i>
+                </h3>
+                <div class="form-group">
+                    <select class="form-control" id="font-selector"></select>
+                </div>
+                <div class="form-group">
+                    <div class="styling-block">
+                        <button data-toggle="tooltip" title="Make Bold" id="bold-btn" type="button" class="btn btn-sm btn-default">
+                            B
+                        </button>
+                        <button data-toggle="tooltip" title="Make Italic" id="italic-btn" type="button" class="btn btn-sm btn-default italics-btn">
+                            I
+                        </button>
+                        <button data-toggle="tooltip" title="Make Underline" id="underline-btn" type="button" class="btn btn-sm btn-default underline-btn">
+                            U
+                        </button>
+                        <input class="btn btn-sm btn-default size-control" type="number" value="14" id="example-number-input">
+                    </div>
+                    <textarea rows="15" class="form-control" id="text"></textarea>
+                </div>
+                <div class="form-control" id="text-box">
+                    <div id="text-contents"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,3 +1,19 @@
+::-webkit-scrollbar {
+	width: 1em !important;
+}
+::-webkit-scrollbar-track {
+	background-color: #202324 !important;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #454a4d !important;
+}
+::-webkit-resizer {
+	background-color: #454a4d;
+	-webkit-box-shadow: inset 2px 2px 4px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: inset 2px 2px 4px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: inset 2px 2px 4px 0px rgba(0, 0, 0, 0.75);
+}
+
 #preview-container {
 	margin: 10px;
 	background-color: transparent;
@@ -79,6 +95,21 @@
 	margin-top: -12px;
 }
 
+.scrollable-menu {
+	height: auto;
+	max-height: 200px;
+	overflow-x: hidden;
+}
+
+.dropdown-item {
+	background-color: #181a1b;
+	color: #cecece;
+}
+.dropdown-item:hover {
+	color: #181a1b;
+	background-color: #cecece;
+}
+
 .btn-tags {
 	color: white;
 	background-color: royalblue;
@@ -138,4 +169,10 @@
 .recipe-btn:hover,
 .recipe-btn:focus {
 	background-color: burlywood;
+}
+
+#card-contents,
+#back-contents {
+	max-width: 100%;
+	min-width: 100%;
 }

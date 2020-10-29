@@ -1,580 +1,506 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>RPG cards</title>
-		<meta charset="UTF-8" />
-		<link rel="icon" type="image/png" href="favicon.png">
-		<!-- Library: jQuery -->
-		<script type="text/javascript" src="lib/jquery/jquery.min.js" charset="utf-8"></script>
-		<!-- Library: Bootstrap -->
-		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
-		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css" />
-		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/slate.css" />
-		<!-- Library: Bootstrap typeahead -->
-		<script type="text/javascript" src="lib/typeahead/bootstrap3-typeahead.min.js" charset="utf-8"></script>
-		<!-- Library: Color picker -->
-		<link href="lib/colorpicker/css/bootstrap-colorselector.css" rel="stylesheet" />
-		<script type="text/javascript" src="lib/colorpicker/js/bootstrap-colorselector.js" charset="utf-8"></script>
-		<!-- Library: bbcode2html -->
-		<script type="text/javascript" src="lib/bbcode2html/js/bbcode2html.js" charset="utf-8"></script>
-		<!-- Library: dark mode -->
-		<link rel="stylesheet" href="lib/darkmode/dark-mode.css">
-		<script src="lib/darkmode/dark-mode-switch.min.js"></script>
-		<!-- Library: Fitty -->
-		<script type="text/javascript" src="lib\fitty\fitty.min.js"></script>
-		<!-- Data -->
-		<script type="text/javascript" src="data/card_data_example.js"></script>
-		<!-- Javascript -->
-		<script type="text/javascript" src="js/cards.js"></script>
-		<script type="text/javascript" src="js/colors.js"></script>
-		<script type="text/javascript" src="js/icons.js"></script>
-		<script type="text/javascript" defer src="js/ui.js"></script>
-		<script type="text/javascript" defer src="js/bbcoder.js"></script>
-		<!-- CSS -->
-		<link href="css/ui.css" rel="stylesheet" />
-		<link href="css/cards.css" rel="stylesheet" />
-		<link href="css/card-size.css" rel="stylesheet" />
-		<link href="css/icons.css" rel="stylesheet" />
-		<link href="css/class-icons.css" rel="stylesheet" />
-		<link href="css/custom-icons.css" rel="stylesheet" />
-		<link href="css/bbcoder.css" rel="stylesheet" />
-		<!-- Fonts -->
-		<link
-			href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic"
-			rel="stylesheet"
-			type="text/css"
-		/>
-		<link href="https://fonts.googleapis.com/css?family=Lora:700" rel="stylesheet" type="text/css" />
-	</head>
-	<body>
-		<div class="container-fluid">
-			<!-- 
+
+<head>
+    <title>RPG cards</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Library: jQuery -->
+    <script type="text/javascript" src="lib/jquery/jquery.min.js" charset="utf-8"></script>
+    <!-- Library: Bootstrap -->
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/slate.css" />
+    <!-- Library: Bootstrap typeahead -->
+    <script type="text/javascript" src="lib/typeahead/bootstrap3-typeahead.min.js" charset="utf-8"></script>
+    <!-- Library: Color picker -->
+    <link href="lib/colorpicker/css/bootstrap-colorselector.css" rel="stylesheet" />
+    <script type="text/javascript" src="lib/colorpicker/js/bootstrap-colorselector.js" charset="utf-8"></script>
+    <!-- Library: bbcode2html -->
+    <script type="text/javascript" src="lib/bbcode2html/js/bbcode2html.js" charset="utf-8"></script>
+    <!-- Library: dark mode -->
+    <link rel="stylesheet" href="lib/darkmode/dark-mode.css">
+    <script src="lib/darkmode/dark-mode-switch.min.js"></script>
+    <!-- Library: Fitty -->
+    <script type="text/javascript" src="lib\fitty\fitty.min.js"></script>
+    <!-- Data -->
+    <script type="text/javascript" src="data/card_data_example.js"></script>
+    <!-- Javascript -->
+    <script type="text/javascript" src="js/cards.js"></script>
+    <script type="text/javascript" src="js/colors.js"></script>
+    <script type="text/javascript" src="js/icons.js"></script>
+    <script type="text/javascript" defer src="js/ui.js"></script>
+    <script type="text/javascript" defer src="js/bbcoder.js"></script>
+    <!-- CSS -->
+    <link href="css/ui.css" rel="stylesheet" />
+    <link href="css/cards.css" rel="stylesheet" />
+    <link href="css/card-size.css" rel="stylesheet" />
+    <link href="css/icons.css" rel="stylesheet" />
+    <link href="css/class-icons.css" rel="stylesheet" />
+    <link href="css/custom-icons.css" rel="stylesheet" />
+    <link href="css/bbcoder.css" rel="stylesheet" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lora:700" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- 
 				This webside is a heavily modified version of Crobi's, you can find it here: https://crobi.github.io/rpg-cards/generator/generate.htm 
 				If you are reading this you are either him or someone that is curious, either way, hope this can help :D
 			-->
-			<div class="row">
-				<div class="col-md-12 col-lg-3">
-					<!--<h3>Menu</h3>-->
-					<form style="display:none" id="file-load-form">
-						<input
-							type="file"
-							id="file-load"
-							name="files[]"
-							multiple
-							class="form-control"
-							style="display:none"
-						/>
-					</form>
-					<form role="form" class="form-horizontal">
-						<div class="form-group">
-							<div class="col-sm-6">
-								<button type="button" class="btn btn-danger btn-block" id="button-clear">
-									Delete all
-								</button>
-							</div>
-							<div class="col-sm-6">
-								<button type="button" class="btn btn-primary btn-block" id="button-load">
-									Load from file
-								</button>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-6">
-								<button type="button" class="btn btn-primary btn-block" id="button-sample">Add Sample</button>
-							</div>
-							<div class="col-sm-6">
-								<button
-									type="button"
-									class="btn btn-primary btn-block"
-									id="button-save"
-									onclick="ui_save_file()"
-								>
-									Save to file
-								</button>
-								<a href="" download="rpg_cards.json" id="file-save-link" style="display:none"
-									>Hidden download link</a
-								>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-12">
-								<button type="button" class="btn btn-success btn-block" id="button-imgur">
-									Export to Imgur
-								</button>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-12">
-								<button type="button" class="btn btn-info btn-block" id="button-help">Open Help<br> 💡 New Features Available</button>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-12">
-								<button type="button" class="btn btn-tags btn-block border border-warning" id="button-tags">Available Tags</button>
-							</div>
-						</div>
-						<!--<span class="help-block">Generated cards open in a new tab or window.</span>-->
-					</form>
-					<h3>Card settings</h3>
-					<form role="form" class="form-horizontal">
-						<div class="form-group">
-							<label for="card-size" class="col-sm-3 control-label">Card Size</label>
-							<div class="col-sm-9">
-								<select class="form-control" id="card-size" data-option="card_size">
-									<option value="225x35">2.25&quot; x 3.5&quot; (Bridge)</option>
-									<option value="25x35" >2.5&quot; x 3.5&quot; (Poker)</option>
-									<option value="35x50">3.5&quot; x 5.0&quot;</option>
-									<option value="75x50" selected>7.5&quot; x 5.0&quot;</option>
-									<option value="29x29">2.9&quot; x 2.9&quot;</option>
-								</select>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="rounded-corners" class="col-sm-3 control-label">Corners</label>
-							<div class="col-sm-9">
-								<div class="checkbox">
-									<label>
-										<input
-											type="checkbox"
-											checked
-											id="rounded-corners"
-											data-option="rounded_corners"
-											value="1"
-										/>
-										Rounded card corners
-									</label>
-								</div>
-							</div>
-						</div>
-					</form>
-					<h3>Default values</h3>
-					<form role="form" class="form-horizontal">
-						<div class="form-group">
-							<label for="small-icons" class="col-sm-3 control-label">Icon</label>
-							<div class="col-sm-9">
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" checked id="small-icons" /> Use small front icons
-									</label>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="default-color" class="col-sm-3 control-label">Color</label>
-							<div class="col-sm-9">
-								<div class="input-group">
-									<select id="default_color_selector" class="colorselector-data"></select>
-									<input
-										type="text"
-										id="default-color"
-										class="form-control"
-										placeholder="Card color"
-										data-property="color"
-										value="black"
-									/>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="default-icon" class="col-sm-3 control-label">Icon</label>
-							<div class="col-sm-9">
-								<div class="input-group">
-									<span class="input-group-btn">
-										<button class="btn btn-default icon-select-button" type="button">Search</button>
-									</span>
-									<input
-										type="text"
-										id="default-icon"
-										class="form-control icon-list"
-										placeholder="Icon name"
-									/>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="default-title-size" class="col-sm-3 control-label">Title</label>
-							<div class="col-sm-9">
-								<select class="form-control" id="default-title-size">
-									<option value="16">16pt font</option>
-									<option value="15">15pt font</option>
-									<option value="14">14pt font</option>
-									<option value="13" selected>13pt font</option>
-									<option value="12">12pt font</option>
-									<option value="11">11pt font</option>
-									<option value="10">10pt font</option>
-								</select>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-6">
-								<button type="button" class="btn btn-primary btn-block" id="button-apply-color">
-									Apply color
-								</button>
-							</div>
-							<div class="col-sm-6">
-								<button type="button" class="btn btn-primary btn-block" id="button-apply-font">
-									Apply title font
-								</button>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-6">
-								<button type="button" class="btn btn-primary btn-block" id="button-apply-icon">
-									Apply icon
-								</button>
-							</div>
-							<div class="col-sm-6">
-								<button type="button" class="btn btn-primary btn-block" id="button-apply-icon-back">
-									Apply back icon
-								</button>
-							</div>
-						</div>
-					</form>
-				</div>
-				<div class="col-md-12 col-lg-5">
-					<!--<h3>Card</h3>-->
-					<form class="form-horizontal" role="form">
-						<div class="form-group">
-							<label for="selected-card" class="col-sm-2 control-label">Deck</label>
-							<div class="col-sm-10">
-								<p class="form-control-static" id="total_card_count">Deck contains 0 cards.</p>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="selected-card" class="col-sm-2 control-label">Card</label>
-							<div class="col-sm-10">
-								<select class="form-control" id="selected-card"></select>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-2 control-label"></label>
-							<div class="col-sm-4">
-								<button type="button" class="btn btn-danger btn-block" id="button-delete-card">
-									Delete card
-								</button>
-							</div>
-							<div class="col-sm-3">
-								<button type="button" class="btn btn-primary btn-block" id="button-add-card">
-									Add new card
-								</button>
-							</div>
-							<div class="col-sm-3">
-								<button type="button" class="btn btn-primary btn-block" id="button-duplicate-card">
-									Duplicate card
-								</button>
-							</div>
-							
-							
-						</div>
-						<div class="form-group">
-							<label class="col-sm-2 control-label"></label>
-							<div class="col-sm-5">
-								<button type="button" class="btn btn-info btn-block" id="btn-import-card">
-									Import by JSON
-								</button>
-							</div>
-							<div class="col-sm-5">
-								<button type="button" class="btn btn-success btn-block" id="button-to-last">
-									Go to Last Card
-								</button>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="card-title" class="col-sm-2 control-label">Name</label>
-							<div class="col-sm-10">
-								<input type="text" id="card-title" class="form-control" placeholder="Title" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="card-title-size" class="col-sm-2 control-label">Title</label>
-							<div class="col-sm-10">
-								<select class="form-control" id="card-title-size" data-property="title_size">
-									<option value="" selected>default font</option>
-									<option value="16">16pt font</option>
-									<option value="15">15pt font</option>
-									<option value="14">14pt font</option>
-									<option value="13">13pt font</option>
-									<option value="12">12pt font</option>
-									<option value="11">11pt font</option>
-									<option value="10">10pt font</option>
-								</select>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="card-count" class="col-sm-2 control-label">Count</label>
-							<div class="col-sm-10">
-								<input
-									type="number"
-									id="card-count"
-									class="form-control"
-									placeholder="Count"
-									data-property="count"
-									value="1"
-								/>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="card-tags" class="col-sm-2 control-label">Tags</label>
-							<div class="col-sm-10">
-								<input type="text" id="card-tags" class="form-control" placeholder="Tags" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="card-icon" class="col-sm-2 control-label">Icon</label>
-							<div class="col-sm-10">
-								<div class="input-group">
-									<span class="input-group-btn">
-										<button class="btn btn-default icon-select-button" type="button">Search</button>
-									</span>
-									<input
-										type="text"
-										id="card-icon"
-										class="form-control icon-list"
-										placeholder="Default icon"
-										data-property="icon"
-									/>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="card-icon-back" class="col-sm-2 control-label">Back icon</label>
-							<div class="col-sm-10">
-								<div class="input-group">
-									<span class="input-group-btn">
-										<button class="btn btn-default icon-select-button" type="button">Search</button>
-									</span>
-									<input
-										type="text"
-										id="card-icon-back"
-										class="form-control icon-list"
-										placeholder="Same as front"
-										data-property="icon_back"
-									/>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="card-color" class="col-sm-2 control-label">Color</label>
-							<div class="col-sm-10">
-								<div class="styling-block color-palette" id="color-palette">
-									<button data-toggle="tooltip" title="Uncommon" id="uncommon-btn" type="button" class="btn btn-sm btn-default uncommon-btn" />
-									<button data-toggle="tooltip" title="Rare" id="rare-btn" type="button" class="btn btn-sm btn-default rare-btn" />
-									<button data-toggle="tooltip"  title="Very Rare" id="vrare-btn" type="button" class="btn btn-sm btn-default vrare-btn" />
-									<button data-toggle="tooltip"  title="Legendary" id="legendary-btn" type="button" class="btn btn-sm btn-default legendary-btn" />
-									<button data-toggle="tooltip"  title="Scroll" id="legendary-btn" type="button" class="btn btn-sm btn-default scroll-btn" />
-									<button data-toggle="tooltip"  title="Recipe" id="legendary-btn" type="button" class="btn btn-sm btn-default recipe-btn" />
-								</div>
-								<div class="input-group">
-									<select id="card_color_selector" class="colorselector-data"></select>
-									<input
-										type="text"
-										id="card-color"
-										class="form-control"
-										placeholder="Default color"
-										data-property="color"
-									/>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="card-background" class="col-sm-2 control-label">Background</label>
-							<div class="col-sm-10">
-								<input
-									type="text"
-									id="card-background"
-									class="form-control"
-									placeholder="Background image URL"
-									data-property="background_image"
-								/>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="card-contents" class="col-sm-2 control-label">Contents</label>
-							<div class="col-sm-10">
-								<div class="styling-block">
-									<div>
-										<button data-toggle="tooltip" title="Make Bold" id="bold-front" type="button" class="btn btn-sm btn-default bold-btn">B</button>
-										<button data-toggle="tooltip" title="Make Italic" id="italic-front" type="button" class="btn btn-sm btn-default italics-btn">I</button>
-										<button data-toggle="tooltip"  title="Make Underline" id="underline-front" type="button" class="btn btn-sm btn-default underline-btn">U</button>
-										<button data-toggle="tooltip"  title="Make Weapon" id="mkweapon-front" type="button" class="btn btn-sm btn-default">Make Weapon</button>
-									</div>
-									
-								</div>
-								<textarea class="form-control" rows="12" id="card-contents"></textarea>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="back-text" class="col-sm-2 control-label">Back</label>
-							<div class="col-sm-10 checkbox">
-								<input
-									type="checkbox"
-									class="form-check-input"
-									id="back-text"
-									data-property="background_text_toggle"
-								/>
-							</div>
-						</div>
-						<div class="form-group" id="form-back">
-							<label for="back-contents" class="col-sm-2 control-label">Back Contents</label>
-							<div class="col-sm-10">
-								<div class="styling-block">
-									<button data-toggle="tooltip" title="Make Bold" id="bold-back" type="button" class="btn btn-sm btn-default bold-btn">B</button>
-									<button data-toggle="tooltip" title="Make Italic" id="italic-back" type="button" class="btn btn-sm btn-default italics-btn">I</button>
-									<button data-toggle="tooltip" title="Make Underline" id="underline-back" type="button" class="btn btn-sm btn-default underline-btn">U</button>
-									<button data-toggle="tooltip"  title="Make Weapon" id="mkweapon-back" type="button" class="btn btn-sm btn-default">Make Weapon</button>
-								</div>
-								<textarea class="form-control" rows="12" id="back-contents"></textarea>
-							</div>
-						</div>
-					</form>
-				</div>
-				<div class="col-md-12 col-lg-4">
-					<!--<h3>Preview</h3>-->
-					<div id="preview-container" class="preview-container"></div>
-					<div class="form-group" id="imgur-export">
-						<h2>Imgur Export</h2>
-						<div class="col-sm-10" style="padding-bottom: 10px">
-							<div class="input-group">
-								<span class="input-group-btn">
-									<button
-										id="copyFront"
-										type="button"
-										class="btn btn-default"
-										aria-label="Left Align"
-									>
-										<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-									</button>
-								</span>
-								<input class="form-control" id="imgur-front" />
-							</div>
-						</div>
-						<div class="col-sm-10" style="padding-bottom: 10px">
-							<div class="input-group">
-								<span class="input-group-btn">
-									<button id="copyBack" type="button" class="btn btn-default" aria-label="Left Align">
-										<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-									</button>
-								</span>
-								<input class="form-control" id="imgur-back" />
-							</div>
-						</div>
-						<div class="col-sm-10">
-							<button id="copyAll" type="button" class="btn btn-default btn-block">
-								Copy All
+        <div class="row">
+            <div class="col-md-12 col-lg-3">
+                <!--<h3>Menu</h3>-->
+                <form style="display:none" id="file-load-form">
+                    <input type="file" id="file-load" name="files[]" multiple class="form-control" style="display:none" />
+                </form>
+                <form role="form" class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-danger btn-block" id="button-clear">
+								Delete all
 							</button>
-						</div>
-						<div class="col-sm-10">
-							<div id="clipboardManipulator">
-								
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Modal -->
-		<div class="modal" id="print-modal" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                        </div>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-primary btn-block" id="button-load">
+								Load from file
+							</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-primary btn-block" id="button-sample">Add
+								Sample</button>
+                        </div>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-primary btn-block" id="button-save" onclick="ui_save_file()">
+								Save to file
+							</button>
+                            <a href="" download="rpg_cards.json" id="file-save-link" style="display:none">Hidden
+								download link</a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button type="button" class="btn btn-success btn-block" id="button-imgur">
+								Export to Imgur
+							</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button type="button" class="btn btn-info btn-block" id="button-help">Open Help<br> 💡 New
+								Features Available</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button type="button" class="btn btn-tags btn-block border border-warning" id="button-tags">Available Tags</button>
+                        </div>
+                    </div>
+                    <!--<span class="help-block">Generated cards open in a new tab or window.</span>-->
+                </form>
+                <h3>Card settings</h3>
+                <form role="form" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="card-size" class="col-sm-3 control-label">Card Size</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="card-size" data-option="card_size">
+								<option value="225x35">2.25&quot; x 3.5&quot; (Bridge)</option>
+								<option value="25x35">2.5&quot; x 3.5&quot; (Poker)</option>
+								<option value="35x50">3.5&quot; x 5.0&quot;</option>
+								<option value="75x50" selected>7.5&quot; x 5.0&quot;</option>
+								<option value="29x29">2.9&quot; x 2.9&quot;</option>
+							</select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="rounded-corners" class="col-sm-3 control-label">Corners</label>
+                        <div class="col-sm-9">
+                            <div class="checkbox">
+                                <label>
+									<input type="checkbox" checked id="rounded-corners" data-option="rounded_corners"
+										value="1" />
+									Rounded card corners
+								</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <h3>Default values</h3>
+                <form role="form" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="small-icons" class="col-sm-3 control-label">Icon</label>
+                        <div class="col-sm-9">
+                            <div class="checkbox">
+                                <label>
+									<input type="checkbox" checked id="small-icons" /> Use small front icons
+								</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="default-color" class="col-sm-3 control-label">Color</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <select id="default_color_selector" class="colorselector-data"></select>
+                                <input type="text" id="default-color" class="form-control" placeholder="Card color" data-property="color" value="black" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="default-icon" class="col-sm-3 control-label">Icon</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+									<button class="btn btn-default icon-select-button" type="button">Search</button>
+								</span>
+                                <input type="text" id="default-icon" class="form-control icon-list" placeholder="Icon name" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="default-title-size" class="col-sm-3 control-label">Title</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="default-title-size">
+								<option value="16">16pt font</option>
+								<option value="15">15pt font</option>
+								<option value="14">14pt font</option>
+								<option value="13" selected>13pt font</option>
+								<option value="12">12pt font</option>
+								<option value="11">11pt font</option>
+								<option value="10">10pt font</option>
+							</select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-primary btn-block" id="button-apply-color">
+								Apply color
+							</button>
+                        </div>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-primary btn-block" id="button-apply-font">
+								Apply title font
+							</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-primary btn-block" id="button-apply-icon">
+								Apply icon
+							</button>
+                        </div>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-primary btn-block" id="button-apply-icon-back">
+								Apply back icon
+							</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-12 col-lg-5">
+                <!--<h3>Card</h3>-->
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="selected-card" class="col-sm-2 control-label">Deck</label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static" id="total_card_count">Deck contains 0 cards.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="selected-card" class="col-sm-2 control-label">Card</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="selected-card"></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-4">
+                            <button type="button" class="btn btn-danger btn-block" id="button-delete-card">
+								Delete card
+							</button>
+                        </div>
+                        <div class="col-sm-3">
+                            <button type="button" class="btn btn-primary btn-block" id="button-add-card">
+								Add new card
+							</button>
+                        </div>
+                        <div class="col-sm-3">
+                            <button type="button" class="btn btn-primary btn-block" id="button-duplicate-card">
+								Duplicate card
+							</button>
+                        </div>
+
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-5">
+                            <button type="button" class="btn btn-info btn-block" id="btn-import-card">
+								Import by JSON
+							</button>
+                        </div>
+                        <div class="col-sm-5">
+                            <button type="button" class="btn btn-success btn-block" id="button-to-last">
+								Go to Last Card
+							</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-title" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="card-title" class="form-control" placeholder="Title" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-title-size" class="col-sm-2 control-label">Title</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="card-title-size" data-property="title_size">
+								<option value="" selected>default font</option>
+								<option value="16">16pt font</option>
+								<option value="15">15pt font</option>
+								<option value="14">14pt font</option>
+								<option value="13">13pt font</option>
+								<option value="12">12pt font</option>
+								<option value="11">11pt font</option>
+								<option value="10">10pt font</option>
+							</select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-count" class="col-sm-2 control-label">Count</label>
+                        <div class="col-sm-10">
+                            <input type="number" id="card-count" class="form-control" placeholder="Count" data-property="count" value="1" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-tags" class="col-sm-2 control-label">Tags</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="card-tags" class="form-control" placeholder="Tags" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-icon" class="col-sm-2 control-label">Icon</label>
+                        <div class="col-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+									<button class="btn btn-default icon-select-button" type="button">Search</button>
+								</span>
+                                <input type="text" id="card-icon" class="form-control icon-list" placeholder="Default icon" data-property="icon" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-icon-back" class="col-sm-2 control-label">Back icon</label>
+                        <div class="col-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+									<button class="btn btn-default icon-select-button" type="button">Search</button>
+								</span>
+                                <input type="text" id="card-icon-back" class="form-control icon-list" placeholder="Same as front" data-property="icon_back" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-color" class="col-sm-2 control-label">Color</label>
+                        <div class="col-sm-10">
+                            <div class="styling-block color-palette" id="color-palette">
+                                <button data-toggle="tooltip" value="Uncommon" title="Uncommon" id="uncommon-btn" type="button" class="btn btn-sm btn-default uncommon-btn" />
+                                <button data-toggle="tooltip" value="Rare" title="Rare" id="rare-btn" type="button" class="btn btn-sm btn-default rare-btn" />
+                                <button data-toggle="tooltip" value="Very Rare" title="Very Rare" id="vrare-btn" type="button" class="btn btn-sm btn-default vrare-btn" />
+                                <button data-toggle="tooltip" value="Legendary" title="Legendary" id="legendary-btn" type="button" class="btn btn-sm btn-default legendary-btn" />
+                                <button data-toggle="tooltip" value="Scroll" title="Scroll" id="legendary-btn" type="button" class="btn btn-sm btn-default scroll-btn" />
+                                <button data-toggle="tooltip" value="Recipe" title="Recipe" id="legendary-btn" type="button" class="btn btn-sm btn-default recipe-btn" />
+                            </div>
+                            <div class="input-group">
+                                <select id="card_color_selector" class="colorselector-data"></select>
+                                <input type="text" id="card-color" class="form-control" placeholder="Default color" data-property="color" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-background" class="col-sm-2 control-label">Background</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="card-background" class="form-control" placeholder="Background image URL" data-property="background_image" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-contents" class="col-sm-2 control-label">Contents</label>
+                        <div class="col-sm-10">
+                            <div class="styling-block">
+                                <div>
+                                    <button data-toggle="tooltip" title="Make Bold" id="bold-front" type="button" class="btn btn-sm btn-default bold-btn">B</button>
+                                    <button data-toggle="tooltip" title="Make Italic" id="italic-front" type="button" class="btn btn-sm btn-default italics-btn">I</button>
+                                    <button data-toggle="tooltip" title="Make Underline" id="underline-front" type="button" class="btn btn-sm btn-default underline-btn">U</button>
+                                    <button data-toggle="tooltip" title="Make Weapon" id="mkweapon-front" type="button" class="btn btn-sm btn-default">Make Weapon</button>
+                                    <div data-toggle="tooltip" title="Insert a tag" class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">Make Tag <span class="caret"></span></button>
+                                        <ul id="front-tag-maker" class="dropdown-menu scrollable-menu" role="menu">
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <textarea class="form-control" rows="9" id="card-contents"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="back-text" class="col-sm-2 control-label">Back</label>
+                        <div class="col-sm-10 checkbox">
+                            <input type="checkbox" class="form-check-input" id="back-text" data-property="background_text_toggle" />
+                        </div>
+                    </div>
+                    <div class="form-group" id="form-back">
+                        <label for="back-contents" class="col-sm-2 control-label">Back Contents</label>
+                        <div class="col-sm-10">
+                            <div class="styling-block">
+                                <button data-toggle="tooltip" title="Make Bold" id="bold-back" type="button" class="btn btn-sm btn-default bold-btn">B</button>
+                                <button data-toggle="tooltip" title="Make Italic" id="italic-back" type="button" class="btn btn-sm btn-default italics-btn">I</button>
+                                <button data-toggle="tooltip" title="Make Underline" id="underline-back" type="button" class="btn btn-sm btn-default underline-btn">U</button>
+                                <button data-toggle="tooltip" title="Make Weapon" id="mkweapon-back" type="button" class="btn btn-sm btn-default">Make Weapon</button>
+                                <div data-toggle="tooltip" title="Insert a tag" class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">Make Tag <span class="caret"></span></button>
+                                    <ul id="back-tag-maker" class="dropdown-menu scrollable-menu" role="menu">
+                                    </ul>
+                                </div>
+                            </div>
+                            <textarea class="form-control" rows="9" id="back-contents"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-12 col-lg-4">
+                <!--<h3>Preview</h3>-->
+                <div id="preview-container" class="preview-container"></div>
+                <div class="form-group" id="imgur-export">
+                    <h2>Imgur Export</h2>
+                    <div class="col-sm-10" style="padding-bottom: 10px">
+                        <div class="input-group">
+                            <span class="input-group-btn">
+								<button id="copyFront" type="button" class="btn btn-default" aria-label="Left Align">
+									<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                            </button>
+                            </span>
+                            <input class="form-control" id="imgur-front" />
+                        </div>
+                    </div>
+                    <div class="col-sm-10" style="padding-bottom: 10px">
+                        <div class="input-group">
+                            <span class="input-group-btn">
+								<button id="copyBack" type="button" class="btn btn-default" aria-label="Left Align">
+									<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                            </button>
+                            </span>
+                            <input class="form-control" id="imgur-back" />
+                        </div>
+                    </div>
+                    <div class="col-sm-10">
+                        <button id="copyAll" type="button" class="btn btn-default btn-block">
+							Copy All
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Printing generated cards</h4>
-					</div>
-					<div class="modal-body">
-						<ul>
-							<li>
-								The generated cards open in a new tab or window. If you don't see any new tab or window,
-								check your popup and script blockers. If that does not help, try disabling all addons.
-							</li>
-							<li>Make sure you enable the printing of background images and colors in your browser.</li>
-							<li>Make sure your printer uses the correct paper size (same as in the editor).</li>
-							<li>Enable double sided printing (flip on long edge).</li>
-							<li>Do not scale the document to fit the page. Print at original size.</li>
-							<li>
-								Some printers are not very precise (pages print slightly shifted or rotated) and the
-								cards will not line up with the card backs. If this is the case, there's not much you
-								can do. Try making the page background the same color as the cards, so that you won't
-								get any white edges on the card. If that does not help, try a different printer or print
-								single-sided.
-							</li>
-						</ul>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Ok, got it</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Modal (Info)-->
-		<div class="modal" id="help-modal" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-						</button>
-						<h4 class="modal-title" id="myModalLabel">RPG card generator</h4>
-					</div>
-					<div class="modal-body">
-						<ul>
-							<li>
-								If you find a bug or have a feature request, post them at the
-								<a href="https://github.com/Zavian/zavian.github.io/issues">Github project site</a>.
-							</li>
-							<li>
-								The user interface consists of three columns:
-								<img
-									alt="help"
-									src="img/help/help.png"
-									style="max-width:95%; display:block; padding: 5px; margin: 10px 0 10px 0; border: 1px solid #ebebeb; box-shadow: 0 0 5px #ebebeb;"
-								/>
-								The left column contains the menu and global settings. In the middle menu, you can
-								select and edit individual cards. The right column contains a preview of the selected
-								card.
-							</li>
-							<li>
-								To use the generator, either load the sample card deck ("Load sample"), load a card deck
-								from a file ("Load from file"), or manually add some cards. When you're done, click on
-								"Export to Imgur" to generate an image of the selected card. Afterwards you can copy the imgur link.
-							</li>
-							<li>
-								To learn about what features are available to define a card, inspect the sample deck or
-								read some basic documentation at the
-								<a href="https://github.com/Zavian/zavian.github.io/">project site</a>.
-							</li>
-							<li>
-								<strong>BBCode Support!</strong>: Now BBCode is supported in the code, have a look 
-								<a href="https://www.bbcode.org">here</a> to have more info about it.
-							</li>
-							<li>
-								💡 Added support to import specific JSON for cards.
-							</li>
-						</ul>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Modal (Sort)-->
-		<div class="modal" id="sort-modal" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-						</button>
-						<h4 class="modal-title" id="myModalLabel">Sort cards</h4>
-					</div>
-					<div class="modal-body">
-						<p>
-							Enter the comparison function below. The comparison function is a block of javascript code.
-							Return -1 if card_a should appear before card_b.
-						</p>
-						<textarea class="form-control" rows="10" id="sort-function" wrap="off">
+                    </div>
+                    <div class="col-sm-10">
+                        <div id="clipboardManipulator">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal" id="print-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+                    <h4 class="modal-title" id="myModalLabel">Printing generated cards</h4>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>
+                            The generated cards open in a new tab or window. If you don't see any new tab or window, check your popup and script blockers. If that does not help, try disabling all addons.
+                        </li>
+                        <li>Make sure you enable the printing of background images and colors in your browser.</li>
+                        <li>Make sure your printer uses the correct paper size (same as in the editor).</li>
+                        <li>Enable double sided printing (flip on long edge).</li>
+                        <li>Do not scale the document to fit the page. Print at original size.</li>
+                        <li>
+                            Some printers are not very precise (pages print slightly shifted or rotated) and the cards will not line up with the card backs. If this is the case, there's not much you can do. Try making the page background the same color as the cards, so that you
+                            won't get any white edges on the card. If that does not help, try a different printer or print single-sided.
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Ok, got it</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal (Info)-->
+    <div class="modal" id="help-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+                    <h4 class="modal-title" id="myModalLabel">RPG card generator</h4>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>
+                            If you find a bug or have a feature request, post them at the
+                            <a href="https://github.com/Zavian/zavian.github.io/issues">Github project site</a>.
+                        </li>
+                        <li>
+                            The user interface consists of three columns:
+                            <img alt="help" src="img/help/help.png" style="max-width:95%; display:block; padding: 5px; margin: 10px 0 10px 0; border: 1px solid #ebebeb; box-shadow: 0 0 5px #ebebeb;" /> The left column contains the menu and global settings.
+                            In the middle menu, you can select and edit individual cards. The right column contains a preview of the selected card.
+                        </li>
+                        <li>
+                            To use the generator, either load the sample card deck ("Load sample"), load a card deck from a file ("Load from file"), or manually add some cards. When you're done, click on "Export to Imgur" to generate an image of the selected card. Afterwards you
+                            can copy the imgur link.
+                        </li>
+                        <li>
+                            To learn about what features are available to define a card, inspect the sample deck or read some basic documentation at the
+                            <a href="https://github.com/Zavian/zavian.github.io/">project site</a>.
+                        </li>
+                        <li>
+                            <strong>BBCode Support!</strong>: Now BBCode is supported in the code, have a look
+                            <a href="https://www.bbcode.org">here</a> to have more info about it.
+                        </li>
+                        <li>
+                            💡 Added support to import specific JSON for cards.
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal (Sort)-->
+    <div class="modal" id="sort-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+                    <h4 class="modal-title" id="myModalLabel">Sort cards</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Enter the comparison function below. The comparison function is a block of javascript code. Return -1 if card_a should appear before card_b.
+                    </p>
+                    <textarea class="form-control" rows="10" id="sort-function" wrap="off">
 if (card_a.title < card_b.title) {
     return -1;
 }
@@ -584,31 +510,29 @@ else if (card_a.title > card_b.title) {
 else {
     return 0;
 }
-                    </textarea
-						>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" id="sort-execute">Sort</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Modal (Filter)-->
-		<div class="modal" id="filter-modal" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-						</button>
-						<h4 class="modal-title" id="myModalLabel">Filter/map cards</h4>
-					</div>
-					<div class="modal-body">
-						<p>
-							Enter code below that will be executed for each card in the deck. Return false to remove the
-							current card from the deck.
-						</p>
-						<textarea class="form-control" rows="10" id="filter-function" wrap="off">
+                    </textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="sort-execute">Sort</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal (Filter)-->
+    <div class="modal" id="filter-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+                    <h4 class="modal-title" id="myModalLabel">Filter/map cards</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Enter code below that will be executed for each card in the deck. Return false to remove the current card from the deck.
+                    </p>
+                    <textarea class="form-control" rows="10" id="filter-function" wrap="off">
 // Color all spell cards yellow
 if (card_has_tag(card, "spell")) {
     card.color = "yellow";
@@ -618,31 +542,30 @@ if (card_has_tag(card, "spell")) {
 if (card_has_tag(card, "creature")) {
     return false;
 }
-                    </textarea
-						>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" id="filter-execute">Filter</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Modal (Import)-->
-		<div class="modal" id="import-modal" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-						</button>
-						<h4 class="modal-title" id="myModalLabel">Import Card</h4>
-					</div>
-					<div class="modal-body">
-						<p>
-							Enter the JSON for a new card.</br>
-							It'll be added at the end of the deck.
-						</p>
-						<textarea class="form-control" rows="10" id="import-code" wrap="off">
+                    </textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="filter-execute">Filter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal (Import)-->
+    <div class="modal" id="import-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+                    <h4 class="modal-title" id="myModalLabel">Import Card</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Enter the JSON for a new card.</br>
+                        It'll be added at the end of the deck.
+                    </p>
+                    <textarea class="form-control" rows="10" id="import-code" wrap="off">
 {
 	"count": 1,
 	"color": "#696969",
@@ -660,40 +583,40 @@ if (card_has_tag(card, "creature")) {
 		"Adventuring Gear"
 	]
 }
-					</textarea
-						>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" id="import-execute">Import</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Modal (Tags)-->
-		<div class="modal" id="tags-modal" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-						</button>
-						<h4 class="modal-title">RPG Tags</h4>
-					</div>
-					<div class="modal-body">
-						<div>
-							Discover all of the available tags and their function!
-						</div>
-						<select id="tag-selector" class="form-control tag-selector">
-							<option>(select tag)</option>
-						</select>
-						<div id="tag-selector-explanation"></div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<script src="lib/html2canvas/html2canvas.min.1.0.js"></script>
-	</body>
+					</textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="import-execute">Import</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal (Tags)-->
+    <div class="modal" id="tags-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+                    <h4 class="modal-title">RPG Tags</h4>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        Discover all of the available tags and their function!
+                    </div>
+                    <select id="tag-selector" class="form-control tag-selector">
+						<option>(select tag)</option>
+					</select>
+                    <div id="tag-selector-explanation"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="lib/html2canvas/html2canvas.min.1.0.js"></script>
+</body>
+
 </html>
