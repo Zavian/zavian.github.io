@@ -60,44 +60,48 @@
                     <div class="form-group">
                         <div class="col-sm-6">
                             <button type="button" class="btn btn-danger btn-block" id="button-clear">
-								Delete all
-							</button>
+                                Delete all
+                            </button>
                         </div>
                         <div class="col-sm-6">
                             <button type="button" class="btn btn-primary btn-block" id="button-load">
-								Load from file
-							</button>
+                                Load from file
+                            </button>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-6">
                             <button type="button" class="btn btn-primary btn-block" id="button-sample">Add
-								Sample</button>
+                                Sample</button>
                         </div>
                         <div class="col-sm-6">
                             <button type="button" class="btn btn-primary btn-block" id="button-save" onclick="ui_save_file()">
-								Save to file
-							</button>
+                                Save to file
+                            </button>
                             <a href="" download="rpg_cards.json" id="file-save-link" style="display:none">Hidden
-								download link</a>
+                                download link</a>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
                             <button type="button" class="btn btn-success btn-block" id="button-imgur">
-								Export to Imgur
-							</button>
+                                Export to Imgur
+                            </button>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <button type="button" class="btn btn-info btn-block" id="button-help">Open Help<br> 💡 New
-								Features Available</button>
+                            <button type="button" class="btn btn-info btn-block" id="button-help">Open Help</button>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
                             <button type="button" class="btn btn-tags btn-block border border-warning" id="button-tags">Available Tags</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button type="button" class="btn btn-bbcode btn-block border border-warning" id="button-bbcode">BBCode Help</button>
                         </div>
                     </div>
                     <!--<span class="help-block">Generated cards open in a new tab or window.</span>-->
@@ -108,12 +112,12 @@
                         <label for="card-size" class="col-sm-3 control-label">Card Size</label>
                         <div class="col-sm-9">
                             <select class="form-control" id="card-size" data-option="card_size">
-								<option value="225x35">2.25&quot; x 3.5&quot; (Bridge)</option>
-								<option value="25x35">2.5&quot; x 3.5&quot; (Poker)</option>
-								<option value="35x50">3.5&quot; x 5.0&quot;</option>
-								<option value="75x50" selected>7.5&quot; x 5.0&quot;</option>
-								<option value="29x29">2.9&quot; x 2.9&quot;</option>
-							</select>
+                                <option value="225x35">2.25&quot; x 3.5&quot; (Bridge)</option>
+                                <option value="25x35">2.5&quot; x 3.5&quot; (Poker)</option>
+                                <option value="35x50">3.5&quot; x 5.0&quot;</option>
+                                <option value="75x50" selected>7.5&quot; x 5.0&quot;</option>
+                                <option value="29x29">2.9&quot; x 2.9&quot;</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -121,10 +125,10 @@
                         <div class="col-sm-9">
                             <div class="checkbox">
                                 <label>
-									<input type="checkbox" checked id="rounded-corners" data-option="rounded_corners"
-										value="1" />
-									Rounded card corners
-								</label>
+                                    <input type="checkbox" checked id="rounded-corners" data-option="rounded_corners"
+                                        value="1" />
+                                    Rounded card corners
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -136,8 +140,8 @@
                         <div class="col-sm-9">
                             <div class="checkbox">
                                 <label>
-									<input type="checkbox" checked id="small-icons" /> Use small front icons
-								</label>
+                                    <input type="checkbox" checked id="small-icons" /> Use small front icons
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -155,8 +159,8 @@
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <span class="input-group-btn">
-									<button class="btn btn-default icon-select-button" type="button">Search</button>
-								</span>
+                                    <button class="btn btn-default icon-select-button" type="button">Search</button>
+                                </span>
                                 <input type="text" id="default-icon" class="form-control icon-list" placeholder="Icon name" />
                             </div>
                         </div>
@@ -165,38 +169,38 @@
                         <label for="default-title-size" class="col-sm-3 control-label">Title</label>
                         <div class="col-sm-9">
                             <select class="form-control" id="default-title-size">
-								<option value="16">16pt font</option>
-								<option value="15">15pt font</option>
-								<option value="14">14pt font</option>
-								<option value="13" selected>13pt font</option>
-								<option value="12">12pt font</option>
-								<option value="11">11pt font</option>
-								<option value="10">10pt font</option>
-							</select>
+                                <option value="16">16pt font</option>
+                                <option value="15">15pt font</option>
+                                <option value="14">14pt font</option>
+                                <option value="13" selected>13pt font</option>
+                                <option value="12">12pt font</option>
+                                <option value="11">11pt font</option>
+                                <option value="10">10pt font</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-6">
                             <button type="button" class="btn btn-primary btn-block" id="button-apply-color">
-								Apply color
-							</button>
+                                Apply color
+                            </button>
                         </div>
                         <div class="col-sm-6">
                             <button type="button" class="btn btn-primary btn-block" id="button-apply-font">
-								Apply title font
-							</button>
+                                Apply title font
+                            </button>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-6">
                             <button type="button" class="btn btn-primary btn-block" id="button-apply-icon">
-								Apply icon
-							</button>
+                                Apply icon
+                            </button>
                         </div>
                         <div class="col-sm-6">
                             <button type="button" class="btn btn-primary btn-block" id="button-apply-icon-back">
-								Apply back icon
-							</button>
+                                Apply back icon
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -220,18 +224,18 @@
                         <label class="col-sm-2 control-label"></label>
                         <div class="col-sm-4">
                             <button type="button" class="btn btn-danger btn-block" id="button-delete-card">
-								Delete card
-							</button>
+                                Delete card
+                            </button>
                         </div>
                         <div class="col-sm-3">
                             <button type="button" class="btn btn-primary btn-block" id="button-add-card">
-								Add new card
-							</button>
+                                Add new card
+                            </button>
                         </div>
                         <div class="col-sm-3">
                             <button type="button" class="btn btn-primary btn-block" id="button-duplicate-card">
-								Duplicate card
-							</button>
+                                Duplicate card
+                            </button>
                         </div>
 
 
@@ -240,13 +244,13 @@
                         <label class="col-sm-2 control-label"></label>
                         <div class="col-sm-5">
                             <button type="button" class="btn btn-info btn-block" id="btn-import-card">
-								Import by JSON
-							</button>
+                                Import by JSON
+                            </button>
                         </div>
                         <div class="col-sm-5">
                             <button type="button" class="btn btn-success btn-block" id="button-to-last">
-								Go to Last Card
-							</button>
+                                Go to Last Card
+                            </button>
                         </div>
                     </div>
                     <div class="form-group">
@@ -259,15 +263,15 @@
                         <label for="card-title-size" class="col-sm-2 control-label">Title</label>
                         <div class="col-sm-10">
                             <select class="form-control" id="card-title-size" data-property="title_size">
-								<option value="" selected>default font</option>
-								<option value="16">16pt font</option>
-								<option value="15">15pt font</option>
-								<option value="14">14pt font</option>
-								<option value="13">13pt font</option>
-								<option value="12">12pt font</option>
-								<option value="11">11pt font</option>
-								<option value="10">10pt font</option>
-							</select>
+                                <option value="" selected>default font</option>
+                                <option value="16">16pt font</option>
+                                <option value="15">15pt font</option>
+                                <option value="14">14pt font</option>
+                                <option value="13">13pt font</option>
+                                <option value="12">12pt font</option>
+                                <option value="11">11pt font</option>
+                                <option value="10">10pt font</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -287,8 +291,8 @@
                         <div class="col-sm-10">
                             <div class="input-group">
                                 <span class="input-group-btn">
-									<button class="btn btn-default icon-select-button" type="button">Search</button>
-								</span>
+                                    <button class="btn btn-default icon-select-button" type="button">Search</button>
+                                </span>
                                 <input type="text" id="card-icon" class="form-control icon-list" placeholder="Default icon" data-property="icon" />
                             </div>
                         </div>
@@ -298,8 +302,8 @@
                         <div class="col-sm-10">
                             <div class="input-group">
                                 <span class="input-group-btn">
-									<button class="btn btn-default icon-select-button" type="button">Search</button>
-								</span>
+                                    <button class="btn btn-default icon-select-button" type="button">Search</button>
+                                </span>
                                 <input type="text" id="card-icon-back" class="form-control icon-list" placeholder="Same as front" data-property="icon_back" />
                             </div>
                         </div>
@@ -380,8 +384,8 @@
                     <div class="col-sm-10" style="padding-bottom: 10px">
                         <div class="input-group">
                             <span class="input-group-btn">
-								<button id="copyFront" type="button" class="btn btn-default" aria-label="Left Align">
-									<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                                <button id="copyFront" type="button" class="btn btn-default" aria-label="Left Align">
+                                    <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                             </button>
                             </span>
                             <input class="form-control" id="imgur-front" />
@@ -390,8 +394,8 @@
                     <div class="col-sm-10" style="padding-bottom: 10px">
                         <div class="input-group">
                             <span class="input-group-btn">
-								<button id="copyBack" type="button" class="btn btn-default" aria-label="Left Align">
-									<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                                <button id="copyBack" type="button" class="btn btn-default" aria-label="Left Align">
+                                    <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                             </button>
                             </span>
                             <input class="form-control" id="imgur-back" />
@@ -399,8 +403,8 @@
                     </div>
                     <div class="col-sm-10">
                         <button id="copyAll" type="button" class="btn btn-default btn-block">
-							Copy All
-						</button>
+                            Copy All
+                        </button>
                     </div>
                     <div class="col-sm-10">
                         <div id="clipboardManipulator">
@@ -417,8 +421,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-					</button>
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
                     <h4 class="modal-title" id="myModalLabel">Printing generated cards</h4>
                 </div>
                 <div class="modal-body">
@@ -448,8 +452,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-					</button>
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
                     <h4 class="modal-title" id="myModalLabel">RPG card generator</h4>
                 </div>
                 <div class="modal-body">
@@ -492,8 +496,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-					</button>
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
                     <h4 class="modal-title" id="myModalLabel">Sort cards</h4>
                 </div>
                 <div class="modal-body">
@@ -524,8 +528,8 @@ else {
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-					</button>
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
                     <h4 class="modal-title" id="myModalLabel">Filter/map cards</h4>
                 </div>
                 <div class="modal-body">
@@ -556,8 +560,8 @@ if (card_has_tag(card, "creature")) {
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-					</button>
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
                     <h4 class="modal-title" id="myModalLabel">Import Card</h4>
                 </div>
                 <div class="modal-body">
@@ -597,8 +601,8 @@ if (card_has_tag(card, "creature")) {
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">
-						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-					</button>
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
                     <h4 class="modal-title">RPG Tags</h4>
                 </div>
                 <div class="modal-body">
@@ -606,9 +610,34 @@ if (card_has_tag(card, "creature")) {
                         Discover all of the available tags and their function!
                     </div>
                     <select id="tag-selector" class="form-control tag-selector">
-						<option>(select tag)</option>
-					</select>
+                        <option>(select tag)</option>
+                    </select>
                     <div id="tag-selector-explanation"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal (BBCode)-->
+    <div class="modal" id="bbcode-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">BBCode Guide</h4>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        Discover all of the available BBCode tags and their function!
+                    </div>
+                    <select id="bbcode-selector" class="form-control tag-selector">
+                        <option>(select tag)</option>
+                    </select>
+                    <div id="bbcode-selector-explanation"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

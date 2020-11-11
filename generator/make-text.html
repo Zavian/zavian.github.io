@@ -1,0 +1,88 @@
+﻿<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Library: jQuery -->
+    <script type="text/javascript" src="lib/jquery/jquery.min.js" charset="utf-8"></script>
+    <!-- Library: Bootstrap -->
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/slate.css" />
+    <!-- Library: Bootstrap typeahead -->
+    <script type="text/javascript" src="lib/typeahead/bootstrap3-typeahead.min.js" charset="utf-8"></script>
+    <!-- Library: bbcode2html -->
+    <script type="text/javascript" src="lib/bbcode2html/js/bbcode2html.js"></script>
+    <!-- Javascript -->
+    <script type="text/javascript" src="js/fonts.js"></script>
+    <script type="text/javascript" src="js/bbcoder.js"></script>
+    <script type="text/javascript" defer src="js/make-text.js"></script>
+    <!-- CSS -->
+    <link href="css/make-text.css" rel="stylesheet" />
+    <link href="css/fonts.css" rel="stylesheet" />
+    <link href="css/bbcoder.css" rel="stylesheet" />
+    <link href="css/ui.css" rel="stylesheet" />
+    <title>Make Text</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>
+                    Make a card <i class="fas fa-adjust"></i>
+                </h3>
+                <div class="form-group">
+                    <select class="form-control" id="font-selector"></select>
+                </div>
+                <div class="form-group">
+                    <h6>Background Colors</h6>
+                    <div class="styling-block color-palette" id="color-palette">
+                        <button data-toggle="tooltip" value="color-palette" title="Parchment" type="button" class="btn btn-sm btn-default parchment-btn" />
+                        <button data-toggle="tooltip" value="color-palette" title="Purple Paper" type="button" class="btn btn-sm btn-default ppaper-btn" />
+                        <button data-toggle="tooltip" value="color-palette" title="Dark" type="button" class="btn btn-sm btn-default dark-btn" />
+                    </div>
+                    <input data-toggle="tooltip" title="Font Size" id="fontSize" type="number" class="btn btn-sm btn-default color-control input-color-control" value="14" />
+                </div>
+                <div class="form-group">
+                    <div class="styling-block">
+                        <button data-toggle="tooltip" title="Make Bold" id="bold-btn" type="button" class="btn btn-sm btn-default">
+                            B
+                        </button>
+                        <button data-toggle="tooltip" title="Make Italic" id="italic-btn" type="button" class="btn btn-sm btn-default italics-btn">
+                            I
+                        </button>
+                        <button data-toggle="tooltip" title="Make Underline" id="underline-btn" type="button" class="btn btn-sm btn-default underline-btn">
+                            U
+                        </button>
+                        <span class="font-group">
+                            <button type="button" value="-"
+                                class="btn btn-sm btn-default font-control pre-font-control">
+                                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                        </button>
+                        <input data-toggle="tooltip" title="Font Size" id="fontSize" type="number" class="btn btn-sm btn-default font-control input-font-control" value="14" />
+                        <button type="button" value="+" class="btn btn-sm btn-default font-control post-font-control">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                        <button id="align-center" data-toggle="tooltip" title="Align Center" value="center" type="button" class="btn btn-sm btn-default font-control aria-btn">
+                            <span class="glyphicon glyphicon-align-center" aria-hidden="true"></span>
+                        </button>
+                        <button id="align-right" data-toggle="tooltip" title="Align Right" value="right" type="button" class="btn btn-sm btn-default font-control aria-btn">
+                            <span class="glyphicon glyphicon-align-right" aria-hidden="true"></span>
+                        </button>
+                        <button id="align-justify" data-toggle="tooltip" title="Align Justify" value="justify" type="button" class="btn btn-sm btn-default font-control aria-btn">
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                        </button>
+                    </div>
+
+                    <textarea rows="15" class="form-control" id="text"></textarea>
+                </div>
+                <div class="form-control" id="text-box">
+                    <div id="text-contents"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

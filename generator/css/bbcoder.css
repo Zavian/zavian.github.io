@@ -1,16 +1,21 @@
 .styling-block {
-	margin-bottom: 5px;
-	padding-top: 13px;
+    margin-bottom: 5px;
+    padding-top: 13px;
 }
 
 .bold-btn {
-	font-weight: 700;
+    font-weight: 700;
 }
 
 .italics-btn {
-	font-style: italic;
+    font-style: italic;
 }
 
 .underline-btn {
-	text-decoration: underline;
+    text-decoration: underline;
+}
+
+.btn-bbcode {
+    background-color: #d89e35;
+    color: white;
 }

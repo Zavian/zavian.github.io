@@ -29,6 +29,17 @@ body {
     min-width: 100%;
 }
 
+p {
+    margin: 0;
+}
+
+#text-box {
+    height: auto;
+    min-height: 4em;
+    padding: 1.5em;
+    color: #ebe9e7;
+}
+
 .styling-box button {
     padding: 5px;
 }
@@ -37,6 +48,53 @@ body {
     width: 60px;
 }
 
+.small-group {
+    max-width: 9em;
+}
+
+.font-group,
+.color-group {
+    display: inline-table;
+}
+
+.pre-font-control,
+.pre-color-control {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    font-size: 1.3em;
+}
+
+.post-font-control {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    font-size: 1.3em;
+}
+
+.aria-btn {
+    font-size: 1.3em;
+}
+
+.font-control {
+    margin: 0;
+    display: table-cell;
+}
+
+.input-font-control {
+    border-radius: 0px !important;
+    background-color: #181a1b;
+    cursor: auto;
+    width: 5em;
+}
+
+.input-color-control {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    background-color: #181a1b;
+    cursor: auto;
+    width: 7.5em;
+}
+
 input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: push-button;
+    margin: 0;
+    display: none;
 }

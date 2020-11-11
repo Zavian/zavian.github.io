@@ -9,38 +9,71 @@ function bbcoder(code, checker) {
 
         var offset = 1;
 
-        switch (code) {
-            case 'B':
-                if (!isBolded(value.substring(startPos - 3, endPos + 4))) {
-                    textArea.value = value.replaceBetween(startPos, endPos, makeTag(selectedText, 'B'));
-                } else {
-                    textArea.value = value.replaceBetween(startPos - 3, endPos + 4, removeTag(selectedText, 'B'));
-                    offset = -1;
-                }
-                break;
-            case 'I':
-                if (!isItalic(value.substring(startPos - 3, endPos + 4))) {
-                    textArea.value = value.replaceBetween(startPos, endPos, makeTag(selectedText, 'I'));
-                } else {
-                    textArea.value = value.replaceBetween(startPos - 3, endPos + 4, removeTag(selectedText, 'I'));
-                    offset = -1;
-                }
-                break;
-            case 'U':
-                if (!isUnderlined(value.substring(startPos - 3, endPos + 4))) {
-                    textArea.value = value.replaceBetween(startPos, endPos, makeTag(selectedText, 'U'));
-                } else {
-                    textArea.value = value.replaceBetween(startPos - 3, endPos + 4, removeTag(selectedText, 'U'));
-                    offset = -1;
-                }
-                break;
+        var openTag = `[${code}]`;
+        var closeTag = `[/${code}]`;
+        var valWithTag = value.substring(startPos - openTag.length, endPos + closeTag.length);
+        if (!isTagged(valWithTag, code)) {
+            textArea.value = value.replaceBetween(startPos, endPos, makeTag(selectedText, code));
+        } else {
+            textArea.value = value.replaceBetween(
+                startPos - openTag.length,
+                endPos + closeTag.length,
+                removeTag(selectedText, code)
+            );
+            offset = -1;
         }
 
+        //switch (code) {
+        //    case 'B':
+        //        if (!isTagged(valWithTag, code)) {
+        //            textArea.value = value.replaceBetween(startPos, endPos, makeTag(selectedText, 'B'));
+        //        } else {
+        //            textArea.value = value.replaceBetween(
+        //                startPos - openTag.length,
+        //                endPos + closeTag.length,
+        //                removeTag(selectedText, 'B')
+        //            );
+        //            offset = -1;
+        //        }
+        //        break;
+        //    case 'I':
+        //        if (!isTagged(valWithTag, code)) {
+        //            textArea.value = value.replaceBetween(startPos, endPos, makeTag(selectedText, 'I'));
+        //        } else {
+        //            textArea.value = value.replaceBetween(
+        //                startPos - openTag.length,
+        //                endPos + closeTag.length,
+        //                removeTag(selectedText, 'I')
+        //            );
+        //            offset = -1;
+        //        }
+        //        break;
+        //    case 'U':
+        //        if (!isTagged(valWithTag, code)) {
+        //            textArea.value = value.replaceBetween(startPos, endPos, makeTag(selectedText, 'U'));
+        //        } else {
+        //            textArea.value = value.replaceBetween(
+        //                startPos - openTag.length,
+        //                endPos + closeTag.length,
+        //                removeTag(selectedText, 'U')
+        //            );
+        //            offset = -1;
+        //        }
+        //        break;
+        //    case 'CENTER':
+        //        if (!isTagged(valWithTag, code)) {
+        //
+        //        } break;
+        //}
+
         checker.element.trigger('change');
-        startPos += 3 * offset;
-        endPos += 3 * offset;
-        textArea.focus();
+        startPos += openTag.length * offset;
+        endPos += openTag.length * offset;
+
         textArea.setSelectionRange(startPos, endPos);
+        textArea.blur();
+        textArea.focus();
+
         checkButtons(checker);
     } catch (e) {
         alert(e.toString());
@@ -74,15 +107,42 @@ function colorTranslator(color) {
 function checkButtons(checker) {
     //var element = side == "front" ? "card-contents" : "back-contents";
     var selected = getSelected(document.getElementById(checker.element.attr('id')));
-    var textWithTags = selected.value.substring(selected.startPos - 3, selected.endPos + 4);
-    if (isBolded(textWithTags)) checker.bold.addClass('btn-success');
-    else checker.bold.removeClass('btn-success');
+    for (const [
+            key,
+            value
+        ] of Object.entries(checker)) {
+        let code = '';
+        switch (key) {
+            default: code = key;
+            break;
+            case 'bold':
+                    code = 'b';
+                break;
+            case 'italic':
+                    code = 'i';
+                break;
+            case 'underline':
+                    code = 'u';
+                break;
+        }
+        let open = `[${code}]`;
+        let close = `[/${code}]`;
 
-    if (isItalic(textWithTags)) checker.italic.addClass('btn-success');
-    else checker.italic.removeClass('btn-success');
+        let textWithTags = selected.value.substring(selected.startPos - open.length, selected.endPos + close.length);
+        if (isTagged(textWithTags, code)) {
+            value.addClass('btn-success');
+        } else value.removeClass('btn-success');
+    }
+    //var textWithTags = selected.value.substring(selected.openTag.length, selected.closeTag.length);
 
-    if (isUnderlined(textWithTags)) checker.underline.addClass('btn-success');
-    else checker.underline.removeClass('btn-success');
+    //if (isBolded(textWithTags)) checker.bold.addClass('btn-success');
+    //else checker.bold.removeClass('btn-success');
+    //
+    //if (isItalic(textWithTags)) checker.italic.addClass('btn-success');
+    //else checker.italic.removeClass('btn-success');
+    //
+    //if (isUnderlined(textWithTags)) checker.underline.addClass('btn-success');
+    //else checker.underline.removeClass('btn-success');
 }
 
 function checkTag(side) {
@@ -131,6 +191,15 @@ function findEndOfLine(cursorPos, val) {
         index++;
     } while (val[index]);
     return -1;
+}
+
+function isTagged(text, tag) {
+    tag = tag.toUpperCase();
+    text = text.toUpperCase();
+    let open = `[${tag}]`;
+    let close = `[/${tag}]`;
+
+    return text.includes(open) && text.includes(close);
 }
 
 function isBolded(text) {
