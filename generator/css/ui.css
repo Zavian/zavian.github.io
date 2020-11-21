@@ -212,3 +212,23 @@
     max-width: 100%;
     min-width: 100%;
 }
+
+.highlighted {
+    background-color: #cdc8c2;
+    color: #181a1b;
+    animation-name: highlightText;
+    animation-fill-mode: forwards;
+    animation-duration: 3s;
+    animation-delay: 0s;
+}
+
+@keyframes highlightText {
+    0% {
+        background-color: #cdc8c2;
+        color: #181a1b;
+    }
+    100% {
+        background-color: #181a1b;
+        color: #cdc8c2;
+    }
+}

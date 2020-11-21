@@ -645,7 +645,7 @@ function uploadToImgur(canvas, side) {
             if (response.success) {
                 //window.location = response.data.link;
                 console.log(response);
-                $('#imgur-' + side).val(response.data.link);
+                $('#imgur-' + side).val(response.data.link).change();
             }
         }
     });
@@ -886,6 +886,18 @@ $(document).ready(function() {
     $('#back-contents').keyup(ui_change_back_contents_keyup);
 
     $('#imgur-export').hide();
+    $('#imgur-front').change(function() {
+        $(this).addClass('highlighted');
+        setTimeout(() => {
+            $(this).removeClass('highlighted');
+        }, 1000);
+    });
+    $('#imgur-back').change(function() {
+        $(this).addClass('highlighted');
+        setTimeout(() => {
+            $(this).removeClass('highlighted');
+        }, 1000);
+    });
 
     $('#form-back').hide();
 

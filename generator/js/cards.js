@@ -19,7 +19,6 @@ function card_default_options() {
     };
 }
 
-
 function card_default_data() {
     return {
         count: 1,
