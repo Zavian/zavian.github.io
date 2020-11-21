@@ -890,13 +890,13 @@ $(document).ready(function() {
         $(this).addClass('highlighted');
         setTimeout(() => {
             $(this).removeClass('highlighted');
-        }, 1000);
+        }, 2750);
     });
     $('#imgur-back').change(function() {
         $(this).addClass('highlighted');
         setTimeout(() => {
             $(this).removeClass('highlighted');
-        }, 1000);
+        }, 2750);
     });
 
     $('#form-back').hide();
