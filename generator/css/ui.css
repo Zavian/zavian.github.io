@@ -214,8 +214,7 @@
 }
 
 .highlighted {
-    background-color: #cdc8c2;
-    color: #181a1b;
+    background-color: #3a3f44;
     animation-name: highlightText;
     animation-fill-mode: forwards;
     animation-duration: 2.5s;
@@ -224,11 +223,9 @@
 
 @keyframes highlightText {
     0% {
-        background-color: #cdc8c2;
-        color: #181a1b;
+        background-color: #3a3f44;
     }
     100% {
         background-color: #181a1b;
-        color: #cdc8c2;
     }
 }
