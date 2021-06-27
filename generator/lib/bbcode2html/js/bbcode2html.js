@@ -57,12 +57,6 @@ var BBCodeHTML = function() {
             replacer: '<p style="text-align: right;">{TEXT}</p>',
             explanation: '<p style="text-align: right;">Aligns the text to the right.</p>'
         }
-        // {
-        //     code: 'image',
-        //     pattern: '[image]{URL}[/image]',
-        //     replacer: '<img src="{URL}" alt="{URL}" />',
-        //     explanation: 'Places an image.'
-        // }
     ];
 
     // regular expressions for the different bbcode tokens

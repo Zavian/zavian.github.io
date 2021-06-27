@@ -26,12 +26,7 @@
     },
     "homepage": "https://github.com/crobi/rpg-cards#readme",
     "dependencies": {
-        "asar": "^3.0.3",
         "fitty": "^2.3.0",
-        "font-list": "^1.2.11",
-        "get-package-info": "^1.0.0",
-        "run-series": "^1.1.9",
-        "sanitize-filename": "^1.6.3",
-        "yauzl": "^2.10.0"
+        "font-list": "^1.2.11"
     }
 }
