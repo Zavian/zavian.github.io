@@ -27,6 +27,7 @@
     "homepage": "https://github.com/crobi/rpg-cards#readme",
     "dependencies": {
         "fitty": "^2.3.0",
-        "font-list": "^1.2.11"
+        "font-list": "^1.2.11",
+        "yauzl": "^2.10.0"
     }
 }
