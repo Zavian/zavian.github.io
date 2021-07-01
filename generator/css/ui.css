@@ -127,6 +127,11 @@
     background-color: royalblue;
 }
 
+.float-right {
+    float: right;
+    display: inline;
+}
+
 
 /* .btn-tags:hover {
 	transition: border-color 0.5s ease;

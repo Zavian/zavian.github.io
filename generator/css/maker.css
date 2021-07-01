@@ -1,0 +1,70 @@
+html,
+body {
+    height: 100%;
+}
+
+.container {
+    margin: auto;
+    width: 55%;
+    padding: 10px;
+}
+
+textarea {
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.result {
+    text-align: center;
+    margin-top: 2em;
+    position: relative;
+}
+
+.result .tag-code {
+    padding: 2em;
+    margin-top: 0.1em;
+    font-size: large;
+}
+
+.color-picker {
+    background-color: #3a3f44 !important;
+}
+
+.color-picker-container {
+    padding-right: 0;
+}
+
+.btn-dark {
+    color: rgb(232, 230, 227);
+    background-color: rgb(44, 47, 49);
+    border-color: rgb(121, 112, 99);
+}
+
+.btn-dark:hover {
+    color: rgb(232, 230, 227);
+    background-color: rgb(29, 32, 33);
+    border-color: rgb(129, 120, 106);
+}
+
+#copy-text {
+    width: 100%;
+    font-size: small;
+}
+
+#title {
+    font-weight: bold;
+}
+
+#lore {
+    color: #be8008;
+    font-style: italic;
+}
+
+#price {
+    color: #ffc000;
+}
