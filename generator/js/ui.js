@@ -569,10 +569,7 @@ $('#button-imgur').click(function() {
     var s = 2.5;
 
     $('#imgur-export').show();
-    html2canvas(document.querySelector('#cardFront'), {
-        scale: s,
-        useCORS: false
-    }).then((canvas) => {
+    html2canvas(document.querySelector('#cardFront'), { scale: s }).then((canvas) => {
         document.body.appendChild(canvas);
         $('canvas').attr('class', 'captured');
 
