@@ -152,6 +152,10 @@
     border: 1px solid #3e4446;
 }
 
+.color-palette {
+    margin-bottom: 5px
+}
+
 .color-palette button {
     width: 30px;
     height: 30px;
@@ -216,6 +220,23 @@
 #back-contents {
     max-width: 100%;
     min-width: 100%;
+}
+
+.checkbox-no-margin {
+    position: relative;
+    margin: 0px!important
+}
+
+.checkbox-group {
+    padding-top: 9px;
+}
+
+.color-picker {
+    background-color: #3a3f44 !important;
+}
+
+.color-picker-container {
+    padding-right: 0;
 }
 
 .highlighted {

@@ -244,43 +244,19 @@ function ui_select_icon() {
 
 function ui_setup_color_selector() {
     // Insert colors
-    $.each(card_colors, function(name, val) {
-        $('.colorselector-data').append($('<option></option>').attr('value', name).attr('data-color', val).text(name));
+    //$('#card-color').change(function(e) {
+    //    $('#card-color-rgb').val($('#card-color').val());
+    //    $('#card-color-rgb').trigger('change');
+    //});
+    $('#card-color-rgb').on('input', function(e) {
+        $('#card-color').val($('#card-color-rgb').val());
+        $('#card-color').trigger('change')
     });
-
-    // Callbacks for when the user picks a color
-    $('#default_color_selector').colorselector({
-        callback: function(value, color, title) {
-            $('#default-color').val(title);
-            ui_set_default_color(title);
-        }
-    });
-    $('#card_color_selector').colorselector({
-        callback: function(value, color, title) {
-            $('#card-color').val(title);
-            ui_set_card_color(value);
-        }
-    });
-    $('#foreground_color_selector').colorselector({
-        callback: function(value, color, title) {
-            $('#foreground-color').val(title);
-            ui_set_foreground_color(value);
-        }
-    });
-    $('#background_color_selector').colorselector({
-        callback: function(value, color, title) {
-            $('#background-color').val(title);
-            ui_set_background_color(value);
-        }
-    });
-
-    // Styling
-    $('.dropdown-colorselector').addClass('input-group-addon color-input-addon');
 }
 
 function ui_set_default_color(color) {
-    card_options.default_color = color;
-    ui_render_selected_card();
+    //card_options.default_color = color;
+    //ui_render_selected_card();
 }
 
 function ui_set_foreground_color(color) {
@@ -332,21 +308,14 @@ function ui_set_card_color(value) {
 }
 
 function ui_update_card_color_selector(color, input, selector) {
-    if ($(selector + " option[value='" + color + "']").length > 0) {
-        // Update the color selector to the entered value
-        $(selector).colorselector('setValue', color);
-    } else {
-        // Unknown color - select a neutral color and reset the text value
-        $(selector).colorselector('setValue', '');
-        input.val(color);
-    }
+    $(selector).val(color)
 }
 
 function ui_change_card_color() {
     var input = $(this);
     var color = input.val();
 
-    ui_update_card_color_selector(color, input, '#card_color_selector');
+    ui_update_card_color_selector(color, input, '#card-color-rgb');
     ui_set_card_color(color);
 }
 
@@ -839,7 +808,7 @@ $(document).ready(function() {
     $('#btn-import-card').click(ui_import);
     $('#button-delete-card').click(ui_delete_card);
     $('#button-help').click(ui_open_help);
-    $('#button-apply-color').click(ui_apply_default_color);
+    //$('#button-apply-color').click(ui_apply_default_color);
     $('#button-apply-icon').click(ui_apply_default_icon);
     $('#button-apply-icon-back').click(ui_apply_default_icon_back);
     $('#button-to-last').click(ui_update);
@@ -866,7 +835,7 @@ $(document).ready(function() {
     $('#background-color').change(ui_change_option);
     $('#rounded-corners').change(ui_change_option);
 
-    $('#default-color').change(ui_change_default_color);
+    //$('#default-color').change(ui_change_default_color);
     $('#default-icon').change(ui_change_default_icon);
     $('#default-title-size').change(ui_change_default_title_size);
     $('#small-icons').change(ui_change_default_icon_size);
@@ -1025,7 +994,10 @@ $(document).ready(function() {
         let curr = $('#back-contents').val();
         $('#back-contents').val(curr.length > 0 ? `${curr}\n${txt}` : txt).change();
     });
-    $('[data-toggle="tooltip"]').tooltip();
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
 });
 
 function getBBCodeExplanation(tag) {
