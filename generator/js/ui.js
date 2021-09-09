@@ -777,7 +777,7 @@ $(document).ready(function() {
 
         let val = $(window).scrollTop() + default_margin
             //console.log(val)
-        if (val <= 295)
+        if (val <= 500)
             $("#preview-container").stop().animate({ "marginTop": val + "px" }, 50);
     });
 
