@@ -771,6 +771,16 @@ function colorCheck(color) {
 $(document).ready(function() {
     local_store_load();
     ui_setup_color_selector();
+
+    $(window).scroll(function() {
+        const default_margin = 10
+
+        let val = $(window).scrollTop() + default_margin
+            //console.log(val)
+        if (val <= 295)
+            $("#preview-container").stop().animate({ "marginTop": val + "px" }, 50);
+    });
+
     $('.icon-list').typeahead({
         source: icon_names,
         items: 'all',
