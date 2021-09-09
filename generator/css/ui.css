@@ -39,6 +39,10 @@
     cursor: default;
 }
 
+#card-name-error {
+    font-weight: bold;
+}
+
 
 /* Small screen (preview fills all columns) */
 
