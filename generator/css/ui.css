@@ -25,6 +25,20 @@
     align-items: center;
 }
 
+#canvas-container {
+    display: none;
+}
+
+#imgur-error button {
+    margin-top: 10px;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    color: rgb(223, 122, 131);
+    background-color: rgb(67, 12, 17);
+    border-color: rgb(106, 17, 26);
+    cursor: default;
+}
+
 
 /* Small screen (preview fills all columns) */
 

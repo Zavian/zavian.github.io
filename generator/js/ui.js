@@ -539,18 +539,23 @@ $('#button-imgur').click(function() {
 
     $('#imgur-export').show();
     html2canvas(document.querySelector('#cardFront'), { scale: s }).then((canvas) => {
-        document.body.appendChild(canvas);
+        var container = document.getElementById("canvas-container")
+
+        container.appendChild(canvas);
         $('canvas').attr('class', 'captured');
 
         uploadToImgur(canvas, 'front');
-    });
-    html2canvas(document.querySelector('#cardBack'), { scale: s }).then((canvas) => {
-        //canvas = canvas.setAttribute("class", "omegalul");
-        document.body.appendChild(canvas);
-        $('canvas').attr('class', 'captured');
+    }).then(function() {
+        html2canvas(document.querySelector('#cardBack'), { scale: s }).then((canvas) => {
+            var container = document.getElementById("canvas-container")
 
-        uploadToImgur(canvas, 'back');
+            container.appendChild(canvas);
+            $('canvas').attr('class', 'captured');
+
+            uploadToImgur(canvas, 'back');
+        });
     });
+
 });
 
 $('#copyFront').click(function() {
@@ -592,6 +597,8 @@ $('#copyAll').click(function() {
 });
 
 function uploadToImgur(canvas, side) {
+    $('#imgur-error').hide()
+
     try {
         var img = canvas.toDataURL('image/jpeg').split(',')[1];
     } catch (e) {
@@ -613,6 +620,12 @@ function uploadToImgur(canvas, side) {
                 console.log(response);
                 $('#imgur-' + side).val(response.data.link).change();
             }
+        },
+        error: function(response) {
+            $("#imgur-error").show();
+
+            let card_name = $('#selected-card').find(":selected").text();
+            $("#card-name-error").text(card_name);
         }
     });
 }
@@ -771,6 +784,13 @@ function colorCheck(color) {
 $(document).ready(function() {
     local_store_load();
     ui_setup_color_selector();
+
+    $(window).scroll(function() {
+        const default_margin = 10
+
+        $("#preview-container").stop().animate({ "marginTop": ($(window).scrollTop() + default_margin) + "px", "marginLeft": ($(window).scrollLeft() + default_margin) + "px" }, 50);
+    });
+
     $('.icon-list').typeahead({
         source: icon_names,
         items: 'all',
@@ -852,6 +872,7 @@ $(document).ready(function() {
     $('#back-contents').keyup(ui_change_back_contents_keyup);
 
     $('#imgur-export').hide();
+    $('#imgur-error').hide();
     $('#imgur-front').change(function() {
         $(this).addClass('highlighted');
         setTimeout(() => {
