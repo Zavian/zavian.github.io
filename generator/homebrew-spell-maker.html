@@ -1,0 +1,184 @@
+<html>
+
+<head>
+    <title>Homebrew Spell Generator</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Library: jQuery -->
+    <script type="text/javascript" src="lib/jquery/jquery.min.js" charset="utf-8"></script>
+    <!-- Library: Bootstrap -->
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/slate.css" />
+    <!-- Library: Bootstrap typeahead -->
+    <script type="text/javascript" src="lib/typeahead/bootstrap3-typeahead.min.js" charset="utf-8"></script>
+    <!-- Library: Color picker -->
+    <link href="lib/colorpicker/css/bootstrap-colorselector.css" rel="stylesheet" />
+    <script type="text/javascript" src="lib/colorpicker/js/bootstrap-colorselector.js" charset="utf-8"></script>
+    <!-- Library: bbcode2html -->
+    <script type="text/javascript" src="lib/bbcode2html/js/bbcode2html.js" charset="utf-8"></script>
+    <!-- Library: dark mode -->
+    <link rel="stylesheet" href="lib/darkmode/dark-mode.css">
+    <script src="lib/darkmode/dark-mode-switch.min.js"></script>
+    <!-- Library: Fitty -->
+    <script type="text/javascript" src="lib\fitty\fitty.min.js"></script>
+    <!-- Data -->
+    <script type="text/javascript" src="data/card_data_example.js"></script>
+    <!-- Javascript -->
+    <script type="text/javascript" src="js/homebrew-spell-maker.js"></script>
+    <!-- CSS -->
+    <link href="css/ui.css" rel="stylesheet" />
+    <link href="css/cards.css" rel="stylesheet" />
+    <link href="css/card-size.css" rel="stylesheet" />
+    <link href="css/icons.css" rel="stylesheet" />
+    <link href="css/class-icons.css" rel="stylesheet" />
+    <link href="css/custom-icons.css" rel="stylesheet" />
+    <link href="css/bbcoder.css" rel="stylesheet" />
+    <link href="css/maker.css" rel="stylesheet" />
+    <link href="css/homebrew-spell.css" rel="stylesheet" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lora:700" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-lg-7" id="create">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="name" class="col-sm-3 control-label">Spell Name</label>
+                        <div class="col-sm-9"><input type="text" class="form-control" name="name" access="false" id="name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="level" class="col-sm-3 control-label">Spell Level</label>
+                        <div class="col-sm-9">
+                            <select class="form-select form-select-lg" name="level" id="level">
+                                <option value="0" selected="true" id="cantrip">Cantrip</option>
+                                <option value="1" id="level-1">1st-Level</option>
+                                <option value="2" id="level-2">2nd-level</option>
+                                <option value="3" id="level-3">3rd-level</option>
+                                <option value="4" id="level-4">4th-level</option>
+                                <option value="5" id="level-5">5th-level</option>
+                                <option value="6" id="level-6">6th-level</option>
+                                <option value="7" id="level-7">7th-level</option>
+                                <option value="8" id="level-8">8th-level</option>
+                                <option value="9" id="level-9">9th-level</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="school" class="col-sm-3 control-label">Spell School</label>
+                        <div class="col-sm-9">
+                            <select class="form-select form-select-lg" name="school" id="school">
+                                <option value="globalStrings.school.abj">Abjuration</option>
+                                <option value="globalStrings.school.conj">Conjuration</option>
+                                <option value="globalStrings.school.div">Divination</option>
+                                <option value="globalStrings.school.ench">Enchantment</option>
+                                <option value="globalStrings.school.evo">Evocation</option>
+                                <option value="globalStrings.school.illu">Illusion</option>
+                                <option value="globalStrings.school.necro">Necromancy</option>
+                                <option value="globalStrings.school.trans">Transmutation</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ritual" class="col-sm-3 control-label">Ritual Casting</label>
+                        <div class="col-sm-8 checkbox form-switch form-switch-md">
+                            <input type="checkbox" class="form-check-input checkbox-no-margin" id="ritual" data-property="background_text_toggle" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="time" class="col-sm-3 control-label">Casting Time</label>
+                        <div class="col-sm-9">
+                            <select class="form-select form-select-lg" name="time" id="time">
+                                <option value="globalStrings.time.action" selected="true" id="time-0">Action</option>
+                                <option value="globalStrings.time.reaction" id="time-1">Reaction</option>
+                                <option value="globalStrings.time.bonus_action" id="time-2">Bonus Action</option>
+                                <option value="globalStrings.time['1min']" id="time-3">1 Minute</option>
+                                <option value="globalStrings.time['10min']" id="time-4">10 Minutes</option>
+                                <option value="globalStrings.time['1hr']" id="time-5">1 Hour</option>
+                                <option value="globalStrings.time['12h']" id="time-6">12 Hours</option>
+                                <option value="globalStrings.time['1d']" id="time-7">24 Hours</option>
+                                <option value='customTime' id="time-custom">Custom</option>
+                            </select>
+                            <input type="text" class="form-control mt-2" name="customTime" access="false" id="customTime" placeholder="Custom time...">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="range" class="col-sm-3 control-label">Range</label>
+                        <div class="col-sm-9"><input type="text" class="form-control" name="range" access="false" value="30 ft" id="range"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="components" class="col-sm-3 control-label">Components</label>
+                        <div class="checkbox-group col-sm-4">
+                            <div class="form-check form-check-inline">
+                                <input name="componentsA" access="false" id="verbal" value="V" type="checkbox">
+                                <label for="components-0">Verbal</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input name="componentsA" access="false" id="somantic" value="S" type="checkbox">
+                                <label for="components-1">Somantic</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input name="componentsA" access="false" id="material" value="M" type="checkbox">
+                                <label for="components-2">Material</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-5"><input type="text" class="form-control" name="materialComponents" access="false" placeholder="Material components..." id="materialComponents"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="duration" class="col-sm-3 control-label">Duration</label>
+                        <div class="col-sm-9">
+                            <select class="form-select form-select-lg" name="duration" id="duration">
+                                <option value="globalStrings.duration.instantaneous" selected="true" id="duration-0">
+                                    Instantaneous
+                                </option>
+                                <option value="globalStrings.duration['1round']" id="duration-1">1 Round</option>
+                                <option value="globalStrings.duration['1minute']" id="duration-2">1 Minute</option>
+                                <option value="globalStrings.duration['1hour']" id="duration-3">1 Hour</option>
+                                <option value="globalStrings.duration['8hour']" id="duration-4">8 Hours</option>
+                                <option value="globalStrings.duration['24hour']" id="duration-5">1 day</option>
+                                <option value="globalStrings.duration.permanent" id="duration-6">Permanent</option>
+                                <option value="globalStrings.duration.special" id="duration-7">Special</option>
+                                <option value="custom" id="duration-custom">Custom</option>
+                            </select>
+                            <input type="text" class="form-control mt-2" name="customDuration" access="false" id="customDuration" placeholder="Custom duration...">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="concentration" class="col-sm-3 control-label">Concentration</label>
+                        <div class="col-sm-8 checkbox form-switch form-switch-md">
+                            <input type="checkbox" class="form-check-input checkbox-no-margin" id="concentration" data-property="background_text_toggle" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="col-sm-3 control-label">Shorthand</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control" id="shorthand" name="shorthand" placeholder="Type in your message" rows="3"></textarea>
+                            <span class="pull-right label label-default" id="count_shorthand"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="col-sm-3 control-label">Description</label>
+                        <div class="col-sm-9"><textarea type="textarea" class="form-control block-tab" name="description" access="false" rows="4" id="description"></textarea></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="higher" class="col-sm-3 control-label">At Higher Level</label>
+                        <div class="col-sm-9"><textarea type="textarea" class="form-control block-tab" name="higher" access="false" rows="4" id="higher"></textarea></div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-12 col-lg-5">
+                <div class="col-sm-10 col-centered result">
+                    <div class="tag-code center">
+                        <pre id="result"></pre>
+                    </div>
+                    <button class="btn btn-dark" id="copy-text">Copy Text</button>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

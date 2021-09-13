@@ -1,0 +1,22 @@
+#shorthand {
+    resize: none;
+}
+
+pre {
+    text-align: left;
+    background-color: inherit;
+    color: inherit;
+    border: none;
+    margin: -30px
+}
+
+textarea {
+    white-space: pre-wrap;
+}
+
+#count_shorthand {
+    background-color: hsl(120, 90%, 44%);
+    color: #272B30;
+    margin-top: -25px;
+    margin-right: 5px;
+}
