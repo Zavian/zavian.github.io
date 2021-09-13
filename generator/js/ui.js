@@ -154,11 +154,14 @@ function ui_update_card_list() {
     $('#selected-card').empty();
     for (var i = 0; i < card_data.length; ++i) {
         var card = card_data[i];
-        $('#selected-card').append($('<option></option>').attr('value', i).text(card.title));
+        let option = `<option value="${i}">${card.title}</option>`
+        $('#selected-card').append(option);
     }
 
     ui_update_selected_card();
 }
+
+
 
 function ui_save_file() {
     var str = JSON.stringify(card_data, null, '  ');
@@ -252,6 +255,12 @@ function ui_setup_color_selector() {
         $('#card-color').val($('#card-color-rgb').val());
         $('#card-color').trigger('change')
     });
+
+    for (const [key, value] of Object.entries(default_color_palette)) {
+        //<button data-bs-toggle="tooltip" data-bs-placement="top" value="008000" title="Uncommon" type="button" class="btn btn-sm btn-default palette-btn" />
+        let button = `<button data-bs-toggle="tooltip" data-bs-placement="top" value="${value}" title="${key}" type="button" class="btn btn-sm btn-default palette-btn" />`
+        $("#color-palette").append(button);
+    }
 }
 
 function ui_set_default_color(color) {
@@ -881,14 +890,28 @@ $(document).ready(function() {
 
     $('#button-bbcode').click(ui_open_bb);
 
+
+    $('#color-palette button').each(function(index) {
+        let hex = "#" + $(this).val()
+        $(this).css("background-color", hex);
+    })
+
     $('#color-palette button').click(function() {
+
         let color = rgb2hex($(this).css('background-color'));
+
         $('#card-color').val(color).change();
 
+        let palettes = []
+        let quality = $(this).attr("data-bs-original-title");
+        $('#color-palette button').each(function() {
+            palettes.push($(this).attr('data-bs-original-title'))
+        })
+        palettes = palettes.join("|")
+
         let content = $('#card-contents').val();
-        let regex = /^subtitle \| (Uncommon|Rare|Very Rare|Legendary|Scroll|Recipe).{0,}$/gm;
+        let regex = RegExp("^subtitle \\| (" + palettes + ").{0,}$", "gm");
         let grp = regex.exec(content);
-        let quality = $(this).attr('value');
         if (grp) {
             content = content.replace(grp[1], quality);
             $('#card-contents').val(content).change();
@@ -1042,4 +1065,25 @@ function rgb2hex(rgb) {
         return ('0' + parseInt(x).toString(16)).slice(-2);
     }
     return '#' + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+}
+
+function hex2rgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
+
+function calculateHighContrast(color) {
+    let r = 24
+    let g = 26
+    let b = 27
+    let brightness = 1
+
+    var ir = Math.floor((255 - r) * brightness);
+    var ig = Math.floor((255 - g) * brightness);
+    var ib = Math.floor((255 - b) * brightness);
+    return 'rgb(' + ir + ',' + ig + ',' + ib + ')'
 }

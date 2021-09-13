@@ -17,6 +17,15 @@
     box-shadow: inset 2px 2px 4px 0px rgba(0, 0, 0, 0.75);
 }
 
+#selected-card {
+    font-size: 1.85rem;
+    padding: 6px;
+}
+
+#selected-card option {
+    mix-blend-mode: difference;
+}
+
 #preview-container {
     margin: 10px;
     background-color: transparent;
@@ -178,6 +187,12 @@
     width: 30px;
     height: 30px;
     margin: 2px;
+}
+
+button .palette,
+button .palette:hover,
+button .palette:focus {
+    background-color: inherit;
 }
 
 .uncommon-btn,

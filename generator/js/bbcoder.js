@@ -88,6 +88,13 @@ function getSelected(textArea) {
 }
 
 function colorTranslator(color) {
+    palette = {}
+    $.each($('#color-palette button'), function(indexInArray, valueOfElement) {
+        let cName = $(this).attr("data-bs-original-title");
+        let cHex = "#" + $(this).val()
+        palette[cHex] = cName
+    });
+
     switch (color) {
         case 'green':
         case '#008000':
@@ -101,6 +108,8 @@ function colorTranslator(color) {
         case '#c46709':
             return 'Legendary';
     }
+
+    if (palette[color]) return palette[color]
     return 'Color';
 }
 
