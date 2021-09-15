@@ -180,13 +180,16 @@
 }
 
 .color-palette {
-    margin-bottom: 5px
+    margin-bottom: 5px;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
 }
 
 .color-palette button {
-    width: 30px;
     height: 30px;
-    margin: 2px;
+    margin: 1px;
+    display: table-cell;
 }
 
 button .palette,

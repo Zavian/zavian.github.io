@@ -316,5 +316,5 @@ var default_color_palette = {
     "Warlock": "7C469B",
     "Monk": "4EA5C5",
     "Wizard": "274FA2",
-    "Artificer": "91B3C9"
+    "Artificer": "aa6dab",
 }

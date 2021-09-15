@@ -297,14 +297,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="card-color" class="col-sm-2 control-label">Color</label>
-                        <div class="col-sm-10">
-                            <div class="color-palette" id="color-palette">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="color" class="col-sm-2 control-label"></label>
+                        <label for="color" class="col-sm-2 control-label">Color</label>
                         <div class="col-sm-1 color-picker-container">
                             <input type="color" id="card-color-rgb" class="form-control color-picker" />
                         </div>
@@ -312,6 +305,14 @@
                             <input type="text" id="card-color" class="form-control" placeholder="#ffffff" />
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="card-color" class="col-sm-2 control-label"></label>
+                        <div class="col-sm-10">
+                            <div class="color-palette" id="color-palette">
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label for="card-background" class="col-sm-2 control-label">Background</label>
                         <div class="col-sm-10">
@@ -412,7 +413,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button type="button" class="close" data-bs-dismiss="modal">
                         <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
                     <h4 class="modal-title" id="myModalLabel">Printing generated cards</h4>
@@ -433,7 +434,7 @@
                     </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Ok, got it</button>
+                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Ok, got it</button>
                 </div>
             </div>
         </div>
@@ -443,7 +444,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button type="button" class="close" data-bs-dismiss="modal">
                         <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
                     <h4 class="modal-title" id="myModalLabel">RPG card generator</h4>
@@ -477,7 +478,7 @@
                     </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -487,7 +488,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button type="button" class="close" data-bs-dismiss="modal">
                         <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
                     <h4 class="modal-title" id="myModalLabel">Sort cards</h4>
@@ -519,7 +520,7 @@ else {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button type="button" class="close" data-bs-dismiss="modal">
                         <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
                     <h4 class="modal-title" id="myModalLabel">Filter/map cards</h4>
@@ -551,7 +552,7 @@ if (card_has_tag(card, "creature")) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button type="button" class="close" data-bs-dismiss="modal">
                         <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
                     <h4 class="modal-title" id="myModalLabel">Import Card</h4>
@@ -592,7 +593,7 @@ if (card_has_tag(card, "creature")) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button type="button" class="close" data-bs-dismiss="modal">
                         <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
                     <h4 class="modal-title">RPG Tags</h4>
@@ -601,13 +602,13 @@ if (card_has_tag(card, "creature")) {
                     <div>
                         Discover all of the available tags and their function!
                     </div>
-                    <select id="tag-selector" class="form-control tag-selector">
+                    <select id="tag-selector" class="form-select form-select-lg tag-selector">
                         <option>(select tag)</option>
                     </select>
                     <div id="tag-selector-explanation"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -617,7 +618,7 @@ if (card_has_tag(card, "creature")) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button type="button" class="close" data-bs-dismiss="modal">
                         <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
                     <h4 class="modal-title">BBCode Guide</h4>
@@ -626,13 +627,13 @@ if (card_has_tag(card, "creature")) {
                     <div>
                         Discover all of the available BBCode tags and their function!
                     </div>
-                    <select id="bbcode-selector" class="form-control tag-selector">
+                    <select id="bbcode-selector" class="form-select form-select-lg tag-selector">
                         <option>(select tag)</option>
                     </select>
                     <div id="bbcode-selector-explanation"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

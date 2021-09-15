@@ -256,9 +256,15 @@ function ui_setup_color_selector() {
         $('#card-color').trigger('change')
     });
 
+    const length = 100 / Object.entries(default_color_palette).length
     for (const [key, value] of Object.entries(default_color_palette)) {
         //<button data-bs-toggle="tooltip" data-bs-placement="top" value="008000" title="Uncommon" type="button" class="btn btn-sm btn-default palette-btn" />
-        let button = `<button data-bs-toggle="tooltip" data-bs-placement="top" value="${value}" title="${key}" type="button" class="btn btn-sm btn-default palette-btn" />`
+        let button = `<button data-bs-toggle="tooltip" 
+            data-bs-placement="top" value="${value}"
+            style="width: calc(${length}% - 2px)"
+            title="${key}" type="button" 
+            class="btn btn-sm btn-default palette-btn" 
+        />`
         $("#color-palette").append(button);
     }
 }
