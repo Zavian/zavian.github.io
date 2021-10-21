@@ -581,29 +581,29 @@ $('#copyBack').click(function() {
 });
 
 $('#copyAll').click(function() {
+    $("#copyArea").show();
     var front = $('#imgur-front').val();
     var back = $('#imgur-back').val();
     var color = $('#card-color').val();
     var tc = colorCheck(color.toLowerCase());
-    $('#clipboardManipulator').html(tc + ' ' + front + ' ' + back);
-    var range = document.createRange(),
-        selection = window.getSelection();
 
-    var content = document.getElementById('clipboardManipulator');
-    // Clear selection from any previous data.
-    selection.removeAllRanges();
 
-    // Make the range select the entire content of the contentHolder paragraph.
-    range.selectNodeContents(content);
+    let oldText = $('#clipboardManipulator').text()
+    $('#clipboardManipulator').text(tc + " " + front + " " + back);
+    if (oldText.length > 0) $('#clipboardManipulator').text($('#clipboardManipulator').text() + "\n" + oldText)
+    let lines = $('#clipboardManipulator').val().split('\n').length
+    if (lines > 3) {
+        $("#clipboardManipulator").attr("rows", lines);
+    } else $("#clipboardManipulator").attr("rows", 4);
 
-    // Add that range to the selection.
-    selection.addRange(range);
+    $('#clipboardManipulator').select()
+    document.execCommand('copy')
+    document.selection.empty()
+});
 
-    // Copy the selection to clipboard.
-    document.execCommand('copy');
-
-    // Clear selection if you want to.
-    selection.removeAllRanges();
+$("#clearAll").click(function(e) {
+    e.preventDefault();
+    $("#clipboardManipulator").text("")
 });
 
 function uploadToImgur(canvas, side) {
@@ -1033,6 +1033,9 @@ $(document).ready(function() {
         let curr = $('#back-contents').val();
         $('#back-contents').val(curr.length > 0 ? `${curr}\n${txt}` : txt).change();
     });
+
+    $("#copyArea").hide();
+
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl)
