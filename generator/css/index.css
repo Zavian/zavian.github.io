@@ -1,0 +1,102 @@
+    /* center block in page */
+    
+    body {
+        max-width: 70%;
+        margin: 0 auto;
+    }
+    
+    #left {
+        padding: 10px;
+        text-align: justify;
+    }
+    
+    #right {
+        padding: 50px;
+        margin-top: -15px
+    }
+    
+    #right button {
+        min-height: 70px;
+        margin: auto;
+        margin-top: 10px;
+    }
+    
+    #github {
+        border-bottom: 1px dashed white;
+    }
+    
+    #desc-block {
+        margin-left: 8px;
+    }
+    
+    a:hover {
+        text-decoration: none;
+    }
+    
+    .btn-indigo {
+        background-color: #6610f2;
+        color: #fff;
+    }
+    
+    .btn-indigo:hover {
+        background-color: #7b1be6;
+        color: #fff;
+    }
+    
+    .btn-indigo:focus {
+        background-color: #7b1be6;
+        color: #fff;
+    }
+    
+    .btn-lightorange {
+        background-color: #d69026;
+        color: #fff;
+    }
+    
+    .btn-lightorange:hover {
+        background-color: #c59a49;
+        color: #fff;
+    }
+    
+    .btn-lightorange:focus {
+        background-color: #daa138;
+        color: #fff;
+    }
+    
+    .btn-navy {
+        background-color: #0d47a1;
+        color: #fff;
+    }
+    
+    .btn-navy:hover {
+        background-color: #2361bd;
+        color: #fff;
+    }
+    
+    .btn-navy:focus {
+        background-color: #0c5eda;
+        color: #fff;
+    }
+    
+    .container-fluid {
+        padding-top: 20%;
+        max-width: 100%;
+    }
+    
+    .level {
+        font-style: italic;
+        color: gray;
+    }
+    
+    .bold {
+        font-weight: bold;
+    }
+    
+    .desc {
+        padding-left: .25em
+    }
+    
+    .name {
+        color: blanchedalmond;
+        font-size: 2em
+    }
