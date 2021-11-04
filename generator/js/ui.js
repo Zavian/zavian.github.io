@@ -630,6 +630,8 @@ function uploadToImgur(canvas, side) {
             }
         }
     });
+
+    canvas.remove();
 }
 
 function colorCheck(color) {

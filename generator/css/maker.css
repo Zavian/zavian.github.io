@@ -3,15 +3,16 @@ body {
     height: 100%;
 }
 
-.container {
-    margin: auto;
-    width: 55%;
-    padding: 10px;
+pre {
+    text-align: left;
+    background-color: inherit;
+    color: inherit;
+    border: none;
+    margin: -30px
 }
 
 textarea {
-    min-width: 100%;
-    max-width: 100%;
+    white-space: pre-wrap;
 }
 
 .col-centered {

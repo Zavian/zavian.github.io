@@ -1,24 +1,6 @@
 $(document).ready(function() {
-    $('#button-export').click(function(e) {
-        let title = $('#title').val();
-        let color = $('#color-hex').val();
-        let description = $('#description').val();
-        let lore = $('#lore').val();
-        let price = $('#price').val();
-        console.log([
-            title,
-            color,
-            description,
-            lore,
-            price
-        ]);
-
-        if (title != '' && description != '') {
-            let result = makeResult(title, description, lore, color, price);
-            $('#result').text(parseResult(result));
-        }
-    });
-    $('#color').change(function(e) {
+    $('input').on('input', function() { generate() })
+    $('#color').on('input', function(e) {
         $('#color-hex').val($('#color').val());
         $('#color-hex').trigger('change');
     });
@@ -32,6 +14,26 @@ $(document).ready(function() {
         copyText(c);
     });
 });
+
+function generate() {
+    let title = $('#title').val();
+    let color = $('#color-hex').val();
+    let description = $('#description').val();
+    let lore = $('#lore').val();
+    let price = $('#price').val();
+    console.log([
+        title,
+        color,
+        description,
+        lore,
+        price
+    ]);
+
+    if (title != '' && description != '') {
+        let result = makeResult(title, description, lore, color, price);
+        $('#result').text(JSON.stringify(result, null, 4));
+    }
+}
 
 function makeResult(title, description, lore, color, price) {
     if (color != '' && color != null) {

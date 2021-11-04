@@ -26,14 +26,9 @@
     <script type="text/javascript" src="data/card_data_example.js"></script>
     <!-- Javascript -->
     <script type="text/javascript" src="js/maker.js"></script>
+    <script type="text/javascript" src="js/navbar.js"></script>
     <!-- CSS -->
-    <link href="css/ui.css" rel="stylesheet" />
-    <link href="css/cards.css" rel="stylesheet" />
-    <link href="css/card-size.css" rel="stylesheet" />
-    <link href="css/icons.css" rel="stylesheet" />
-    <link href="css/class-icons.css" rel="stylesheet" />
-    <link href="css/custom-icons.css" rel="stylesheet" />
-    <link href="css/bbcoder.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/ui.css" />
     <link href="css/maker.css" rel="stylesheet" />
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
@@ -42,7 +37,7 @@
 
 <body>
     <div class="container-fluid">
-        <div class="container">
+        <div class="col-md-12 col-lg-7">
             <form class="form-horizontal" role="form">
                 <div class="form-group">
                     <label for="title" class="col-sm-2 control-label">Title</label>
@@ -78,16 +73,13 @@
                     </div>
                 </div>
             </form>
-            <div class="form-group">
-                <div class="col-sm-3 col-centered">
-                    <button type="button" class="btn btn-success btn-block" id="button-export" style="margin-top:50px">
-                        Export
-                    </button>
+        </div>
+        <div class="col-md-12 col-lg-5">
+            <div class="col-sm-10 col-centered result">
+                <div class="tag-code center">
+                    <pre id="result"></pre>
                 </div>
-                <div class="col-sm-10 col-centered result">
-                    <div class="tag-code center" id="result"></div>
-                    <button class="btn btn-dark" id="copy-text">Copy Text</button>
-                </div>
+                <button class="btn btn-dark" id="copy-text">Copy Text</button>
             </div>
         </div>
 </body>
