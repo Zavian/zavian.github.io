@@ -1,0 +1,27 @@
+.epic-action {
+    padding-top: 0.5em;
+}
+
+.btn-epic {
+    height: 5.4em;
+}
+
+[name=epic-tooltip] {
+    border-radius: 0px 0px 0px 0.25rem;
+}
+
+[name=epic-action] {
+    border-radius: 0.25rem 0px 0px 0px;
+}
+
+pre {
+    text-align: left;
+    background-color: inherit;
+    color: inherit;
+    border: none;
+    margin: -30px
+}
+
+textarea {
+    white-space: pre-wrap;
+}
