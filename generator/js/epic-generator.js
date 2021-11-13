@@ -138,16 +138,35 @@ function createEpicInput(inputAction, inputTooltip) {
     let inputGroup = document.createElement("div");
     inputGroup.className = "input-group mb-3";
 
+    let actionDiv = document.createElement("div");
+    actionDiv.className = "holder"
+
+    let counterLabel = document.createElement("label");
+    counterLabel.className = "pull-right label label-default";
+    counterLabel.ariaLabel = "count-action";
+    counterLabel.innerText = "0";
+    actionDiv.appendChild(counterLabel);
+
     let action = document.createElement("input");
     action.type = "text";
     action.className = "form-control";
     action.ariaLabel = "Action";
     action.name = "epic-action";
     action.placeholder = "Epic Action";
-    action.oninput = function() { generate() };
-    if (inputAction != null) action.value = inputAction;
+    action.maxLength = "65";
+    action.oninput = function() {
+        generate()
+        colorCount($(this));
+    };
+    actionDiv.appendChild(action);
 
-    inputGroup.appendChild(action);
+
+    inputGroup.appendChild(actionDiv);
+
+    if (inputAction != null) {
+        action.value = inputAction;
+        colorCount($(action));
+    }
 
     let tooltip = document.createElement("input");
     tooltip.type = "text";
@@ -180,4 +199,14 @@ function createEpicInput(inputAction, inputTooltip) {
 
 
     return container;
+}
+
+function colorCount(element) {
+    let count = element.val().length;
+
+    var hue = (function() {
+        return 65 * 2 - count * 2;
+    })();
+    element.parent().find("label[aria-label='count-action']").css('background-color', `hsl(${hue},90%, 44%)`);
+    element.parent().find("label[aria-label='count-action']").text(count);
 }
