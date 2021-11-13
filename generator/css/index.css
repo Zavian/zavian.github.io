@@ -19,6 +19,7 @@
         min-height: 70px;
         margin: auto;
         margin-top: 10px;
+        min-width: 100px;
     }
     
     #github {
