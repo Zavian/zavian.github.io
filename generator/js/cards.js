@@ -839,6 +839,7 @@ function card_pages_insert_into(card_data, container) {
 }
 
 function parseFs(params) {
+    if (params.length == 0) return ''
     if (params[params.length - 1].indexOf('fs') == -1) return "";
     return " " + params[params.length - 1];
 }
