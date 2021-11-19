@@ -297,9 +297,5 @@
 }
 
 .card-action {
-    margin: auto;
-    font-size: xx-large;
     text-align: center;
-    padding-inline: 5%;
-    line-height: .75em;
 }

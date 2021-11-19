@@ -209,31 +209,34 @@ function card_element_description(params, card_data, options) {
 
 function card_element_text(params, card_data, options) {
     var result = '';
+    var fs = parseFs(params)
     result += '<div class="card-element card-description-line">';
-    result += '   <p class="card-p card-description-text">' + params[0] + '</p>';
+    result += `   <p class="card-p card-description-text${fs}">` + params[0] + '</p>';
     result += '</div>';
     return result;
 }
 
 function card_element_center(params, card_data, options) {
     var result = '';
+    var fs = parseFs(params)
     result += '<div class="card-element card-description-line" style="text-align: center">';
-    result += '   <p class="card-p card-description-text">' + params[0] + '</p>';
+    result += `   <p class="card-p card-description-text${fs}">` + params[0] + '</p>';
     result += '</div>';
     return result;
 }
 
 function card_element_justify(params, card_data, options) {
     var result = '';
+    var fs = parseFs(params)
     result += '<div class="card-element card-description-line" style="text-align: justify; hyphens: auto">';
-    result += '   <p class="card-p card-description-text">' + params[0] + '</p>';
+    result += `   <p class="card-p card-description-text${fs}">` + params[0] + '</p>';
     result += '</div>';
     return result;
 }
 
 function card_element_action(params, card_data, options) {
     var result = '';
-    var fs = parseFs(params)
+    var fs = parseFs(params) ? parseFs(params) : " fs-2"
     result += '<div class="card-element card-action">';
     result += `   <p class="card-p card-description-text ${fs}">` + params[0] + '</p>';
     result += '</div>';
@@ -837,5 +840,5 @@ function card_pages_insert_into(card_data, container) {
 
 function parseFs(params) {
     if (params[params.length - 1].indexOf('fs') == -1) return "";
-    return params[params.length - 1];
+    return " " + params[params.length - 1];
 }
