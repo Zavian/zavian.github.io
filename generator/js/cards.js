@@ -231,6 +231,15 @@ function card_element_justify(params, card_data, options) {
     return result;
 }
 
+function card_element_action(params, card_data, options) {
+    var result = '';
+    var fs = parseFs(params)
+    result += '<div class="card-element card-action">';
+    result += `   <p class="card-p card-description-text ${fs}">` + params[0] + '</p>';
+    result += '</div>';
+    return result;
+}
+
 function card_element_dndstats(params, card_data, options) {
     var stats = [
         10,
@@ -327,7 +336,8 @@ var card_element_generators = {
     icon: card_element_inline_icon,
     lore: card_element_lore,
     centerlore: card_element_centerlore,
-    stats: card_element_stats
+    stats: card_element_stats,
+    action: card_element_action
 };
 
 var card_element_generators_translator = {
@@ -823,4 +833,9 @@ function card_pages_insert_into(card_data, container) {
     // Insert the HTML
     var html = card_pages_generate_html(card_data);
     container.innerHTML = html;
+}
+
+function parseFs(params) {
+    if (params[params.length - 1].indexOf('fs') == -1) return "";
+    return params[params.length - 1];
 }
