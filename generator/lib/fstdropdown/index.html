@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>fstdropdown demo</title>
+    <meta name="description" content="fstdropdown demo">
+    <meta name="author" content="VirtusX">
+    <link rel="stylesheet" href="fstdropdown.css">
+</head>
+<body>
+    <h1>fstdropdown demo</h1>
+    <p>fstdropdown initializes on page load, just add class "fstdropdown-select" to your select. 	</p>
+    <p>
+        <code>	 &lt;select class='fstdropdown-select'>	 &lt;/select>	</code>
+        <select class='fstdropdown-select' id="first">
+            <option value="">Select option</option>
+            <option value="1">1   First   2</option>
+            <option value="2">Second</option>
+            <option value="3">Third</option>
+        </select>
+    </p>
+    <p>If you dont need search in dropdown,just add data-searchdisable="true" to select.</p>
+    <p>
+        <code>	 &lt;select class='fstdropdown-select' data-searchdisable="true">	 &lt;/select>	</code>
+        <select class='fstdropdown-select' data-searchdisable='true' id="second">
+            <option value="">Select option</option>
+            <option value="1">First</option>
+            <option value="2">Second</option>
+            <option value="3">Third</option>
+        </select>
+    </p>
+    <p>If you add select dynamically, add "fstdropdown-select" to it and call function setFstDropdown().</p>
+    <p>
+        <select id="third">
+            <option value="">Select option</option>
+            <option value="1">First</option>
+            <option value="2">Second</option>
+            <option value="3">Third</option>
+        </select>
+    </p>
+    <p>	<button type="button" onclick="setDrop()">Set dropdown</button> <button onclick="removeDrop()">Remove dropdown</button></p>
+    <p>If you change your select options list, use document.querySelector("your select").fstdropdown.rebind() to update dropdown list.</p>
+    <p>
+        <select class='fstdropdown-select' id="fourth">
+            <option value="">Select option</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </p>
+    <p>
+        <button type="button" onclick="addOptions(1)">Add option</button>
+        <button type="button" onclick="addOptions(1000)">Add thousand options</button>
+        <button type="button" onclick="removeOptions(1)">Remove option</button>
+        <button type="button" onclick="removeOptions(1000)">Remove thousand options</button>
+        <button onclick="updateDrop()">Update dropdown</button>
+    </p>
+    <p>You can use multiselect, by adding attribute multiple="multiple" to select</p>
+    <p>
+        <select class='fstdropdown-select' id="fifth" multiple="multiple">
+            <option value="1">First</option>
+            <option value="2">Second</option>
+            <option value="3">Third</option>
+        </select>
+    </p>
+    <p>If you want to add placeholder to search input, add data-placeholder to select.</p>
+    <p>
+        <select class='fstdropdown-select' id="sixth" data-placeholder="This is placeholder">
+            <option value="">Select option</option>
+            <option value="1">First</option>
+            <option value="2">Second</option>
+            <option value="3">Third</option>
+        </select>
+    </p>
+    <p>
+        If you need to select value, use document.querySelector("your select").fstdropdown.setValue() function.
+    </p>
+<p>
+    For select one option, use document.querySelector("your select").fstdropdown.setValue("your option"), for multiple options document.querySelector("your select").fstdropdown.setValue(["option 1", "option 2"])
+</p>
+<p>
+    <select class="fstdropdown-select" id="selectOptions" multiple="multiple">
+        <option value="1">First</option>
+        <option value="2">Second</option>
+        <option value="3">Third</option>
+    </select>
+</p>
+<p>
+    <button type="button" onclick='document.querySelector("#selectOptions").fstdropdown.setValue("1")'>Select first option</button>
+    <button type="button" onclick='document.querySelector("#selectOptions").fstdropdown.setValue(["2", "3"])'>Select second and third options</button>
+</p>
+    <p>If you want to use opened select or multiselect, add data-opened="true" to select</p>
+    <p>
+        <div style="width: 50%; float: left">
+            <select class='fstdropdown-select' id="seventh" data-opened="true">
+                <option value="1">First</option>
+                <option value="2">Second</option>
+                <option value="3">Third</option>
+            </select>
+        </div>
+        <div style="width: 50%; float: left">
+            <select class='fstdropdown-select' multiple="multiple" id="eightieth" data-opened="true">
+                <option value="1">First</option>
+                <option value="2">Second</option>
+                <option value="3">Third</option>
+            </select>
+        </div>
+    </p>
+    <script src="fstdropdown.js"></script>
+    <script>
+        function setDrop() {
+            if (!document.getElementById('third').classList.contains("fstdropdown-select"))
+                document.getElementById('third').className = 'fstdropdown-select';
+            setFstDropdown();
+        }
+        setFstDropdown();
+        function removeDrop() {
+            if (document.getElementById('third').classList.contains("fstdropdown-select")) {
+                document.getElementById('third').classList.remove('fstdropdown-select');
+                document.getElementById("third").fstdropdown.dd.remove();
+                document.querySelector("#third~.fstdiv").remove();
+            }
+        }
+        function addOptions(add) {
+            var select = document.getElementById("fourth");
+            for (var i = 0; i < add; i++) {
+                var opt = document.createElement("option");
+                var o = Array.from(document.getElementById("fourth").querySelectorAll("option")).slice(-1)[0];
+                var last = o == undefined ? 1 : Number(o.value) + 1;
+                opt.text = opt.value = last;
+                select.add(opt);
+            }
+        }
+        function removeOptions(remove) {
+            for (var i = 0; i < remove; i++) {
+                var last = Array.from(document.getElementById("fourth").querySelectorAll("option")).slice(-1)[0];
+                if (last == undefined)
+                    break;
+                Array.from(document.getElementById("fourth").querySelectorAll("option")).slice(-1)[0].remove();
+            }
+        }
+        function updateDrop() {
+            document.getElementById("fourth").fstdropdown.rebind();
+        }
+    </script>
+</body>
+</html>

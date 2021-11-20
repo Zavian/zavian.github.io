@@ -20,6 +20,11 @@
     <script type="text/javascript" src="lib/bbcode2html/js/bbcode2html.js" charset="utf-8"></script>
     <!-- Library: Fitty -->
     <script type="text/javascript" src="lib\fitty\fitty.min.js"></script>
+    <!-- Library: fstdropdown -->
+    <script type="text/javascript" src="lib/fstdropdown/fstdropdown.js"></script>
+    <link rel="stylesheet" type="text/css" href="lib/fstdropdown/fstdropdown.css" />
+    <!-- Library: mousetrap -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
     <!-- Data -->
     <script type="text/javascript" src="data/card_data_example.js"></script>
     <!-- Javascript -->
@@ -83,7 +88,7 @@
                     <div class="form-group">
                         <div class="col-sm-12">
                             <button type="button" class="btn btn-success btn-block" id="button-imgur">
-                                Export to Imgur
+                                Export to Imgur <span class="bold">(Alt+Enter)</span>
                             </button>
                         </div>
                     </div>
@@ -157,7 +162,7 @@
                     <div class="form-group">
                         <label for="default-title-size" class="col-sm-3 control-label">Title</label>
                         <div class="col-sm-9">
-                            <select class="form-control" id="default-title-size">
+                            <select class="form-select form-select-lg" id="default-title-size">
                                 <option value="16">16pt font</option>
                                 <option value="15">15pt font</option>
                                 <option value="14">14pt font</option>
@@ -196,17 +201,11 @@
             </div>
             <div class="col-md-12 col-lg-5">
                 <!--<h3>Card</h3>-->
-                <form class="form-horizontal" role="form">
-                    <div class="form-group">
-                        <label for="selected-card" class="col-sm-2 control-label">Deck</label>
-                        <div class="col-sm-10">
-                            <p class="form-control-static" id="total_card_count">Deck contains 0 cards.</p>
-                        </div>
-                    </div>
+                <form class="form-horizontal" role="form" autocomplete="off">
                     <div class="form-group">
                         <label for="selected-card" class="col-sm-2 control-label">Card</label>
                         <div class="col-sm-10">
-                            <select class="form-select form-select-lg" id="selected-card"></select>
+                            <select class="form-select form-select-lg fstdropdown-select" id="selected-card"></select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -251,7 +250,7 @@
                     <div class="form-group">
                         <label for="card-title-size" class="col-sm-2 control-label">Title</label>
                         <div class="col-sm-10">
-                            <select class="form-control" id="card-title-size" data-property="title_size">
+                            <select class="form-select form-select-lg" id="card-title-size" data-property="title_size">
                                 <option value="" selected>default font</option>
                                 <option value="16">16pt font</option>
                                 <option value="15">15pt font</option>
@@ -325,13 +324,13 @@
                         <div class="col-sm-10">
                             <div class="styling-block">
                                 <div>
-                                    <button data-bs-toggle="tooltip" data-bs-placement="top" title="Make Bold" id="bold-front" type="button" class="btn btn-sm btn-default bold-btn">B</button>
-                                    <button data-bs-toggle="tooltip" data-bs-placement="top" title="Make Italic" id="italic-front" type="button" class="btn btn-sm btn-default italics-btn">I</button>
-                                    <button data-bs-toggle="tooltip" data-bs-placement="top" title="Make Underline" id="underline-front" type="button" class="btn btn-sm btn-default underline-btn">U</button>
-                                    <button data-bs-toggle="tooltip" data-bs-placement="top" title="Make Weapon" id="mkweapon-front" type="button" class="btn btn-sm btn-default">Make
+                                    <button tabindex="-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Make Bold (Ctrl+B)" id="bold-front" type="button" class="btn btn-sm btn-default bold-btn">B</button>
+                                    <button tabindex="-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Make Italic (Ctrl+I)" id="italic-front" type="button" class="btn btn-sm btn-default italics-btn">I</button>
+                                    <button tabindex="-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Make Underline (Ctrl+U)" id="underline-front" type="button" class="btn btn-sm btn-default underline-btn">U</button>
+                                    <button tabindex="-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Make Weapon" id="mkweapon-front" type="button" class="btn btn-sm btn-default">Make
                                         Weapon</button>
                                     <div title="Insert a tag" class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">
+                                        <button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">
                                             Make Tag&nbsp;&nbsp;
                                         </button>
                                         <ul id="front-tag-maker" class="dropdown-menu scrollable-menu" role="menu">
@@ -353,12 +352,12 @@
                         <label for="back-contents" class="col-sm-2 control-label">Back Contents</label>
                         <div class="col-sm-10">
                             <div class="styling-block">
-                                <button data-bs-toggle="tooltip" data-bs-placement="top" title="Make Bold" id="bold-back" type="button" class="btn btn-sm btn-default bold-btn">B</button>
-                                <button data-bs-toggle="tooltip" data-bs-placement="top" title="Make Italic" id="italic-back" type="button" class="btn btn-sm btn-default italics-btn">I</button>
-                                <button data-bs-toggle="tooltip" data-bs-placement="top" title="Make Underline" id="underline-back" type="button" class="btn btn-sm btn-default underline-btn">U</button>
-                                <button data-bs-toggle="tooltip" data-bs-placement="top" title="Make Weapon" id="mkweapon-back" type="button" class="btn btn-sm btn-default">Make Weapon</button>
+                                <button tabindex="-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Make Bold (Ctrl+B)" id="bold-back" type="button" class="btn btn-sm btn-default bold-btn">B</button>
+                                <button tabindex="-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Make Italic (Ctrl+I)" id="italic-back" type="button" class="btn btn-sm btn-default italics-btn">I</button>
+                                <button tabindex="-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Make Underline (Ctrl+U)" id="underline-back" type="button" class="btn btn-sm btn-default underline-btn">U</button>
+                                <button tabindex="-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Make Weapon" id="mkweapon-back" type="button" class="btn btn-sm btn-default">Make Weapon</button>
                                 <div title="Insert a tag" class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">
+                                    <button tabindex="-1" type="button" class="btn btn-sm btn-default dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">
                                         Make Tag&nbsp;&nbsp;
                                     </button>
                                     <ul id="back-tag-maker" class="dropdown-menu scrollable-menu" role="menu">

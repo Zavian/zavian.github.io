@@ -99,6 +99,7 @@ function ui_add_new_card() {
     card_data.push(card_default_data());
     ui_update_card_list();
     ui_select_card_by_index(card_data.length - 1);
+
 }
 
 function ui_add_new_card_with_data(data, dontUpdate) {
@@ -129,7 +130,8 @@ function ui_duplicate_card() {
 }
 
 function ui_select_card_by_index(index) {
-    $('#selected-card').val(index);
+    // $('#selected-card').val(index);
+    document.querySelector("#selected-card").fstdropdown.setValue(index)
     ui_update_selected_card();
 }
 
@@ -156,6 +158,12 @@ function ui_update_card_list() {
         var card = card_data[i];
         let option = `<option value="${i}">${card.title}</option>`
         $('#selected-card').append(option);
+    }
+    try {
+        // need a try catch on the first load or it breaks shit
+        document.querySelector("#selected-card").fstdropdown.rebind();
+    } catch (error) {
+
     }
 
     ui_update_selected_card();
@@ -300,6 +308,7 @@ function ui_change_card_title() {
     if (card) {
         card.title = title;
         $('#selected-card option:selected').text(title);
+        document.querySelector('#selected-card').fstdropdown.setTitle(title);
         ui_render_selected_card();
     }
 }
@@ -840,6 +849,7 @@ $(document).ready(function() {
     $('#button-apply-icon-back').click(ui_apply_default_icon_back);
     $('#button-to-last').click(ui_update);
 
+    //document.querySelector('#selected-card').setFstDropdown();
     $('#selected-card').change(ui_update_selected_card);
 
     $('#card-title').change(ui_change_card_title);
@@ -1038,11 +1048,66 @@ $(document).ready(function() {
 
     $("#copyArea").hide();
 
+    setupShortcuts()
+
+    // setting up tooltips
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl)
     })
 });
+
+function setupShortcuts() {
+    Mousetrap.bind('up', function(e) {
+        e.preventDefault();
+        if (!$(':focus').hasClass('form-control')) {
+            document.querySelector('#selected-card').fstdropdown.previous()
+        }
+    });
+    Mousetrap.bind('down', function(e) {
+        e.preventDefault();
+        if (!$(':focus').hasClass('form-control')) {
+            document.querySelector('#selected-card').fstdropdown.next()
+        }
+    });
+
+    Mousetrap.bind('alt+enter', function(e) {
+        e.preventDefault();
+        $('#button-imgur').trigger('click');
+    })
+    Mousetrap.bind("ctrl+n", function(e) {
+        e.preventDefault();
+        $('#button-add-card').trigger('click');
+    })
+    Mousetrap.bind('pagedown', function(e) {
+        e.preventDefault();
+        $('#button-to-last').trigger('click');
+    })
+
+
+    $('#card-contents').addClass('mousetrap')
+    $('#back-contents').addClass('mousetrap')
+
+    Mousetrap.bind('ctrl+b', function(e) {
+        e.preventDefault();
+        let active = document.activeElement.id;
+        if (active == 'card-contents' || active == 'back-contents')
+            bbcoder('B', checker(active == 'card-contents' ? 'front' : 'back'));
+    });
+    Mousetrap.bind('ctrl+i', function(e) {
+        e.preventDefault();
+        let active = document.activeElement.id;
+        if (active == 'card-contents' || active == 'back-contents')
+            bbcoder('I', checker(active == 'card-contents' ? 'front' : 'back'));
+    });
+    Mousetrap.bind('ctrl+u', function(e) {
+        e.preventDefault();
+        let active = document.activeElement.id;
+        if (active == 'card-contents' || active == 'back-contents')
+            bbcoder('U', checker(active == 'card-contents' ? 'front' : 'back'));
+    });
+
+}
 
 function getBBCodeExplanation(tag) {
     let a = bbcodeParser.bbCodes;

@@ -6,3 +6,4 @@
 /.vscode/*
 /emblem-generator/*
 /generator/lib/bootstrap-3.4/*
+/generator/generate-test.html
