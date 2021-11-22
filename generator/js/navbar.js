@@ -16,11 +16,12 @@ $(document).ready(function() {
         },
         "potion-maker.html": { "name": "💦 Potion Maker" }
     };
-    let navbar = $("<nav class='navbar navbar-expand-lg navbar-dark bg-dark'></nav>");
+    let navbar = $("<nav style='height:50px' class='navbar navbar-expand-lg navbar-dark bg-dark'></nav>");
 
-    if (current_page == "generate.html") {
-        navbar.attr("style", "margin-bottom:0px!important;margin-top:20px;")
-    }
+    //if (current_page == "generate.html") {
+    //    navbar.attr("style", "margin-bottom:0px!important;margin-top:20px;")
+    //    navbar.addClass('fixed-bottom')
+    //}
 
     let container = $("<div class='container-fluid'></div>");
     let brand = $(`<a class='navbar-brand' href='#'>${links[current_page].name}</a>`);
@@ -59,9 +60,10 @@ $(document).ready(function() {
         let span = $(`<span class="navbar-text" style="font-size:18px;color:white;text-align:right;width:100%">${links[current_page].desc}</span>`);
         navbar.append(span)
     }
+    $("body").prepend(navbar);
 
-    if (current_page == "generate.html") {
-        $("body").append(navbar);
-    } else
-        $("body").prepend(navbar);
+    //if (current_page == "generate.html") {
+    //    $("body").append(navbar);
+    //} else
+    //    $("body").prepend(navbar);
 });

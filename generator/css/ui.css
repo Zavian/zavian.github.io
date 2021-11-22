@@ -133,6 +133,22 @@
     margin-top: -12px;
 }
 
+#deck-size {
+    text-align: center;
+    padding: 10px;
+    background-color: #181a1b;
+    color: #cdc8c2;
+    font-size: 1.5rem;
+    border-radius: 4px;
+    border: 1px solid #42b6d9;
+}
+
+.shortcut-code {
+    font-family: Consolas, 'Liberation Mono', Courier, monospace;
+    padding: 3px;
+    background-color: #181a1b
+}
+
 .scrollable-menu {
     height: auto;
     max-height: 200px;

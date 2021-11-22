@@ -151,7 +151,7 @@ function ui_delete_card() {
 }
 
 function ui_update_card_list() {
-    $('#total_card_count').text('Deck contains ' + card_data.length + ' unique cards.');
+    $('#deck-size').text('Deck contains ' + card_data.length + ' unique cards.');
 
     $('#selected-card').empty();
     for (var i = 0; i < card_data.length; ++i) {
@@ -943,6 +943,8 @@ $(document).ready(function() {
     $.each(Object.keys(card_element_generators), function() {
         $('#tag-selector').append($('<option />').val(this).text(card_element_generators_translator[this]));
     });
+    $("#tag-selector-fs-support").hide();
+
     bbcodeParser.bbCodes.forEach((bbcode) => {
         $('#bbcode-selector').append($('<option />').val(bbcode.code).text(bbcode.pattern));
     });
@@ -1015,6 +1017,12 @@ $(document).ready(function() {
     $('#tag-selector').change(function() {
         var tag = $('option:selected', this).val();
         $('#tag-selector-explanation').html(card_elemement_generators_expanation[tag]);
+        if (tag == "text" || tag == "center" || tag == "justify" || tag == "action") {
+            $('#tag-selector-fs-support').show();
+        } else {
+            $('#tag-selector-fs-support').hide();
+        }
+
     });
     $('#bbcode-selector').change(function() {
         var tag = $('option:selected', this).val();
@@ -1058,55 +1066,102 @@ $(document).ready(function() {
 });
 
 function setupShortcuts() {
-    Mousetrap.bind('up', function(e) {
-        e.preventDefault();
-        if (!$(':focus').hasClass('form-control')) {
-            document.querySelector('#selected-card').fstdropdown.previous()
-        }
-    });
-    Mousetrap.bind('down', function(e) {
-        e.preventDefault();
-        if (!$(':focus').hasClass('form-control')) {
-            document.querySelector('#selected-card').fstdropdown.next()
-        }
-    });
+    const shortcuts = {
+        // Deck movement shortcuts
+        'up': {
+            func: (e) => {
+                e.preventDefault();
+                if (!$(':focus').hasClass('form-control')) {
+                    document.querySelector('#selected-card').fstdropdown.previous()
+                }
+            },
+            desc: "Select the previous card in the deck."
+        },
+        'down': {
+            func: (e) => {
+                e.preventDefault();
+                if (!$(':focus').hasClass('form-control')) {
+                    document.querySelector('#selected-card').fstdropdown.next()
+                }
+            },
+            desc: "Select the next card in the deck."
+        },
+        'pagedown': {
+            func: (e) => {
+                e.preventDefault();
+                $('#button-to-last').trigger('click');
+            },
+            desc: "Select last card of the deck."
+        },
 
-    Mousetrap.bind('alt+enter', function(e) {
-        e.preventDefault();
-        $('#button-imgur').trigger('click');
-    })
-    Mousetrap.bind("ctrl+n", function(e) {
-        e.preventDefault();
-        $('#button-add-card').trigger('click');
-    })
-    Mousetrap.bind('pagedown', function(e) {
-        e.preventDefault();
-        $('#button-to-last').trigger('click');
-    })
+        // Deck management shortcuts
+        'ctrl+s': {
+            func: (e) => {
+                e.preventDefault();
+                $('#button-save').trigger('click');
+            },
+            desc: "Save the deck into a json file."
+        },
+        'ctrl+r': {
+            func: (e) => {
+                e.preventDefault();
+                $('#button-add-card').trigger('click');
+            },
+            desc: "Create a new card."
+        },
 
+        // Card management shortcuts
+        'ctrl+e': {
+            func: (e) => {
+                e.preventDefault();
+                $('#button-imgur').trigger('click');
+            },
+            desc: "Export the selected card in imgur."
+        },
+        'ctrl+b': {
+            func: (e) => {
+                e.preventDefault();
+                let active = document.activeElement.id;
+                if (active == 'card-contents' || active == 'back-contents')
+                    bbcoder('B', checker(active == 'card-contents' ? 'front' : 'back'));
+            },
+            desc: "<span class='fw-bold'>Bold</span> the selected text in the card description (BBCode)."
+        },
+        'ctrl+i': {
+            func: (e) => {
+                e.preventDefault();
+                let active = document.activeElement.id;
+                if (active == 'card-contents' || active == 'back-contents')
+                    bbcoder('I', checker(active == 'card-contents' ? 'front' : 'back'));
+            },
+            desc: "Make the selected text in the card description <span class='fst-italic>italic</span> (BBCode)."
+        },
+        'ctrl+u': {
+            func: (e) => {
+                e.preventDefault();
+                let active = document.activeElement.id;
+                if (active == 'card-contents' || active == 'back-contents')
+                    bbcoder('U', checker(active == 'card-contents' ? 'front' : 'back'));
+            },
+            desc: "<span class='text-decoration-underline'>Underline</span> the selected text in the card description (BBCode)."
+        },
+        'f1': {
+            func: (e) => {
+                e.preventDefault();
+                $('#button-help').trigger('click');
+            },
+            desc: "Open this dialog."
+        }
+    }
 
     $('#card-contents').addClass('mousetrap')
     $('#back-contents').addClass('mousetrap')
-
-    Mousetrap.bind('ctrl+b', function(e) {
-        e.preventDefault();
-        let active = document.activeElement.id;
-        if (active == 'card-contents' || active == 'back-contents')
-            bbcoder('B', checker(active == 'card-contents' ? 'front' : 'back'));
-    });
-    Mousetrap.bind('ctrl+i', function(e) {
-        e.preventDefault();
-        let active = document.activeElement.id;
-        if (active == 'card-contents' || active == 'back-contents')
-            bbcoder('I', checker(active == 'card-contents' ? 'front' : 'back'));
-    });
-    Mousetrap.bind('ctrl+u', function(e) {
-        e.preventDefault();
-        let active = document.activeElement.id;
-        if (active == 'card-contents' || active == 'back-contents')
-            bbcoder('U', checker(active == 'card-contents' ? 'front' : 'back'));
-    });
-
+    for (let key in shortcuts) {
+        Mousetrap.bind(key, shortcuts[key].func)
+        let li = document.createElement('li')
+        li.innerHTML = `<span class="shortcut-code">${key == 'f1' ? key.toUpperCase() : key}</span> - ${shortcuts[key].desc}`
+        document.querySelector('#help-modal-keybinds').appendChild(li)
+    }
 }
 
 function getBBCodeExplanation(tag) {

@@ -88,7 +88,7 @@
                     <div class="form-group">
                         <div class="col-sm-12">
                             <button type="button" class="btn btn-success btn-block" id="button-imgur">
-                                Export to Imgur <span class="bold">(Alt+Enter)</span>
+                                Export to Imgur <span class="fw-bold">(Ctrl+E)</span>
                             </button>
                         </div>
                     </div>
@@ -98,14 +98,17 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-12">
-                            <button type="button" class="btn btn-tags btn-block border border-warning" id="button-tags">Available Tags</button>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-tags btn-block" id="button-tags">Available
+                                Tags</button>
+                        </div>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-bbcode btn-block" id="button-bbcode">BBCode
+                                Help</button>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-12">
-                            <button type="button" class="btn btn-bbcode btn-block border border-warning" id="button-bbcode">BBCode Help</button>
-                        </div>
+
                     </div>
                     <!--<span class="help-block">Generated cards open in a new tab or window.</span>-->
                 </form>
@@ -197,6 +200,13 @@
                             </button>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div id="deck-size">
+
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
             <div class="col-md-12 col-lg-5">
@@ -268,12 +278,12 @@
                             <input type="number" id="card-count" class="form-control" placeholder="Count" data-property="count" value="1" />
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="card-tags" class="col-sm-2 control-label">Tags</label>
                         <div class="col-sm-10">
                             <input type="text" id="card-tags" class="form-control" placeholder="Tags" />
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label for="card-icon" class="col-sm-2 control-label">Icon</label>
                         <div class="col-sm-10">
@@ -312,13 +322,12 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="card-background" class="col-sm-2 control-label">Background</label>
                         <div class="col-sm-10">
                             <input type="text" id="card-background" class="form-control" placeholder="Background image URL" data-property="background_image" />
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label for="card-contents" class="col-sm-2 control-label">Contents</label>
                         <div class="col-sm-10">
@@ -455,7 +464,7 @@
                     <h4 class="modal-title" id="myModalLabel">RPG card generator</h4>
                 </div>
                 <div class="modal-body">
-                    <ul>
+                    <!-- <ul>
                         <li>
                             If you find a bug or have a feature request, post them at the
                             <a href="https://github.com/Zavian/zavian.github.io/issues">Github project site</a>.
@@ -480,7 +489,21 @@
                         <li>
                             💡 Added support to import specific JSON for cards.
                         </li>
-                    </ul>
+                    </ul> -->
+                    <div>
+                        The UI of the website is divided in three columns:
+                        <ul>
+                            <li>The left side is dedicated to global settings as well as examples and the uploading of the image in imgur.</li>
+                            <li>The center side is dedicated to the settings of each card. Each card supports BBCode and the sample cards should be loaded to have examples on how to use the tool.</li>
+                            <li>The right side is dedicated to previewing what you are going to get. What you see is what you get and what will be exported in imgur when the button is pressed.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        The website supports a variety of keybindings that you can use to execute actions.
+                        <div id="help-modal-keybinds">
+
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
@@ -611,6 +634,7 @@ if (card_has_tag(card, "creature")) {
                         <option>(select tag)</option>
                     </select>
                     <div id="tag-selector-explanation"></div>
+                    <div id="tag-selector-fs-support"><span class="fw-bold">Supports fs</span>: By adding fs- and a number between 1-6 you can change the text size (1 being biggest, 6 being smallest)</div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>

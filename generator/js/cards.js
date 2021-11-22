@@ -361,7 +361,8 @@ var card_element_generators_translator = {
     icon: 'Icon Tag',
     lore: 'Lore Tag',
     centerlore: 'Center Lore Tag',
-    stats: 'Stats Tag'
+    stats: 'Stats Tag',
+    action: "Action Tag"
 };
 
 var card_elemement_generators_expanation = {
@@ -374,11 +375,11 @@ var card_elemement_generators_expanation = {
     dndstats: 'Appears as a formatted table of the selected card color with the various stats. <br/>Useful for when you make statblocks.' +
         preCode('dndstats'),
     text: 'Standard text with no formatting. Remember that you can use the BBCode to enhance it further.' +
-        preCode('text'),
+        preCode('text', false, true),
     center: 'Centered text with no formatting. Remember that you can use the BBCode to enhance it further.' +
-        preCode('center'),
+        preCode('center', false, true),
     justify: 'Justified text with no formatting. Remember that you can use the BBCode to enhance it further.' +
-        preCode('justify'),
+        preCode('justify', false, true),
     bullet: 'Appears with a bullet point in front of it.' + preCode('bullet'),
     fill: 'Fills a space with nothingness, usefull to create footers or headers without anyhting near it.' +
         preCode('fill'),
@@ -390,10 +391,11 @@ var card_elemement_generators_expanation = {
         preCode('icon'),
     lore: 'Appears as italic orange-ish color, usefull to add an extra depth into the card.' + preCode('lore'),
     centerlore: 'Appears like lore but centered.' + preCode('centerlore'),
-    stats: 'Appears like dndstats but without the modifier value.' + preCode('stats')
+    stats: 'Appears like dndstats but without the modifier value.' + preCode('stats'),
+    action: 'Text colored by the card color. It always appears in the middle.' + preCode('action', false, true)
 };
 
-function preCode(tag, noDiv) {
+function preCode(tag, noDiv, supportsFs) {
     let returner = '';
     if (!noDiv) returner = "<div class='tag-code'>" + tag + ' ';
     else returner = tag + ' ';
@@ -449,7 +451,13 @@ function preCode(tag, noDiv) {
         case 'stats':
             returner += '| (str) | (dex) | (con) | (int) | (wis) | (cha)';
             break;
+        case 'action':
+            returner += '| (text)'
     }
+    if (supportsFs) {
+        returner += ' | [| fs-(1|2|3|4|5|6)]';
+    }
+
     returner = !noDiv ? returner + '</div>' : returner;
     return returner;
 }

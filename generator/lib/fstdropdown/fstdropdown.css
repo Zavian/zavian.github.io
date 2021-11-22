@@ -16,7 +16,7 @@
     border: 1px solid #3d4446;
     color: #cdc8c2;
     border-radius: 4px;
-    cursor: pointer;
+    /*cursor: pointer;*/
     background: #181a1b;
     overflow: hidden;
     width: inherit
