@@ -1070,8 +1070,8 @@ function setupShortcuts() {
         // Deck movement shortcuts
         'up': {
             func: (e) => {
-                e.preventDefault();
                 if (!$(':focus').hasClass('form-control')) {
+                    e.preventDefault();
                     document.querySelector('#selected-card').fstdropdown.previous()
                 }
             },
@@ -1079,8 +1079,8 @@ function setupShortcuts() {
         },
         'down': {
             func: (e) => {
-                e.preventDefault();
                 if (!$(':focus').hasClass('form-control')) {
+                    e.preventDefault();
                     document.querySelector('#selected-card').fstdropdown.next()
                 }
             },
