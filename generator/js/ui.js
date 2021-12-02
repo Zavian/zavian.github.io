@@ -250,7 +250,36 @@ function ui_open_bb() {
 }
 
 function ui_select_icon() {
-    window.open('http://game-icons.net/', '_blank');
+    // window.open('http://game-icons.net/', '_blank');
+    // get function caller id jquery
+    var caller = $(this).attr('id');
+    $('#icon-modal').attr('data-search', caller == "front-icon-search" ?
+        "card-icon" : caller == "back-icon-search" ?
+        "card-icon-back" : "default-icon");
+
+    let card = ui_selected_card();
+    $('#icon-modal').attr('data-color', card.color);
+
+    $('#icon-modal').modal('show');
+    $('#icon-modal-search').val('')
+    $('#icon-modal-search').focus();
+}
+
+function ui_setup_icons() {
+    for (let i = 0; i < icon_names.length; i++) {
+        let element = document.createElement('div');
+        element.className = `icon-${icon_names[i]} grid-item`;
+        element.style.display = 'none';
+        element.setAttribute('name', icon_names[i]);
+        element.setAttribute('data-title', icon_names[i]);
+        element.onclick = function() {
+            let input = $("#icon-modal").attr('data-search');
+            $('#' + input).val(this.getAttribute('name')).change();
+            $('#icon-modal').modal('hide');
+        }
+        $('#icon-modal-container').append(element);
+    }
+
 }
 
 function ui_setup_color_selector() {
@@ -797,12 +826,12 @@ function colorCheck(color) {
 $(document).ready(function() {
     local_store_load();
     ui_setup_color_selector();
+    ui_setup_icons();
 
     $(window).scroll(function() {
         const default_margin = 10
 
         let val = $(window).scrollTop() + default_margin
-            //console.log(val)
         if (val <= 500)
             $("#preview-container").stop().animate({ "marginTop": val + "px" }, 50);
     });
@@ -1052,6 +1081,26 @@ $(document).ready(function() {
             'rule\n';
         let curr = $('#back-contents').val();
         $('#back-contents').val(curr.length > 0 ? `${curr}\n${txt}` : txt).change();
+    });
+
+    $('#icon-modal-search').keyup(function() {
+        let search = $(this).val();
+        if (search.length >= 2) {
+            $('#icon-modal-container').children().each(function() {
+                let name = $(this).attr('name');
+                if (name.toLowerCase().includes(search.toLowerCase())) {
+                    $(this).css('display', 'block');
+                    $(this).css('background-color', $('#icon-modal').attr('data-color'))
+
+                } else {
+                    $(this).css('display', 'none');
+                }
+            });
+        } else {
+            $('#icon-modal-container').children().each(function() {
+                $(this).css('display', 'none');
+            });
+        }
     });
 
     $("#copyArea").hide();

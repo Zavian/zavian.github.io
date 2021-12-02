@@ -4,15 +4,15 @@ $(document).ready(function() {
     let links = {
         "generate.html": {
             "name": "🎴 RPG Cards Generator",
-            "desc": "Based on <a style='color: #1aa179' href='https://crobi.github.io/rpg-cards/generator/generate.html'>crobi</a>'s work"
+            "desc": "Based on <a class='text-success' href='https://crobi.github.io/rpg-cards/generator/generate.html'>crobi</a>'s work"
         },
         "epic-generator.html": {
             "name": "Epic💯Boons",
-            "desc": "Tabletop Simulator tool used for <a style='color: #1aa179' href='https://github.com/Zavian/Tabletop-Simulator-Scripts/tree/master/Commander%20Gen%202'>this</a> project"
+            "desc": "Tabletop Simulator tool used for <a class='text-success' href='https://github.com/Zavian/Tabletop-Simulator-Scripts/tree/master/Commander%20Gen%202'>this</a> project"
         },
         "homebrew-spell-maker.html": {
             "name": "📖 Homebrew Spell Maker",
-            "desc": "A tool to help you create homebrew spells for <a style='color: #1aa179' href='https://github.com/Daniel-van-der-Poel/The-Clean-Sheet'>this</a> dnd sheet"
+            "desc": "A tool to help you create homebrew spells for <a class='text-success' href='https://github.com/Daniel-van-der-Poel/The-Clean-Sheet'>this</a> dnd sheet"
         },
         "potion-maker.html": { "name": "💦 Potion Maker" }
     };

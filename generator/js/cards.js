@@ -576,7 +576,6 @@ function card_generate_back(data, options) {
     var icon = card_data_icon_back(data, options);
 
     var result = '';
-    console.log('options.rounded_corners', options.rounded_corners);
     result +=
         '<div class="card card-size-' +
         options.card_size +
