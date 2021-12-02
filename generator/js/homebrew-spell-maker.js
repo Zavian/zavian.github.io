@@ -18,7 +18,8 @@ $(document).ready(function() {
 
     $("#copy-text").click(function(e) {
         e.preventDefault();
-        copyFunction()
+        // copy contents of #result which is a div containing the text to clipboard
+        copyFunction();
     });
 
     $('.block-tab').on('keydown', function(e) {
@@ -41,7 +42,6 @@ $(document).ready(function() {
     });
 
     $("#duration").change(function(e) {
-
         $("#customDuration").toggle($("#duration-custom").is(":selected"));
     });
 });
@@ -69,7 +69,7 @@ function generate() {
         });
         return arr.join(" ")
     })()
-    if (returner.components.search('M') > 0) {
+    if (returner.components.search('M') >= 0) {
         returner.materialComponents = $("#materialComponents").val();;
         if (returner.materialComponents.search("consumes") > 0) {
             returner.castingCost = ""
@@ -89,7 +89,6 @@ function generate() {
     returner.shorthand = $("#shorthand").val();
     returner.description = $('#description').val() //.replace("\n", "\\n").replace("\t", "\\t");
     returner.higher = $('#higher').val() //.replace("\n", "\\n").replace("\t", "\\t");
-    console.log(returner)
 
     $("#result").text(`"${returner.name.toLowerCase()}": ` +
         JSON.stringify(returner, null, 2)
@@ -100,6 +99,8 @@ function generate() {
     );
 }
 
+
+
 function copyFunction() {
     const copyText = document.getElementById("result").textContent;
     var textArea = document.getElementById('copy-area')
@@ -107,10 +108,12 @@ function copyFunction() {
         textArea = document.createElement('textarea');
         textArea.setAttribute('id', 'copy-area')
         document.body.append(textArea);
-        textArea.select();
-        textArea.style.display = "none"
+        //textArea.style.display = "none"
     }
+    textArea.style.display = "block"
     textArea.textContent = copyText;
     textArea.select();
     document.execCommand("copy");
+    textArea.setSelectionRange(0, 0);
+    textArea.style.display = "none"
 }

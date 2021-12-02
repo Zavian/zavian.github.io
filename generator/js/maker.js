@@ -17,10 +17,10 @@ $(document).ready(function() {
 
 function generate() {
     let title = $('#title').val();
-    let color = $('#color-hex').val();
-    let description = $('#description').val();
-    let lore = $('#lore').val();
-    let price = $('#price').val();
+    let color = $('#color-hex').val() || $('#color').val() || '#ffffff';;
+    let description = $('#description').val() || '';
+    let lore = $('#lore').val() || '';
+    let price = $('#price').val() || '';
     console.log([
         title,
         color,
