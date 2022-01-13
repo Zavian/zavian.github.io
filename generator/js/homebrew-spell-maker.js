@@ -49,7 +49,7 @@ $(document).ready(function() {
 function generate() {
     let returner = {}
     returner.name = $("#name").val();
-    returner.level = $("#level option:selected").text();
+    returner.level = $("#level option:selected").val();
     returner.school = $("#school option:selected").val();
     returner.ritual = $("#ritual").is(":checked");
     returner.classes = []
