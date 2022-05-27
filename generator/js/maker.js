@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $('input').on('input', function() { generate() })
+    $('textarea').on('input', function() { generate() })
     $('#color').on('input', function(e) {
         $('#color-hex').val($('#color').val());
         $('#color-hex').trigger('change');
