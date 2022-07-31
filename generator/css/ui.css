@@ -17,6 +17,10 @@
     box-shadow: inset 2px 2px 4px 0px rgba(0, 0, 0, 0.75);
 }
 
+::-webkit-scrollbar-corner {
+    background: #454a4d
+}
+
 #selected-card {
     font-size: 1.85rem;
     padding: 6px;

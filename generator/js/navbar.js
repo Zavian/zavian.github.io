@@ -14,7 +14,11 @@ $(document).ready(function() {
             "name": "📖 Homebrew Spell Maker",
             "desc": "A tool to help you create homebrew spells for <a class='text-success' href='https://github.com/Daniel-van-der-Poel/The-Clean-Sheet'>this</a> dnd sheet"
         },
-        "potion-maker.html": { "name": "💦 Potion Maker" }
+        "potion-maker.html": { "name": "💦 Potion Maker" },
+        "gw2editor.html": {
+            "name": "🐲 Guild Wars 2 Logo Editor",
+            "desc": "Thanks to <a class='text-success' href='http://nailek.net/gw2/emblemeditor/'>nailek</a> and <a class='text-success' href='https://gw2.properdave.com/'>properdave</a> for their awesome resources."
+        }
     };
     let navbar = $("<nav style='height:50px' class='navbar navbar-expand-lg navbar-dark bg-dark'></nav>");
 

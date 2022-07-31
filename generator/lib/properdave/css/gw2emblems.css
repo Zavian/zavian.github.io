@@ -1,0 +1,2176 @@
+/**
+ * Guild Wars 2 Emblems Font Faces
+ * http://gw2.properdave.com
+ */
+@font-face {
+	font-family: 'gw2backgrounds';
+	src:url('../fonts/gw2backgrounds.eot?ozu4jy');
+	src:url('../fonts/gw2backgrounds.eot?#iefixozu4jy') format('embedded-opentype'),
+		url('../fonts/gw2backgrounds.woff?ozu4jy') format('woff'),
+		url('../fonts/gw2backgrounds.ttf?ozu4jy') format('truetype'),
+		url('../fonts/gw2backgrounds.svg?ozu4jy#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'gw2foregrounds1';
+	src:url('../fonts/gw2foregrounds1.eot?ozu4jy');
+	src:url('../fonts/gw2foregrounds1.eot?#iefixozu4jy') format('embedded-opentype'),
+		url('../fonts/gw2foregrounds1.woff?ozu4jy') format('woff'),
+		url('../fonts/gw2foregrounds1.ttf?ozu4jy') format('truetype'),
+		url('../fonts/gw2foregrounds1.svg?ozu4jy#gw2foregrounds') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'gw2foregrounds2';
+	src:url('../fonts/gw2foregrounds2.eot?ahri0l');
+	src:url('../fonts/gw2foregrounds2.eot?#iefixahri0l') format('embedded-opentype'),
+		url('../fonts/gw2foregrounds2.woff?ahri0l') format('woff'),
+		url('../fonts/gw2foregrounds2.ttf?ahri0l') format('truetype'),
+		url('../fonts/gw2foregrounds2.svg?ahri0l#gw2foregrounds') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'gw2foregrounds3';
+	src:url('../fonts/gw2foregrounds3.eot?41yfwf');
+	src:url('../fonts/gw2foregrounds3.eot?#iefix41yfwf') format('embedded-opentype'),
+		url('../fonts/gw2foregrounds3.woff?41yfwf') format('woff'),
+		url('../fonts/gw2foregrounds3.ttf?41yfwf') format('truetype'),
+		url('../fonts/gw2foregrounds3.svg?41yfwf#gw2foregrounds') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+    font-family: 'gw2hot';
+    src:    url('../fonts/gw2hot.eot?rblm5i');
+    src:    url('../fonts/gw2hot.eot?rblm5i#iefix') format('embedded-opentype'),
+        url('../fonts/gw2hot.ttf?rblm5i') format('truetype'),
+        url('../fonts/gw2hot.woff?rblm5i') format('woff'),
+        url('../fonts/gw2hot.svg?rblm5i#gw2hot') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.gw2 {
+	position: relative;
+	display: inline-block;
+	text-align: center;
+}
+
+.gw2.center {
+	margin: 0 auto;
+}
+
+.gw2.stack {
+	position:absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.gw2 .invert {
+	-webkit-transform:rotateY(180deg) rotateX(180deg);
+	-moz-transform:rotateY(180deg) rotateX(180deg);
+	-o-transform:rotateY(180deg) rotateX(180deg);
+	-ms-transform:rotateY(180deg) rotateX(180deg);
+}
+
+.gw2 .mirror {
+	-webkit-transform:rotateY(180deg);
+	-moz-transform:rotateY(180deg);
+	-o-transform:rotateY(180deg);
+	-ms-transform:rotateY(180deg);
+}
+
+.gw2 .flip {
+	-webkit-transform:rotateX(180deg);
+	-moz-transform:rotateX(180deg);
+	-o-transform:rotateX(180deg);
+	-ms-transform:rotateX(180deg);
+}
+
+.emblem16 { width: 16px; height: 16px; font-size: 16px; }
+.emblem28 { width: 28px; height: 28px; font-size: 28px; }
+.emblem32 { width: 32px; height: 32px; font-size: 32px; }
+.emblem48 { width: 48px; height: 48px; font-size: 48px; }
+.emblem64 { width: 64px; height: 64px; font-size: 64px; }
+.emblem128 { width: 128px; height: 128px; font-size: 128px; }
+.emblem256 { width: 256px; height: 256px; font-size: 256px; }
+.emblem384 { width: 384px; height: 384px; font-size: 384px; }
+.emblem512 { width: 512px; height: 512px; font-size: 512px; }
+.emblem100 { width: 100px; height: 100px; font-size: 100px; }
+.emblem200 { width: 200px; height: 200px; font-size: 200px; }
+.emblem300 { width: 300px; height: 300px; font-size: 300px; }
+.emblem400 { width: 400px; height: 400px; font-size: 400px; }
+.emblem500 { width: 500px; height: 500px; font-size: 500px; }
+
+[class^="gw2b-"], [class*=" gw2b-"] {
+	font-family: 'gw2backgrounds';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+[class^="gw2f-"], [class*=" gw2f-"] {
+	font-family: 'gw2foregrounds1';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/*  Backgrounds */
+
+.gw2b-59600:before {
+	content: "\e600";
+}
+.gw2b-59602:before {
+	content: "\e601";
+}
+.gw2b-59604:before {
+	content: "\e602";
+}
+.gw2b-59606:before {
+	content: "\e603";
+}
+.gw2b-59608:before {
+	content: "\e604";
+}
+.gw2b-59610:before {
+	content: "\e605";
+}
+.gw2b-59612:before {
+	content: "\e606";
+}
+.gw2b-59614:before {
+	content: "\e607";
+}
+.gw2b-59616:before {
+	content: "\e608";
+}
+.gw2b-59618:before {
+	content: "\e609";
+}
+.gw2b-59620:before {
+	content: "\e60a";
+}
+.gw2b-59622:before {
+	content: "\e60b";
+}
+.gw2b-59624:before {
+	content: "\e60c";
+}
+.gw2b-59626:before {
+	content: "\e60d";
+}
+.gw2b-59628:before {
+	content: "\e60e";
+}
+.gw2b-59630:before {
+	content: "\e60f";
+}
+.gw2b-59632:before {
+	content: "\e610";
+}
+.gw2b-59634:before {
+	content: "\e611";
+}
+.gw2b-59636:before {
+	content: "\e612";
+}
+.gw2b-59638:before {
+	content: "\e613";
+}
+.gw2b-59640:before {
+	content: "\e614";
+}
+.gw2b-454822:before {
+	content: "\e615";
+}
+.gw2b-454824:before {
+	content: "\e616";
+}
+.gw2b-454826:before {
+	content: "\e617";
+}
+.gw2b-454828:before {
+	content: "\e618";
+}
+.gw2b-454830:before {
+	content: "\e619";
+}
+
+/* Foregrounds Set 1 */
+
+.gw2f-59644:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e600";
+}
+.gw2f-59646:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e601";
+}
+.gw2f-59650:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e602";
+}
+.gw2f-59652:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e603";
+}
+.gw2f-59656:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e604";
+}
+.gw2f-59658:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e605";
+}
+.gw2f-59664:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e606";
+}
+.gw2f-59666:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e607";
+}
+.gw2f-59670:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e608";
+}
+.gw2f-59672:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e609";
+}
+.gw2f-59676:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e60a";
+}
+.gw2f-59678:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e60b";
+}
+.gw2f-59682:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e60c";
+}
+.gw2f-59684:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e60d";
+}
+.gw2f-59688:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e60e";
+}
+.gw2f-59690:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e60f";
+}
+.gw2f-59694:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e610";
+}
+.gw2f-59696:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e611";
+}
+.gw2f-59700:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e612";
+}
+.gw2f-59702:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e613";
+}
+.gw2f-59706:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e614";
+}
+.gw2f-59708:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e615";
+}
+.gw2f-59712:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e616";
+}
+.gw2f-59714:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e617";
+}
+.gw2f-59718:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e618";
+}
+.gw2f-59720:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e619";
+}
+.gw2f-59724:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e61a";
+}
+.gw2f-59726:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e61b";
+}
+.gw2f-59730:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e61c";
+}
+.gw2f-59732:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e61d";
+}
+.gw2f-59736:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e61e";
+}
+.gw2f-59738:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e61f";
+}
+.gw2f-59742:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e620";
+}
+.gw2f-59744:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e621";
+}
+.gw2f-59748:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e622";
+}
+.gw2f-59750:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e623";
+}
+.gw2f-59754:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e624";
+}
+.gw2f-59756:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e625";
+}
+.gw2f-59760:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e626";
+}
+.gw2f-59762:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e627";
+}
+.gw2f-59766:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e628";
+}
+.gw2f-59768:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e629";
+}
+.gw2f-59772:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e62a";
+}
+.gw2f-59774:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e62b";
+}
+.gw2f-59778:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e62c";
+}
+.gw2f-59780:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e62d";
+}
+.gw2f-59784:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e62e";
+}
+.gw2f-59786:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e62f";
+}
+.gw2f-59790:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e630";
+}
+.gw2f-59792:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e631";
+}
+.gw2f-59796:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e632";
+}
+.gw2f-59798:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e633";
+}
+.gw2f-59802:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e634";
+}
+.gw2f-59804:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e635";
+}
+.gw2f-59808:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e636";
+}
+.gw2f-59810:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e637";
+}
+.gw2f-59814:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e638";
+}
+.gw2f-59816:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e639";
+}
+.gw2f-59820:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e63a";
+}
+.gw2f-59822:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e63b";
+}
+.gw2f-59826:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e63c";
+}
+.gw2f-59828:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e63d";
+}
+.gw2f-59832:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e63e";
+}
+.gw2f-59834:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e63f";
+}
+.gw2f-59838:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e640";
+}
+.gw2f-59840:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e641";
+}
+.gw2f-59844:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e642";
+}
+.gw2f-59846:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e643";
+}
+.gw2f-59850:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e644";
+}
+.gw2f-59852:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e645";
+}
+.gw2f-59856:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e646";
+}
+.gw2f-59858:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e647";
+}
+.gw2f-59862:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e648";
+}
+.gw2f-59864:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e649";
+}
+.gw2f-59868:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e64a";
+}
+.gw2f-59870:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e64b";
+}
+.gw2f-59874:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e64c";
+}
+.gw2f-59876:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e64d";
+}
+.gw2f-59880:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e64e";
+}
+.gw2f-59882:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e64f";
+}
+.gw2f-59886:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e650";
+}
+.gw2f-59888:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e651";
+}
+.gw2f-59892:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e652";
+}
+.gw2f-59894:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e653";
+}
+.gw2f-59898:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e654";
+}
+.gw2f-59900:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e655";
+}
+.gw2f-59904:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e656";
+}
+.gw2f-59906:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e657";
+}
+.gw2f-59910:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e658";
+}
+.gw2f-59912:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e659";
+}
+.gw2f-59916:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e65a";
+}
+.gw2f-59918:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e65b";
+}
+.gw2f-59922:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e65c";
+}
+.gw2f-59924:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e65d";
+}
+.gw2f-59928:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e65e";
+}
+.gw2f-59930:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e65f";
+}
+.gw2f-59934:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e660";
+}
+.gw2f-59936:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e661";
+}
+.gw2f-59940:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e662";
+}
+.gw2f-59942:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e663";
+}
+.gw2f-59946:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e664";
+}
+.gw2f-59948:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e665";
+}
+.gw2f-59952:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e666";
+}
+.gw2f-59954:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e667";
+}
+.gw2f-59958:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e668";
+}
+.gw2f-59960:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e669";
+}
+.gw2f-59964:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e66a";
+}
+.gw2f-59966:before {
+	font-family: 'gw2foregrounds1';
+	content: "\e66b";
+}
+
+/* Foregrounds Set 2 */
+
+.gw2f-59970:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e66c";
+}
+.gw2f-59972:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e66d";
+}
+.gw2f-59976:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e66e";
+}
+.gw2f-59978:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e66f";
+}
+.gw2f-433232:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e670";
+}
+.gw2f-433234:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e671";
+}
+.gw2f-433238:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e672";
+}
+.gw2f-433240:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e673";
+}
+.gw2f-433244:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e674";
+}
+.gw2f-433246:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e675";
+}
+.gw2f-433250:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e676";
+}
+.gw2f-433252:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e677";
+}
+.gw2f-433256:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e678";
+}
+.gw2f-433258:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e679";
+}
+.gw2f-433262:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e67a";
+}
+.gw2f-433264:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e67b";
+}
+.gw2f-433268:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e67c";
+}
+.gw2f-433270:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e67d";
+}
+.gw2f-433274:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e67e";
+}
+.gw2f-433276:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e67f";
+}
+.gw2f-433280:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e680";
+}
+.gw2f-433282:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e681";
+}
+.gw2f-433286:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e682";
+}
+.gw2f-433288:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e683";
+}
+.gw2f-433292:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e684";
+}
+.gw2f-433294:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e685";
+}
+.gw2f-433298:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e686";
+}
+.gw2f-433300:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e687";
+}
+.gw2f-433304:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e688";
+}
+.gw2f-433306:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e689";
+}
+.gw2f-433310:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e68a";
+}
+.gw2f-433312:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e68b";
+}
+.gw2f-433316:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e68c";
+}
+.gw2f-433318:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e68d";
+}
+.gw2f-433322:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e68e";
+}
+.gw2f-433324:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e68f";
+}
+.gw2f-433328:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e690";
+}
+.gw2f-433330:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e691";
+}
+.gw2f-433334:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e692";
+}
+.gw2f-433336:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e693";
+}
+.gw2f-433340:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e694";
+}
+.gw2f-433342:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e695";
+}
+.gw2f-454906:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e696";
+}
+.gw2f-454908:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e697";
+}
+.gw2f-454912:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e698";
+}
+.gw2f-454914:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e699";
+}
+.gw2f-454918:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e69a";
+}
+.gw2f-454920:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e69b";
+}
+.gw2f-454924:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e69c";
+}
+.gw2f-454926:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e69d";
+}
+.gw2f-454930:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e69e";
+}
+.gw2f-454932:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e69f";
+}
+.gw2f-454936:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6a0";
+}
+.gw2f-454938:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6a1";
+}
+.gw2f-454942:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6a2";
+}
+.gw2f-454944:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6a3";
+}
+.gw2f-454948:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6a4";
+}
+.gw2f-454950:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6a5";
+}
+.gw2f-454954:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6a6";
+}
+.gw2f-454956:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6a7";
+}
+.gw2f-454960:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6a8";
+}
+.gw2f-454962:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6a9";
+}
+.gw2f-454966:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6aa";
+}
+.gw2f-454968:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6ab";
+}
+.gw2f-454972:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6ac";
+}
+.gw2f-454974:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6ad";
+}
+.gw2f-454978:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6ae";
+}
+.gw2f-454980:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6af";
+}
+.gw2f-454984:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6b0";
+}
+.gw2f-454986:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6b1";
+}
+.gw2f-454990:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6b2";
+}
+.gw2f-454992:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6b3";
+}
+.gw2f-454996:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6b4";
+}
+.gw2f-454998:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6b5";
+}
+.gw2f-455002:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6b6";
+}
+.gw2f-455004:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6b7";
+}
+.gw2f-455008:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6b8";
+}
+.gw2f-455010:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6b9";
+}
+.gw2f-455014:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6ba";
+}
+.gw2f-455016:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6bb";
+}
+.gw2f-455020:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6bc";
+}
+.gw2f-455022:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6bd";
+}
+.gw2f-455026:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6be";
+}
+.gw2f-455028:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6bf";
+}
+.gw2f-455032:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6c0";
+}
+.gw2f-455034:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6c1";
+}
+.gw2f-455038:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6c2";
+}
+.gw2f-455040:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6c3";
+}
+.gw2f-455044:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6c4";
+}
+.gw2f-455046:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6c5";
+}
+.gw2f-455050:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6c6";
+}
+.gw2f-455052:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6c7";
+}
+.gw2f-455056:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6c8";
+}
+.gw2f-455058:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6c9";
+}
+.gw2f-455062:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6ca";
+}
+.gw2f-455064:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6cb";
+}
+.gw2f-455068:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6cc";
+}
+.gw2f-455070:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6cd";
+}
+.gw2f-455074:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6ce";
+}
+.gw2f-455076:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6cf";
+}
+.gw2f-455080:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6d0";
+}
+.gw2f-455082:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6d1";
+}
+.gw2f-455086:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6d2";
+}
+.gw2f-455088:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6d3";
+}
+.gw2f-455092:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6d4";
+}
+.gw2f-455094:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6d5";
+}
+.gw2f-455098:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6d6";
+}
+.gw2f-455100:before {
+	font-family: 'gw2foregrounds2';
+	content: "\e6d7";
+}
+
+/* Foregrounds Set 3 */
+
+.gw2f-455104:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6d8";
+}
+.gw2f-455106:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6d9";
+}
+.gw2f-455110:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6da";
+}
+.gw2f-455112:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6db";
+}
+.gw2f-455116:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6dc";
+}
+.gw2f-455118:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6dd";
+}
+.gw2f-4551122:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6de";
+}
+.gw2f-455124:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6df";
+}
+.gw2f-455128:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6e0";
+}
+.gw2f-455130:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6e1";
+}
+.gw2f-455134:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6e2";
+}
+.gw2f-455136:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6e3";
+}
+.gw2f-455140:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6e4";
+}
+.gw2f-455142:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6e5";
+}
+.gw2f-455146:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6e6";
+}
+.gw2f-455148:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6e7";
+}
+.gw2f-455152:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6e8";
+}
+.gw2f-455154:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6e9";
+}
+.gw2f-455158:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6ea";
+}
+.gw2f-455160:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6eb";
+}
+.gw2f-455164:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6ec";
+}
+.gw2f-455166:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6ed";
+}
+.gw2f-455170:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6ee";
+}
+.gw2f-455172:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6ef";
+}
+.gw2f-455176:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6f0";
+}
+.gw2f-455178:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6f1";
+}
+.gw2f-455182:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6f2";
+}
+.gw2f-455184:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6f3";
+}
+.gw2f-455188:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6f4";
+}
+.gw2f-455190:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6f5";
+}
+.gw2f-455194:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6f6";
+}
+.gw2f-455196:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6f7";
+}
+.gw2f-455200:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6f8";
+}
+.gw2f-455202:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6f9";
+}
+.gw2f-455206:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6fa";
+}
+.gw2f-455208:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6fb";
+}
+.gw2f-455212:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6fc";
+}
+.gw2f-455214:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6fd";
+}
+.gw2f-455218:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6fe";
+}
+.gw2f-455220:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e6ff";
+}
+.gw2f-455224:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e700";
+}
+.gw2f-455226:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e701";
+}
+.gw2f-455230:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e702";
+}
+.gw2f-455232:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e703";
+}
+.gw2f-455236:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e704";
+}
+.gw2f-455238:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e705";
+}
+.gw2f-455242:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e706";
+}
+.gw2f-455244:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e707";
+}
+.gw2f-455248:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e708";
+}
+.gw2f-455250:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e709";
+}
+.gw2f-455254:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e70a";
+}
+.gw2f-455256:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e70b";
+}
+.gw2f-455260:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e70c";
+}
+.gw2f-455262:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e70d";
+}
+.gw2f-455266:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e70e";
+}
+.gw2f-455268:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e70f";
+}
+.gw2f-455272:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e710";
+}
+.gw2f-455274:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e711";
+}
+.gw2f-455278:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e712";
+}
+.gw2f-455280:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e713";
+}
+.gw2f-455284:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e714";
+}
+.gw2f-455286:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e715";
+}
+.gw2f-455290:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e716";
+}
+.gw2f-455292:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e717";
+}
+.gw2f-455296:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e718";
+}
+.gw2f-455298:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e719";
+}
+.gw2f-455302:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e71a";
+}
+.gw2f-455304:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e71b";
+}
+.gw2f-455308:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e71c";
+}
+.gw2f-455310:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e71d";
+}
+.gw2f-455314:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e71e";
+}
+.gw2f-455316:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e71f";
+}
+.gw2f-455320:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e720";
+}
+.gw2f-455322:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e721";
+}
+.gw2f-455326:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e722";
+}
+.gw2f-455328:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e723";
+}
+.gw2f-455332:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e724";
+}
+.gw2f-455334:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e725";
+}
+.gw2f-455338:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e726";
+}
+.gw2f-455340:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e727";
+}
+.gw2f-455344:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e728";
+}
+.gw2f-455346:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e729";
+}
+.gw2f-455350:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e72a";
+}
+.gw2f-455352:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e72b";
+}
+.gw2f-455356:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e72c";
+}
+.gw2f-455358:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e72d";
+}
+.gw2f-455362:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e72e";
+}
+.gw2f-455364:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e72f";
+}
+.gw2f-455368:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e730";
+}
+.gw2f-455370:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e731";
+}
+.gw2f-455374:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e732";
+}
+.gw2f-455376:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e733";
+}
+.gw2f-455380:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e734";
+}
+.gw2f-455382:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e735";
+}
+.gw2f-455386:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e736";
+}
+.gw2f-455388:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e737";
+}
+.gw2f-455392:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e738";
+}
+.gw2f-455394:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e739";
+}
+.gw2f-455398:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e73a";
+}
+.gw2f-455400:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e73b";
+}
+.gw2f-455404:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e73c";
+}
+.gw2f-455406:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e73d";
+}
+.gw2f-455410:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e73e";
+}
+.gw2f-455412:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e73f";
+}
+.gw2f-455416:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e740";
+}
+.gw2f-455418:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e741";
+}
+.gw2f-455422:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e742";
+}
+.gw2f-455424:before {
+	font-family: 'gw2foregrounds3';
+	content: "\e743";
+}
+
+.gw2hot-1301430:before {
+    font-family: 'gw2hot';
+	content: "\e900";
+}
+.gw2hot-1301432:before {
+    font-family: 'gw2hot';
+	content: "\e901";
+}
+.gw2hot-1301434:before {
+    font-family: 'gw2hot';
+	content: "\e902";
+}
+.gw2hot-1301436:before {
+    font-family: 'gw2hot';
+	content: "\e903";
+}
+.gw2hot-1301438:before {
+    font-family: 'gw2hot';
+	content: "\e904";
+}
+.gw2hot-1301440:before {
+    font-family: 'gw2hot';
+	content: "\e905";
+}
+.gw2hot-1301442:before {
+    font-family: 'gw2hot';
+	content: "\e906";
+}
+.gw2hot-1301444:before {
+    font-family: 'gw2hot';
+	content: "\e907";
+}
+.gw2hot-1301446:before {
+    font-family: 'gw2hot';
+	content: "\e908";
+}
+.gw2hot-1301448:before {
+    font-family: 'gw2hot';
+	content: "\e909";
+}
+.gw2hot-1301450:before {
+    font-family: 'gw2hot';
+	content: "\e90a";
+}
+.gw2hot-1301452:before {
+    font-family: 'gw2hot';
+	content: "\e90b";
+}
+.gw2hot-1301454:before {
+    font-family: 'gw2hot';
+	content: "\e90c";
+}
+.gw2hot-1301456:before {
+    font-family: 'gw2hot';
+	content: "\e90d";
+}
+.gw2hot-1301458:before {
+    font-family: 'gw2hot';
+	content: "\e90e";
+}
+.gw2hot-1301460:before {
+    font-family: 'gw2hot';
+	content: "\e90f";
+}
+.gw2hot-1301462:before {
+    font-family: 'gw2hot';
+	content: "\e910";
+}
+.gw2hot-1301464:before {
+    font-family: 'gw2hot';
+	content: "\e911";
+}
+.gw2hot-1301466:before {
+    font-family: 'gw2hot';
+	content: "\e912";
+}
+.gw2hot-1301468:before {
+    font-family: 'gw2hot';
+	content: "\e913";
+}
+.gw2hot-1301470:before {
+    font-family: 'gw2hot';
+	content: "\e914";
+}
+.gw2hot-1301472:before {
+    font-family: 'gw2hot';
+	content: "\e915";
+}
+.gw2hot-1301474:before {
+    font-family: 'gw2hot';
+	content: "\e916";
+}
+.gw2hot-1301476:before {
+    font-family: 'gw2hot';
+	content: "\e917";
+}
+.gw2hot-1301478:before {
+    font-family: 'gw2hot';
+	content: "\e918";
+}
+.gw2hot-1301480:before {
+    font-family: 'gw2hot';
+	content: "\e919";
+}
+.gw2hot-1301482:before {
+    font-family: 'gw2hot';
+	content: "\e91a";
+}
+.gw2hot-1301484:before {
+    font-family: 'gw2hot';
+	content: "\e91b";
+}
+.gw2hot-1301486:before {
+    font-family: 'gw2hot';
+	content: "\e91c";
+}
+.gw2hot-1301488:before {
+    font-family: 'gw2hot';
+	content: "\e91d";
+}
+.gw2hot-1301490:before {
+    font-family: 'gw2hot';
+	content: "\e91e";
+}
+.gw2hot-1301492:before {
+    font-family: 'gw2hot';
+	content: "\e91f";
+}
+.gw2hot-1301494:before {
+    font-family: 'gw2hot';
+	content: "\e920";
+}
+.gw2hot-1301496:before {
+    font-family: 'gw2hot';
+	content: "\e921";
+}
+.gw2hot-1301498:before {
+    font-family: 'gw2hot';
+	content: "\e922";
+}
+.gw2hot-1301500:before {
+    font-family: 'gw2hot';
+	content: "\e923";
+}
+.gw2hot-1301502:before {
+    font-family: 'gw2hot';
+	content: "\e924";
+}
+.gw2hot-1301504:before {
+    font-family: 'gw2hot';
+	content: "\e925";
+}
+.gw2hot-1301506:before {
+    font-family: 'gw2hot';
+	content: "\e926";
+}
+.gw2hot-1301508:before {
+    font-family: 'gw2hot';
+	content: "\e927";
+}
+.gw2hot-1301510:before {
+    font-family: 'gw2hot';
+	content: "\e928";
+}
+.gw2hot-1301512:before {
+    font-family: 'gw2hot';
+	content: "\e929";
+}
+.gw2hot-1301514:before {
+    font-family: 'gw2hot';
+	content: "\e92a";
+}
+.gw2hot-1301516:before {
+    font-family: 'gw2hot';
+	content: "\e92b";
+}
+.gw2hot-1301518:before {
+    font-family: 'gw2hot';
+	content: "\e92c";
+}
+.gw2hot-1301520:before {
+    font-family: 'gw2hot';
+	content: "\e92d";
+}
+.gw2hot-1301522:before {
+    font-family: 'gw2hot';
+	content: "\e92e";
+}
+.gw2hot-1301524:before {
+    font-family: 'gw2hot';
+	content: "\e92f";
+}
+.gw2hot-1301526:before {
+    font-family: 'gw2hot';
+	content: "\e930";
+}
+.gw2hot-1301528:before {
+    font-family: 'gw2hot';
+	content: "\e931";
+}
+.gw2hot-1301530:before {
+    font-family: 'gw2hot';
+	content: "\e932";
+}
+.gw2hot-1301532:before {
+    font-family: 'gw2hot';
+	content: "\e933";
+}
+.gw2hot-1301534:before {
+    font-family: 'gw2hot';
+	content: "\e934";
+}
+.gw2hot-1301536:before {
+    font-family: 'gw2hot';
+	content: "\e935";
+}
+.gw2hot-1301538:before {
+    font-family: 'gw2hot';
+	content: "\e936";
+}
+.gw2hot-1301540:before {
+    font-family: 'gw2hot';
+	content: "\e937";
+}
+.gw2hot-1301542:before {
+    font-family: 'gw2hot';
+	content: "\e938";
+}
+.gw2hot-1301544:before {
+    font-family: 'gw2hot';
+	content: "\e939";
+}
+.gw2hot-1301546:before {
+    font-family: 'gw2hot';
+	content: "\e93a";
+}
+.gw2hot-1301548:before {
+    font-family: 'gw2hot';
+	content: "\e93b";
+}
+.gw2hot-1301550:before {
+    font-family: 'gw2hot';
+	content: "\e93c";
+}
+.gw2hot-1301552:before {
+    font-family: 'gw2hot';
+	content: "\e93d";
+}
+.gw2hot-1301554:before {
+    font-family: 'gw2hot';
+	content: "\e93e";
+}
+.gw2hot-1301556:before {
+    font-family: 'gw2hot';
+	content: "\e93f";
+}
+.gw2hot-1301558:before {
+    font-family: 'gw2hot';
+	content: "\e940";
+}
+.gw2hot-1301560:before {
+    font-family: 'gw2hot';
+	content: "\e941";
+}
+.gw2hot-1301562:before {
+    font-family: 'gw2hot';
+	content: "\e942";
+}
+.gw2hot-1301564:before {
+    font-family: 'gw2hot';
+	content: "\e943";
+}
+.gw2hot-1301566:before {
+    font-family: 'gw2hot';
+	content: "\e944";
+}
+.gw2hot-1301568:before {
+    font-family: 'gw2hot';
+	content: "\e945";
+}
+.gw2hot-1301570:before {
+    font-family: 'gw2hot';
+	content: "\e946";
+}
+.gw2hot-1301572:before {
+    font-family: 'gw2hot';
+	content: "\e947";
+}
+.gw2hot-1301574:before {
+    font-family: 'gw2hot';
+	content: "\e948";
+}
+.gw2hot-1301576:before {
+    font-family: 'gw2hot';
+	content: "\e949";
+}
+.gw2hot-1301578:before {
+    font-family: 'gw2hot';
+	content: "\e94a";
+}
+.gw2hot-1301580:before {
+    font-family: 'gw2hot';
+	content: "\e94b";
+}
+.gw2hot-1301582:before {
+    font-family: 'gw2hot';
+	content: "\e94c";
+}
+.gw2hot-1301584:before {
+    font-family: 'gw2hot';
+	content: "\e94d";
+}
+.gw2hot-1301586:before {
+    font-family: 'gw2hot';
+	content: "\e94e";
+}
+.gw2hot-1301588:before {
+    font-family: 'gw2hot';
+	content: "\e94f";
+}
+.gw2hot-1301590:before {
+    font-family: 'gw2hot';
+	content: "\e950";
+}
+.gw2hot-1301592:before {
+    font-family: 'gw2hot';
+	content: "\e951";
+}
+.gw2hot-1301594:before {
+    font-family: 'gw2hot';
+	content: "\e952";
+}
+.gw2hot-1301596:before {
+    font-family: 'gw2hot';
+	content: "\e953";
+}
+.gw2hot-1301598:before {
+    font-family: 'gw2hot';
+	content: "\e954";
+}
+.gw2hot-1301600:before {
+    font-family: 'gw2hot';
+	content: "\e955";
+}
+.gw2hot-1301602:before {
+    font-family: 'gw2hot';
+	content: "\e956";
+}
+.gw2hot-1301604:before {
+    font-family: 'gw2hot';
+	content: "\e957";
+}
+.gw2hot-1301606:before {
+    font-family: 'gw2hot';
+	content: "\e958";
+}
+.gw2hot-1301608:before {
+    font-family: 'gw2hot';
+	content: "\e959";
+}
+.gw2hot-1301610:before {
+    font-family: 'gw2hot';
+	content: "\e95a";
+}
+.gw2hot-1301612:before {
+    font-family: 'gw2hot';
+	content: "\e95b";
+}
+.gw2hot-1301614:before {
+    font-family: 'gw2hot';
+	content: "\e95c";
+}
+.gw2hot-1301616:before {
+    font-family: 'gw2hot';
+	content: "\e95d";
+}
+.gw2hot-1301618:before {
+    font-family: 'gw2hot';
+	content: "\e95e";
+}
+.gw2hot-1301620:before {
+    font-family: 'gw2hot';
+	content: "\e95f";
+}
+.gw2hot-1301622:before {
+    font-family: 'gw2hot';
+	content: "\e960";
+}
+.gw2hot-1301624:before {
+    font-family: 'gw2hot';
+	content: "\e961";
+}
+.gw2hot-1301626:before {
+    font-family: 'gw2hot';
+	content: "\e962";
+}
+.gw2hot-1301628:before {
+    font-family: 'gw2hot';
+	content: "\e963";
+}
+.gw2hot-1301630:before {
+    font-family: 'gw2hot';
+	content: "\e964";
+}
+.gw2hot-1301632:before {
+    font-family: 'gw2hot';
+	content: "\e965";
+}
+.gw2hot-1301634:before {
+    font-family: 'gw2hot';
+	content: "\e966";
+}
+.gw2hot-1301636:before {
+    font-family: 'gw2hot';
+	content: "\e967";
+}
+.gw2hot-1301638:before {
+    font-family: 'gw2hot';
+	content: "\e968";
+}
+.gw2hot-1301640:before {
+    font-family: 'gw2hot';
+	content: "\e969";
+}
+.gw2hot-1301642:before {
+    font-family: 'gw2hot';
+	content: "\e96a";
+}
+.gw2hot-1301644:before {
+    font-family: 'gw2hot';
+	content: "\e96b";
+}
+.gw2hot-1301646:before {
+    font-family: 'gw2hot';
+	content: "\e96c";
+}
+.gw2hot-1301648:before {
+    font-family: 'gw2hot';
+	content: "\e96d";
+}
+.gw2hot-1301650:before {
+    font-family: 'gw2hot';
+	content: "\e96e";
+}
+.gw2hot-1301652:before {
+    font-family: 'gw2hot';
+	content: "\e96f";
+}
+.gw2hot-1301654:before {
+    font-family: 'gw2hot';
+	content: "\e970";
+}
+.gw2hot-1301656:before {
+    font-family: 'gw2hot';
+	content: "\e971";
+}
+.gw2hot-1301658:before {
+    font-family: 'gw2hot';
+	content: "\e972";
+}
+.gw2hot-1301660:before {
+    font-family: 'gw2hot';
+	content: "\e973";
+}
+.gw2hot-1301662:before {
+    font-family: 'gw2hot';
+	content: "\e974";
+}
+.gw2hot-1301664:before {
+    font-family: 'gw2hot';
+	content: "\e975";
+}
+.gw2hot-1301666:before {
+    font-family: 'gw2hot';
+	content: "\e976";
+}
+.gw2hot-1301668:before {
+    font-family: 'gw2hot';
+	content: "\e977";
+}
+.gw2hot-1301670:before {
+    font-family: 'gw2hot';
+	content: "\e978";
+}
+.gw2hot-1301672:before {
+    font-family: 'gw2hot';
+	content: "\e979";
+}
+.gw2hot-1301674:before {
+    font-family: 'gw2hot';
+	content: "\e97a";
+}
+.gw2hot-1301676:before {
+    font-family: 'gw2hot';
+	content: "\e97b";
+}
+.gw2hot-1301678:before {
+    font-family: 'gw2hot';
+	content: "\e97c";
+}
+.gw2hot-1301680:before {
+    font-family: 'gw2hot';
+	content: "\e97d";
+}
+.gw2hot-1301682:before {
+    font-family: 'gw2hot';
+	content: "\e97e";
+}
+.gw2hot-1301684:before {
+    font-family: 'gw2hot';
+	content: "\e97f";
+}
+.gw2hot-1301686:before {
+    font-family: 'gw2hot';
+	content: "\e980";
+}
+.gw2hot-1301688:before {
+    font-family: 'gw2hot';
+	content: "\e981";
+}
+.gw2hot-1301690:before {
+    font-family: 'gw2hot';
+	content: "\e982";
+}
+.gw2hot-1301692:before {
+    font-family: 'gw2hot';
+	content: "\e983";
+}
+.gw2hot-1301694:before {
+    font-family: 'gw2hot';
+	content: "\e984";
+}
+.gw2hot-1301696:before {
+    font-family: 'gw2hot';
+	content: "\e985";
+}
+.gw2hot-1301698:before {
+    font-family: 'gw2hot';
+	content: "\e986";
+}
+.gw2hot-1301700:before {
+    font-family: 'gw2hot';
+	content: "\e987";
+}
+.gw2hot-1301702:before {
+    font-family: 'gw2hot';
+	content: "\e988";
+}
+.gw2hot-1301704:before {
+    font-family: 'gw2hot';
+	content: "\e989";
+}
+.gw2hot-1301706:before {
+    font-family: 'gw2hot';
+	content: "\e98a";
+}
+.gw2hot-1301708:before {
+    font-family: 'gw2hot';
+	content: "\e98b";
+}
+.gw2hot-1301710:before {
+    font-family: 'gw2hot';
+	content: "\e98c";
+}
+.gw2hot-1301712:before {
+    font-family: 'gw2hot';
+	content: "\e98d";
+}
+.gw2hot-1322459:before {
+    font-family: 'gw2hot';
+	content: "\e98e";
+}
+.gw2hot-1322461:before {
+    font-family: 'gw2hot';
+	content: "\e98f";
+}
+.gw2hot-1322463:before {
+    font-family: 'gw2hot';
+	content: "\e990";
+}
+.gw2hot-1322465:before {
+    font-family: 'gw2hot';
+	content: "\e991";
+}
+.gw2hot-1322467:before {
+    font-family: 'gw2hot';
+	content: "\e992";
+}
+.gw2hot-1322469:before {
+    font-family: 'gw2hot';
+	content: "\e993";
+}
+.gw2hot-1322471:before {
+    font-family: 'gw2hot';
+	content: "\e994";
+}
+.gw2hot-1322473:before {
+    font-family: 'gw2hot';
+	content: "\e995";
+}
+.gw2hot-1322475:before {
+    font-family: 'gw2hot';
+	content: "\e996";
+}
+.gw2hot-1322477:before {
+    font-family: 'gw2hot';
+	content: "\e997";
+}
+.gw2hot-1322479:before {
+    font-family: 'gw2hot';
+	content: "\e998";
+}
+.gw2hot-1322481:before {
+    font-family: 'gw2hot';
+	content: "\e999";
+}
+.gw2hot-1322483:before {
+    font-family: 'gw2hot';
+	content: "\e99a";
+}
+.gw2hot-1322485:before {
+    font-family: 'gw2hot';
+	content: "\e99b";
+}
+.gw2hot-1322487:before {
+    font-family: 'gw2hot';
+	content: "\e99c";
+}
+.gw2hot-1322489:before {
+    font-family: 'gw2hot';
+	content: "\e99d";
+}
+.gw2hot-1322491:before {
+    font-family: 'gw2hot';
+	content: "\e99e";
+}
+.gw2hot-1322493:before {
+    font-family: 'gw2hot';
+	content: "\e99f";
+}
+.gw2hot-1322495:before {
+    font-family: 'gw2hot';
+	content: "\e9a0";
+}
+.gw2hot-1322497:before {
+    font-family: 'gw2hot';
+	content: "\e9a1";
+}
