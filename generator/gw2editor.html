@@ -6,6 +6,7 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <!-- Library: jQuery -->
     <script type="text/javascript" src="lib/jquery/jquery.min.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <!-- Library: Bootstrap -->
     <script type="text/javascript" src="lib/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css" />
@@ -49,10 +50,97 @@
 </head>
 
 <body>
+    <div class="modal" id="editor-modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Emblem Editor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="background-left-margin" class="col-sm-2 control-label">H BG</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="background-left-margin" class="form-control" value="0" />
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-default btn-block" id="sub-lef-background">
+                                        -
+                                    </button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-default btn-block" id="add-lef-background">
+                                        +
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="background-top-margin" class="col-sm-2 control-label">V BG</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="background-top-margin" class="form-control" value="0" />
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-default btn-block" id="sub-top-background">
+                                        -
+                                    </button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-default btn-block" id="add-top-background">
+                                        +
+                                    </button>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                                <label for="foreground-left-margin" class="col-sm-2 control-label">H FG</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="foreground-left-margin" class="form-control" value="0" />
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-default btn-block" id="sub-lef-foreground">
+                                        -
+                                    </button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-default btn-block" id="add-lef-foreground">
+                                        +
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="foreground-top-margin" class="col-sm-2 control-label">V FG</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="foreground-top-margin" class="form-control" value="0" />
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-default btn-block" id="sub-top-foreground">
+                                        -
+                                    </button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn btn-default btn-block" id="add-top-foreground">
+                                        +
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="offscreen-div"></div>
     <div class="container-fluid">
         <div class="wrapper">
             <div>
-                <div class="row">
+
+                <div class="row" id="background">
                     <div class="col-7 h4">Background</div>
                     <div class="col-1">
                         <button type="button" class="btn btn-default btn-block" id="rnd-background" data-bs-toggle="tooltip" data-bs-placement="top" title="Select random background">
@@ -73,6 +161,9 @@
                 <div id="bg-container"></div>
             </div>
             <div class="nested">
+                <button type="button" class="btn btn-default btn-block" id="editor" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Positions" data-bs-target="#editor-modal">
+                    ⚙️
+                </button>
                 <div id="result-container">
                     <div id="result-fg-0"></div>
                     <div id="result-fg-1"></div>
@@ -119,6 +210,7 @@
             </div>
         </div>
         <script type="text/javascript" src="js/gw2emblem.js"></script>
+        <div id="html2canvaswrapper"></div>
 </body>
 
 </html>

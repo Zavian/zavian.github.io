@@ -35,6 +35,88 @@ $(document).ready(function() {
         makeImage(size, size)
     });
 
+    $("#editor").click(function() {
+        $(".modal").modal("show");
+    })
+
+
+
+    let $modal = $("#editor-modal");
+    $modal.draggable({
+        handle: ".modal-header",
+    });
+    $modal.resizable();
+
+    $("#editor-modal button").click(function() {
+        let id = $(this).attr('id')
+        if (id.includes("-")) {
+            var op = id.substr(0, 3)
+            var marg = id.substr(4, 3);
+            var elem = id.substr(8);
+
+            var input = `${elem}-${marg == "lef" ? "left" : "top"}-margin`
+            var inputVal = parseInt($("#" + input).val())
+
+            console.log(op, marg, elem)
+            console.log(input)
+
+            if (op == "add") {
+                inputVal = inputVal + 1
+                if (marg == "lef") {
+                    if (elem == "background") {
+                        $("#result-bg").css("margin-left", `${inputVal}px`)
+                    } else {
+                        $("#result-fg-0").css("margin-left", `${inputVal}px`)
+                        $("#result-fg-1").css("margin-left", `${inputVal}px`)
+                    }
+                } else if (marg == "top") {
+                    if (elem == "background") {
+                        $("#result-bg").css("margin-top", `${inputVal}px`)
+                    } else {
+                        $("#result-fg-0").css("margin-top", `${inputVal}px`)
+                        $("#result-fg-1").css("margin-top", `${inputVal}px`)
+                    }
+                }
+                $("#" + input).val(inputVal)
+            } else if (op == "sub") {
+                inputVal = inputVal - 1
+                if (marg == "lef") {
+                    if (elem == "background") {
+                        $("#result-bg").css("margin-left", `${inputVal}px`)
+                    } else {
+                        $("#result-fg-0").css("margin-left", `${inputVal}px`)
+                        $("#result-fg-1").css("margin-left", `${inputVal}px`)
+                    }
+                } else if (marg == "top") {
+                    if (elem == "background") {
+                        $("#result-bg").css("margin-top", `${inputVal}px`)
+                    } else {
+                        $("#result-fg-0").css("margin-top", `${inputVal}px`)
+                        $("#result-fg-1").css("margin-top", `${inputVal}px`)
+                    }
+                }
+                $("#" + input).val(inputVal)
+            }
+        }
+    })
+
+    $("#editor-modal input").on("input", function() {
+        var inputVal = $(this).val()
+
+        var id = $(this).attr("id")
+        if (id == "background-left-margin") {
+            $("#result-bg").css("margin-left", `${inputVal}px`)
+        } else if (id == "background-top-margin") {
+            $("#result-bg").css("margin-top", `${inputVal}px`)
+        } else if (id == "foreground-left-margin") {
+            $("#result-fg-0").css("margin-left", `${inputVal}px`)
+            $("#result-fg-1").css("margin-left", `${inputVal}px`)
+        } else if (id == "foreground-top-margin") {
+            $("#result-fg-0").css("margin-top", `${inputVal}px`)
+            $("#result-fg-1").css("margin-top", `${inputVal}px`)
+        }
+    })
+
     selectRandom();
 
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
@@ -47,14 +129,51 @@ $(document).ready(function() {
 function makeImage(width = 256, height = 256) {
     let myWindow = window.open("", "_blank");
     myWindow.document.write("<p>Loading...</p>");
-    html2canvas(document.querySelector('#result-container'), { width: width, height: height, background_color: null }).then((canvas) => {
-        document.body.appendChild(canvas);
-        $('canvas').attr('class', 'captured');
 
-        myWindow.document.body.firstElementChild.remove()
-        myWindow.document.body.appendChild(canvas);
-        myWindow.document.title = `${width}x${height}`;
-    });
+
+    $("#result-container").clone().appendTo("#offscreen-div");
+    document.getElementById("offscreen-div").firstChild.id = "";
+    $("offscreen-div").first().attr("id", "");
+    $("#offscreen-div").css("width", width);
+    $("#offscreen-div").css("height", height);
+    $("#offscreen-div").css("font-size", width);
+
+
+    html2canvas(document.querySelector("#offscreen-div"), {
+        width: width,
+        height: height,
+        backgroundColor: null,
+    }).then(function(canvas) {
+        myWindow.document.body.firstElementChild.remove();
+        myWindow.document.body.appendChild(canvas)
+        myWindow.document.title = `${width}x${height}`
+
+
+        $("#offscreen-div").css("width", "0px");
+        $("#offscreen-div").css("height", "0px");
+        $("#offscreen-div").css("font-size", "0px");
+        $("#offscreen-div").empty();
+    })
+
+    // html2canvas(document.querySelector('#result-container'), {
+    //     width: width,
+    //     height: height,
+    //     scale: 3,
+    //     background_color: null,
+    //     onclone: function(c) {
+    //         c.querySelector('#result-container').style.fontSize = height + "px";
+    //         c.querySelector('#result-fg-0').style.fontSize = height + "px";
+    //         c.querySelector('#result-fg-1').style.fontSize = height + "px";
+    //         c.querySelector('#result-bg').style.fontSize = height + "px";
+    //         d = c
+    //     }
+    // }).then((canvas) => {
+    //     document.body.appendChild(canvas);
+    //     console.log(d)
+    //     myWindow.document.body.firstElementChild.remove()
+    //     myWindow.document.body.appendChild(canvas);
+    //     myWindow.document.title = `${width}x${height}`;
+    // });
 }
 
 function selectRandom() {
