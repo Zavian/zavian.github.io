@@ -28,6 +28,7 @@
     "dependencies": {
         "fitty": "^2.3.0",
         "font-list": "^1.2.11",
+        "html2canvas": "^1.4.1",
         "yauzl": "^2.10.0"
     }
 }
