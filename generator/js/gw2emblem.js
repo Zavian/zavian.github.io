@@ -4,7 +4,6 @@ var _selected_fg = -1
 $(document).ready(function() {
     populateContainer('bg-container', defs.bg)
     populateContainer('fg-container', defs.fg)
-        // populateContainer('fg-container', gw2emblem.defs)
 
     $("#bg-color").on("input", function() {
         drawResult()
@@ -39,6 +38,34 @@ $(document).ready(function() {
         $(".modal").modal("show");
     })
 
+    $("#editor-reset").click(function(e) {
+        e.preventDefault();
+
+        inputs = [
+            "background-left-margin", "background-top-margin",
+            "foreground-left-margin", "foreground-top-margin"
+        ]
+        for (var i = 0; i < inputs.length; i++) {
+            $("#" + inputs[i]).val("0")
+            $("#" + inputs[i]).trigger("change");
+        }
+    })
+
+    $("#background-top-margin").change(function(e) {
+        $("#result-bg").css("margin-top", $(this).val() + "px");
+    });
+    $("#background-left-margin").change(function(e) {
+        $("#result-bg").css("margin-left", $(this).val() + "px");
+    });
+
+    $("#foreground-top-margin").change(function(e) {
+        $("#result-fg-0").css("margin-top", $(this).val() + "px");
+        $("#result-fg-1").css("margin-top", $(this).val() + "px");
+    });
+    $("#foreground-left-margin").change(function(e) {
+        $("#result-fg-0").css("margin-left", $(this).val() + "px");
+        $("#result-fg-1").css("margin-left", $(this).val() + "px");
+    });
 
 
     let $modal = $("#editor-modal");
@@ -62,40 +89,12 @@ $(document).ready(function() {
 
             if (op == "add") {
                 inputVal = inputVal + 1
-                if (marg == "lef") {
-                    if (elem == "background") {
-                        $("#result-bg").css("margin-left", `${inputVal}px`)
-                    } else {
-                        $("#result-fg-0").css("margin-left", `${inputVal}px`)
-                        $("#result-fg-1").css("margin-left", `${inputVal}px`)
-                    }
-                } else if (marg == "top") {
-                    if (elem == "background") {
-                        $("#result-bg").css("margin-top", `${inputVal}px`)
-                    } else {
-                        $("#result-fg-0").css("margin-top", `${inputVal}px`)
-                        $("#result-fg-1").css("margin-top", `${inputVal}px`)
-                    }
-                }
                 $("#" + input).val(inputVal)
+                $("#" + input).trigger("change")
             } else if (op == "sub") {
                 inputVal = inputVal - 1
-                if (marg == "lef") {
-                    if (elem == "background") {
-                        $("#result-bg").css("margin-left", `${inputVal}px`)
-                    } else {
-                        $("#result-fg-0").css("margin-left", `${inputVal}px`)
-                        $("#result-fg-1").css("margin-left", `${inputVal}px`)
-                    }
-                } else if (marg == "top") {
-                    if (elem == "background") {
-                        $("#result-bg").css("margin-top", `${inputVal}px`)
-                    } else {
-                        $("#result-fg-0").css("margin-top", `${inputVal}px`)
-                        $("#result-fg-1").css("margin-top", `${inputVal}px`)
-                    }
-                }
                 $("#" + input).val(inputVal)
+                $("#" + input).trigger("change")
             }
         }
     })
@@ -214,7 +213,7 @@ function selectRandomBg() {
 }
 
 function selectRandomFg() {
-    $("#fg-" + _selected_bg).removeClass('selected')
+    $("#fg-" + _selected_fg).removeClass('selected')
     var fgs = Object.keys(defs.fg).length
     var random_fg = Math.floor(Math.random() * fgs)
     _selected_fg = random_fg
