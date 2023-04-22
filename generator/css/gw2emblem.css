@@ -52,7 +52,8 @@ body {
 #rnd-background,
 #rnd-background-clr,
 #rnd-emblem,
-#rnd-emblem-clr {
+#rnd-emblem-clr,
+#shadow-editor {
     display: flex!important;
     flex-direction: row;
     justify-content: center;
@@ -83,12 +84,8 @@ body {
 
 #editor {
     position: absolute;
-    left: 0;
+    left: 1rem;
     top: 0;
-    width: 25px;
-    display: flex!important;
-    flex-direction: row;
-    justify-content: center;
     z-index: 5;
 }
 
@@ -124,6 +121,10 @@ body {
     width: 95%;
     height: 95%;
 } */
+
+.btn-square {
+    margin: 0px -1rem 0px -1rem;
+}
 
 .selected {
     border: 2px solid #000;
@@ -173,7 +174,6 @@ button.btn-settings:active {
 }
 
 .modal-title {
-    margin-top: -10px;
     font-size: 16px;
 }
 
@@ -186,6 +186,12 @@ button.btn-settings:active {
     color: #888;
     padding: 5px 35px 20px;
 }
+
+
+/* 
+.modal-footer {
+    background-color: #888;
+} */
 
 .modal-body h3 {
     text-align: center;

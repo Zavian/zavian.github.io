@@ -1,219 +1,319 @@
 <html>
 
-<head>
-    <title>Emblem Editor</title>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="favicon.png">
-    <!-- Library: jQuery -->
-    <script type="text/javascript" src="lib/jquery/jquery.min.js" charset="utf-8"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <!-- Library: Bootstrap -->
-    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
-    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/slate.css" />
-    <!-- Library: Bootstrap typeahead -->
-    <script type="text/javascript" src="lib/typeahead/bootstrap3-typeahead.min.js" charset="utf-8"></script>
-    <!-- Library: html2canvas -->
-    <script type="text/javascript" src="lib/html2canvas/html2canvas.min.js" charset="utf-8"></script>
-    <!-- Library: Color picker -->
-    <link href="lib/colorpicker/css/bootstrap-colorselector.css" rel="stylesheet" />
-    <script type="text/javascript" src="lib/colorpicker/js/bootstrap-colorselector.js" charset="utf-8"></script>
-    <!-- Library: bbcode2html -->
-    <script type="text/javascript" src="lib/bbcode2html/js/bbcode2html.js" charset="utf-8"></script>
-    <!-- Library: dark mode -->
-    <link rel="stylesheet" href="lib/darkmode/dark-mode.css">
-    <script src="lib/darkmode/dark-mode-switch.min.js"></script>
-    <!-- Library: Fitty -->
-    <script type="text/javascript" src="lib\fitty\fitty.min.js"></script>
-    <script type="text/javascript" src="js/navbar.js"></script>
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="css/ui.css" />
-    <link href="css/gw2emblem.css" rel="stylesheet" />
+    <head>
+        <title>Emblem Editor</title>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/png" href="favicon.png">
+        <!-- Library: jQuery -->
+        <script type="text/javascript" src="lib/jquery/jquery.min.js" charset="utf-8"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        <!-- Library: Bootstrap -->
+        <script type="text/javascript" src="lib/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/slate.css" />
+        <!-- Library: Bootstrap typeahead -->
+        <script type="text/javascript" src="lib/typeahead/bootstrap3-typeahead.min.js" charset="utf-8"></script>
+        <!-- Library: html2canvas -->
+        <script type="text/javascript" src="lib/html2canvas/html2canvas.min.js" charset="utf-8"></script>
+        <!-- Library: Color picker -->
+        <link href="lib/colorpicker/css/bootstrap-colorselector.css" rel="stylesheet" />
+        <script type="text/javascript" src="lib/colorpicker/js/bootstrap-colorselector.js" charset="utf-8"></script>
+        <!-- Library: bbcode2html -->
+        <script type="text/javascript" src="lib/bbcode2html/js/bbcode2html.js" charset="utf-8"></script>
+        <!-- Library: dark mode -->
+        <link rel="stylesheet" href="lib/darkmode/dark-mode.css">
+        <script src="lib/darkmode/dark-mode-switch.min.js"></script>
+        <!-- Library: Fitty -->
+        <script type="text/javascript" src="lib\fitty\fitty.min.js"></script>
+        <script type="text/javascript" src="js/navbar.js"></script>
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="css/ui.css" />
+        <link href="css/gw2emblem.css" rel="stylesheet" />
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Lora:700" rel="stylesheet" type="text/css" />
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lora:700" rel="stylesheet" type="text/css" />
 
 
-    <!-- ProperDave https://gw2.properdave.com/ -->
-    <!-- CSS -->
-    <link href="lib/properdave/css/gw2emblems.css" rel="stylesheet" rel="preload" />
-    <script type="text/javascript" src="lib/properdave/js/gw2classes.js"></script>
+        <!-- ProperDave https://gw2.properdave.com/ -->
+        <!-- CSS -->
+        <link href="lib/properdave/css/gw2emblems.css" rel="stylesheet" rel="preload" />
+        <script type="text/javascript" src="lib/properdave/js/gw2classes.js"></script>
 
-    <!-- FONTS -->
-    <!-- <link href="lib/properdave/fonts/gw2backgrounds.css" rel="stylesheet" type="text/css" /> -->
-    <!-- <link href="lib/properdave/fonts/gw2foregrounds1.ttf" rel="stylesheet" type="text/css" /> -->
-    <!-- <link href="lib/properdave/fonts/gw2foregrounds2.ttf" rel="stylesheet" type="text/css" /> -->
-    <!-- <link href="lib/properdave/fonts/gw2foregrounds3.ttf" rel="stylesheet" type="text/css" /> -->
-    <!-- <link href="lib/properdave/fonts/gw2hot.ttf" rel="stylesheet" type="text/css" /> -->
+        <!-- FONTS -->
+        <!-- <link href="lib/properdave/fonts/gw2backgrounds.css" rel="stylesheet" type="text/css" /> -->
+        <!-- <link href="lib/properdave/fonts/gw2foregrounds1.ttf" rel="stylesheet" type="text/css" /> -->
+        <!-- <link href="lib/properdave/fonts/gw2foregrounds2.ttf" rel="stylesheet" type="text/css" /> -->
+        <!-- <link href="lib/properdave/fonts/gw2foregrounds3.ttf" rel="stylesheet" type="text/css" /> -->
+        <!-- <link href="lib/properdave/fonts/gw2hot.ttf" rel="stylesheet" type="text/css" /> -->
 
-</head>
+    </head>
 
-<body>
-    <div class="modal" id="editor-modal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Emblem Editor</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <body>
+        <div class="modal" id="offsets-modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Emblem Editor</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <h3>Background</h3>
+                                <div class="form-group">
+                                    <label for="background-left-margin" style="margin-top: 1rem" class="col-sm-2 control-label">HORIZ</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="background-left-margin" class="form-control" value="0" />
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button type="button" class="btn btn-default btn-block" id="sub-lef-background">
+                                        -
+                                    </button>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button type="button" class="btn btn-default btn-block" id="add-lef-background">
+                                        +
+                                    </button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="background-top-margin" style="margin-top: 1rem" class="col-sm-2 control-label">VERTI</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="background-top-margin" class="form-control" value="0" />
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button type="button" class="btn btn-default btn-block" id="sub-top-background">
+                                        -
+                                    </button>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button type="button" class="btn btn-default btn-block" id="add-top-background">
+                                        +
+                                    </button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-6">
+                                        <button type="button" class="btn btn-default btn-block" id="flip-horizontal-background">
+                                        Flip Horizontal
+                                    </button>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <button type="button" class="btn btn-default btn-block" id="flip-vertical-background">
+                                        Flip Vertical
+                                    </button>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!-- FOREGROUND START -->
+                                <h3>Foreground</h3>
+                                <div class="form-group">
+                                    <label for="foreground-left-margin" style="margin-top: 1rem" class="col-sm-2 control-label">HORIZ</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="foreground-left-margin" class="form-control" value="0" />
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button type="button" class="btn btn-default btn-block" id="sub-lef-foreground">
+                                        -
+                                    </button>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button type="button" class="btn btn-default btn-block" id="add-lef-foreground">
+                                        +
+                                    </button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="foreground-top-margin" style="margin-top: 1rem" class="col-sm-2 control-label">VERTI</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="foreground-top-margin" class="form-control" value="0" />
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button type="button" class="btn btn-default btn-block" id="sub-top-foreground">
+                                        -
+                                    </button>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button type="button" class="btn btn-default btn-block" id="add-top-foreground">
+                                        +
+                                    </button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-6">
+                                        <button type="button" class="btn btn-default btn-block" id="flip-horizontal-foreground">
+                                        Flip Horizontal
+                                    </button>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <button type="button" class="btn btn-default btn-block" id="flip-vertical-foreground">
+                                        Flip Vertical
+                                    </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="editor-reset" type="button" class="btn btn-warning">Reset</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <h3>Background</h3>
-                            <div class="form-group">
-                                <label for="background-left-margin" style="margin-top: 20px" class="col-sm-2 control-label">HORIZ</label>
-                                <div class="col-sm-6">
-                                    <input type="text" id="background-left-margin" style="margin-top: 10px" class="form-control" value="0" />
+            </div>
+        </div>
+        <div class="modal" id="shadow-modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Shadow Editor</h5>
+                        <button type="button" id="toggle-shadow" style="padding: 0.5rem 0.5rem; position:absolute; right:10%;" class="btn">👁️</button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <!-- HORIZONTAL OFFSET -->
+                                <div class="form-group">
+                                    <label for="shadow-h-offset" class="col-sm-3 control-label">Horizontal Offset</label>
+                                    <div class="col-sm-8">
+                                        <input type="range" id="shadow-h-offset-range" class="form-range form-control" value="0" min="-50" max="50">
+                                    </div>
+                                    <div id="shadow-h-offset-value" class="col-sm-1" style="margin-top: 0.5em">0</div>
                                 </div>
-                                <div class="col-sm-2">
-                                    <button type="button" class="btn btn-default btn-block" id="sub-lef-background">
-                                        -
-                                    </button>
+                                <!-- VERTICAL OFFSET -->
+                                <div class="form-group">
+                                    <label for="shadow-v-offset" class="col-sm-3 control-label">Vertical Offset</label>
+                                    <div class="col-sm-8">
+                                        <input type="range" id="shadow-v-offset-range" class="form-range form-control" value="0" min="-50" max="50">
+                                    </div>
+                                    <div id="shadow-v-offset-value" class="col-sm-1" style="margin-top: 0.5em">0</div>
                                 </div>
-                                <div class="col-sm-2">
-                                    <button type="button" class="btn btn-default btn-block" id="add-lef-background">
-                                        +
-                                    </button>
+                                <!-- BLUR -->
+                                <div class="form-group">
+                                    <label for="shadow-blur" class="col-sm-3 control-label">Blur</label>
+                                    <div class="col-sm-8">
+                                        <input type="range" id="shadow-blur-range" class="form-range form-control" value="0" min="0" max="50">
+                                    </div>
+                                    <div id="shadow-blur-value" class="col-sm-1" style="margin-top: 0.5em">0</div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="background-top-margin" style="margin-top: 10px" class="col-sm-2 control-label">VERTI</label>
-                                <div class="col-sm-6">
-                                    <input type="text" id="background-top-margin" class="form-control" value="0" />
+                                <!-- OPACITY -->
+                                <div class="form-group">
+                                    <label for="shadow-opacity" class="col-sm-3 control-label">Opacity</label>
+                                    <div class="col-sm-8">
+                                        <input type="range" id="shadow-opacity-range" class="form-range form-control" step="0.01" value="1" min="0" max="1">
+                                    </div>
+                                    <div id="shadow-opacity-value" class="col-sm-1" style="margin-top: 0.5em">1</div>
                                 </div>
-                                <div class="col-sm-2">
-                                    <button type="button" class="btn btn-default btn-block" id="sub-top-background">
-                                        -
-                                    </button>
-                                </div>
-                                <div class="col-sm-2">
-                                    <button type="button" class="btn btn-default btn-block" id="add-top-background">
-                                        +
-                                    </button>
-                                </div>
-                            </div>
-                            <hr>
-                            <h3>Foreground</h3>
-                            <div class="form-group">
-                                <label for="foreground-left-margin" style="margin-top: 10px" class="col-sm-2 control-label">HORIZ</label>
-                                <div class="col-sm-6">
-                                    <input type="text" id="foreground-left-margin" class="form-control" value="0" />
-                                </div>
-                                <div class="col-sm-2">
-                                    <button type="button" class="btn btn-default btn-block" id="sub-lef-foreground">
-                                        -
-                                    </button>
-                                </div>
-                                <div class="col-sm-2">
-                                    <button type="button" class="btn btn-default btn-block" id="add-lef-foreground">
-                                        +
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="foreground-top-margin" style="margin-top: 10px" class="col-sm-2 control-label">VERTI</label>
-                                <div class="col-sm-6">
-                                    <input type="text" id="foreground-top-margin" class="form-control" value="0" />
-                                </div>
-                                <div class="col-sm-2">
-                                    <button type="button" class="btn btn-default btn-block" id="sub-top-foreground">
-                                        -
-                                    </button>
-                                </div>
-                                <div class="col-sm-2">
-                                    <button type="button" class="btn btn-default btn-block" id="add-top-foreground">
-                                        +
-                                    </button>
+                                <!-- COLOR -->
+                                <div class="form-group">
+                                    <label for="shadow-color" class="col-sm-3 control-label">Shadow Color</label>
+                                    <div class="col-sm-8">
+                                        <input title="Shadow Color" type="color" id="shadow-color" class="form-control color-picker" value="#000000" />
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <button type="button" class="btn btn-default btn-square" id="rnd-shadow" data-bs-toggle="tooltip" data-bs-placement="top" title="Select random color" data-container="#shadow-modal">
+                                            🍭 
+                                        </button>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="modal-footer">
+                        <button id="shadow-reset" type="button" class="btn btn-warning">Reset</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button id="editor-reset" type="button" class="btn btn-warning">Reset</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+
             </div>
         </div>
-    </div>
-    <div id="offscreen-div"></div>
-    <div class="container-fluid">
-        <div class="wrapper">
-            <div>
+        <div id="offscreen-div"></div>
+        <div class="container-fluid">
+            <div class="wrapper">
+                <div>
 
-                <div class="row" id="background">
-                    <div class="col-7 h4">Background</div>
-                    <div class="col-1">
-                        <button type="button" class="btn btn-default btn-block" id="rnd-background" data-bs-toggle="tooltip" data-bs-placement="top" title="Select random background">
+                    <div class="row" id="background">
+                        <div class="col-7 h4">Background</div>
+                        <div class="col-1">
+                            <button type="button" class="btn btn-default btn-square" id="rnd-background" data-bs-toggle="tooltip" data-bs-placement="top" title="Select random background">
                             🔀
                         </button>
-                    </div>
-                    <div class="col-3">
-                        <input title="Background Color" type="color" id="bg-color" class="form-control color-picker" value="#AAAAAA" />
-                    </div>
-                    <div class="col-1">
-                        <button type="button" class="btn btn-default btn-block" id="rnd-background-clr" data-bs-toggle="tooltip" data-bs-placement="top" title="Select random color">
+                        </div>
+                        <div class="col-3">
+                            <input title="Background Color" type="color" id="bg-color" class="form-control color-picker" value="#AAAAAA" />
+                        </div>
+                        <div class="col-1">
+                            <button type="button" class="btn btn-default btn-square" id="rnd-background-clr" data-bs-toggle="tooltip" data-bs-placement="top" title="Select random color">
                             🍭
                         </button>
-                    </div>
+                        </div>
 
+                    </div>
+                    <hr>
+                    <div id="bg-container"></div>
                 </div>
-                <hr>
-                <div id="bg-container"></div>
-            </div>
-            <div class="nested">
-                <button type="button" class="btn btn-default btn-block" id="editor" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Positions" data-bs-target="#editor-modal">
+                <div class="nested">
+                    <button type="button" class="btn btn-default btn-square" id="editor" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Positions" data-bs-target="#offsets-modal">
                     ⚙️
                 </button>
-                <div id="result-container">
-                    <div id="result-fg-0"></div>
-                    <div id="result-fg-1"></div>
-                    <div id="result-bg"></div>
-                </div>
-                <h2>Export Emblem</h2>
-                <hr>
-                <div class="row" id="export-group">
-                    <div class="col-3"><button type="button" class="btn btn-tags btn-block" id="btn-256">256px</button>
+                    <div id="result-container">
+                        <div id="result-foreground">
+                            <div id="result-fg-0"></div>
+                            <div id="result-fg-1"></div>
+                        </div>
+                        <div id="result-bg"></div>
                     </div>
-                    <div class="col-3"><button type="button" class="btn btn-tags btn-block" id="btn-512">512px</button>
+                    <h2>Export Emblem</h2>
+                    <hr>
+                    <div class="row" id="export-group">
+                        <div class="col-3"><button type="button" class="btn btn-tags btn-block" id="btn-256">256px</button>
+                        </div>
+                        <div class="col-3"><button type="button" class="btn btn-tags btn-block" id="btn-512">512px</button>
+                        </div>
+                        <div class="col-3"><button type="button" class="btn btn-tags btn-block" id="btn-1024">1024px</button></div>
+                        <div class="col-3"><button type="button" class="btn btn-tags btn-block" id="btn-2048">2048px</button></div>
                     </div>
-                    <div class="col-3"><button type="button" class="btn btn-tags btn-block" id="btn-1024">1024px</button></div>
-                    <div class="col-3"><button type="button" class="btn btn-tags btn-block" id="btn-2048">2048px</button></div>
+                    <hr>
+                    <div class="row">
+                        2012 - 2015 ArenaNet, Inc. All rights reserved. NCsoft, the interlocking NC logo, ArenaNet, Arena.net, Guild Wars, Guild Wars Factions, Factions, Guild Wars Nightfall, Nightfall, Guild Wars: Eye of the North, Eye of the North, Guild Wars 2, and all associated
+                        logos and designs are trademarks or registered trademarks of NCsoft Corporation. All other trademarks are the property of their respective owners.
+                    </div>
                 </div>
-                <hr>
-                <div class="row">
-                    2012 - 2015 ArenaNet, Inc. All rights reserved. NCsoft, the interlocking NC logo, ArenaNet, Arena.net, Guild Wars, Guild Wars Factions, Factions, Guild Wars Nightfall, Nightfall, Guild Wars: Eye of the North, Eye of the North, Guild Wars 2, and all associated
-                    logos and designs are trademarks or registered trademarks of NCsoft Corporation. All other trademarks are the property of their respective owners.
-                </div>
-            </div>
-            <div>
-                <div class="row">
-                    <div class="col-4 h4">Emblems</div>
-                    <div class="col-1">
-                        <button type="button" class="btn btn-default btn-block" id="rnd-emblem" data-bs-toggle="tooltip" data-bs-placement="top" title="Select random emblem">
+                <div>
+                    <div class="row">
+                        <div class="col-3 h4">Emblems</div>
+                        <div class="col-1">
+                            <button type="button" class="btn btn-default btn-square" id="shadow-editor" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-target="#shadow-modal" title="Edit the emblem shadows">
+                            🌕
+                        </button>
+                        </div>
+                        <div class="col-1">
+                            <button type="button" class="btn btn-default btn-square" id="rnd-emblem" data-bs-toggle="tooltip" data-bs-placement="top" title="Select random emblem">
                             🔀
                         </button>
-                    </div>
-                    <div class="col-3">
-                        <input title="Foreground Color 1" type="color" id="fg0-color" class="form-control color-picker" value="#ffffff" />
-                    </div>
-                    <div class="col-3">
-                        <input title="Foreground Color 2" type="color" id="fg1-color" class="form-control color-picker" value="#EEEEEE" />
-                    </div>
-                    <div class="col-1">
-                        <button type="button" class="btn btn-default btn-block" id="rnd-emblem-clr" data-bs-toggle="tooltip" data-bs-placement="top" title="Select random color">
+                        </div>
+                        <div class="col-3">
+                            <input title="Foreground Color 1" type="color" id="fg0-color" class="form-control color-picker" value="#ffffff" />
+                        </div>
+                        <div class="col-3">
+                            <input title="Foreground Color 2" type="color" id="fg1-color" class="form-control color-picker" value="#EEEEEE" />
+                        </div>
+                        <div class="col-1">
+                            <button type="button" class="btn btn-default btn-square" id="rnd-emblem-clr" data-bs-toggle="tooltip" data-bs-placement="top" title="Select random color">
                             🍭
                         </button>
+                        </div>
                     </div>
+                    <hr>
+                    <div id="fg-container"></div>
                 </div>
-                <hr>
-                <div id="fg-container"></div>
             </div>
-        </div>
-        <script type="text/javascript" src="js/gw2emblem.js"></script>
-        <div id="html2canvaswrapper"></div>
-</body>
+            <script type="text/javascript" src="js/ui.js"></script>
+            <script type="text/javascript" src="js/gw2emblem.js"></script>
+            <div id="html2canvaswrapper"></div>
+    </body>
 
 </html>

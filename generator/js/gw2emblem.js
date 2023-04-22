@@ -35,7 +35,64 @@ $(document).ready(function() {
     });
 
     $("#editor").click(function() {
-        $(".modal").modal("show");
+        $("#offsets-modal").modal("show");
+    })
+
+    let shadowActive = true
+
+    let calcShadow = () => {
+        let h_offset = $("#shadow-h-offset-value").html()
+        let v_offset = $("#shadow-v-offset-value").html()
+        let blur = $("#shadow-blur-value").html()
+        let opacity = $("#shadow-opacity-value").html()
+        let color = hex2rgb($("#shadow-color").val());
+
+        let r = ""
+        if (shadowActive)
+            r = `${h_offset}px ${v_offset}px ${blur}px ${"rgb(" + color.r + "," + color.g + "," + color.b + "," + opacity + ")"}`
+        $("#result-foreground").css("text-shadow", r)
+    }
+
+    $("#shadow-editor").click(function() {
+        $("#shadow-modal").modal("show");
+    })
+    $("#shadow-h-offset-range").on("input", function() {
+        $("#shadow-h-offset-value").html($(this).val())
+        calcShadow()
+    })
+    $("#shadow-v-offset-range").on("input", function() {
+        $("#shadow-v-offset-value").html($(this).val())
+        calcShadow()
+    })
+    $("#shadow-blur-range").on("input", function() {
+        $("#shadow-blur-value").html($(this).val())
+        calcShadow()
+    })
+    $("#shadow-opacity-range").on("input", function() {
+        $("#shadow-opacity-value").html($(this).val())
+        calcShadow()
+    })
+    $("#shadow-color").on("input", function() {
+        calcShadow()
+    })
+
+    $("#toggle-shadow").click(function() {
+        shadowActive = !shadowActive
+        $(this).css("opacity", shadowActive ? "100%" : "30%")
+        $("#shadow-modal .modal-body input").prop("disabled", !shadowActive)
+        calcShadow()
+    })
+
+    $("#shadow-reset").click(function() {
+        $("#shadow-h-offset-range").val(0).trigger("input")
+        $("#shadow-v-offset-range").val(0).trigger("input")
+        $("#shadow-blur-range").val(0).trigger("input")
+        $("#shadow-opacity-range").val(1).trigger("input")
+        $("#shadow-color").val("#000000").trigger("input")
+    })
+
+    $("#rnd-shadow").click(function() {
+        $("#shadow-color").val(getRandomColor()).trigger("input")
     })
 
     $("#editor-reset").click(function(e) {
@@ -68,15 +125,21 @@ $(document).ready(function() {
     });
 
 
-    let $modal = $("#editor-modal");
+    let $modal = $("#offsets-modal");
     $modal.draggable({
         handle: ".modal-header",
     });
     $modal.resizable();
 
-    $("#editor-modal button").click(function() {
+    $modal = $("#shadow-modal");
+    $modal.draggable({
+        handle: ".modal-header",
+    });
+    $modal.resizable();
+
+    $("#offsets-modal button").click(function() {
         let id = $(this).attr('id')
-        if (id.includes("-")) {
+        if (id.includes("-") && !id.includes("flip")) {
             var op = id.substr(0, 3)
             var marg = id.substr(4, 3);
             var elem = id.substr(8);
@@ -96,10 +159,22 @@ $(document).ready(function() {
                 $("#" + input).val(inputVal)
                 $("#" + input).trigger("change")
             }
+        } else if (id.includes("flip")) {
+            if (id == "flip-horizontal-background") {
+                $("#result-bg").css("transform", buildTransformString({ scaleX: "flip", obj_string: "#result-bg" }))
+            } else if (id == "flip-vertical-background") {
+                $("#result-bg").css("transform", buildTransformString({ scaleY: "flip", obj_string: "#result-bg" }))
+            } else if (id == "flip-vertical-foreground") {
+                $("#result-fg-0").css("transform", buildTransformString({ scaleY: "flip", obj_string: "#result-fg-0" }))
+                $("#result-fg-1").css("transform", buildTransformString({ scaleY: "flip", obj_string: "#result-fg-1" }))
+            } else if (id == "flip-horizontal-foreground") {
+                $("#result-fg-0").css("transform", buildTransformString({ scaleX: "flip", obj_string: "#result-fg-0" }))
+                $("#result-fg-1").css("transform", buildTransformString({ scaleX: "flip", obj_string: "#result-fg-1" }))
+            }
         }
     })
 
-    $("#editor-modal input").on("input", function() {
+    $("#offsets-modal input").on("input", function() {
         var inputVal = $(this).val()
 
         var id = $(this).attr("id")
@@ -124,6 +199,45 @@ $(document).ready(function() {
     })
 
 });
+
+function getScaleTransform(obj_string, axis) {
+    axis = axis.toUpperCase();
+
+    var str = document.querySelector(obj_string).style.transform;
+
+    if (str.indexOf("scale" + axis) > -1) {
+        return str.slice(
+            str.indexOf("scale" + axis) + 7, // "scaleX("
+            str.indexOf("scale" + axis) + 8
+        )
+    } else {
+        return "1"
+    }
+}
+
+function buildTransformString(transforms) {
+    // Transforms is an object with the following properties
+    // scaleX = flip | undefined
+    // scaleY = flip | undefined
+    // obj_string
+    var transform = "translate(-50%, -50%)" // default
+
+    if (transforms.scaleX != undefined) {
+        var str = getScaleTransform(transforms.obj_string, "X")
+        if (str == "-") {
+            transform += ` scaleX(1)`
+        } else transform += " scaleX(-1)"
+    } else transform += " scaleX(1)"
+
+    if (transforms.scaleY != undefined) {
+        var str = getScaleTransform(transforms.obj_string, "Y")
+        if (str == "-") {
+            transform += ` scaleY(1)`
+        } else transform += " scaleY(-1)"
+    } else transform += ` scaleY(1)`
+
+    return transform
+}
 
 function makeImage(width = 256, height = 256) {
     let myWindow = window.open("", "_blank");
@@ -189,9 +303,9 @@ function selectRandom() {
     $("#bg-" + _selected_bg).addClass("selected")
     $("#fg-" + _selected_fg).addClass("selected")
 
-    var color_bg = defs.colors[Math.floor(Math.random() * colors)];
-    var color_fg_0 = defs.colors[Math.floor(Math.random() * colors)];
-    var color_fg_1 = defs.colors[Math.floor(Math.random() * colors)];
+    var color_bg = getRandomColor();
+    var color_fg_0 = getRandomColor();
+    var color_fg_1 = getRandomColor();
 
 
     setTimeout(function() {
@@ -221,18 +335,20 @@ function selectRandomFg() {
     drawResult();
 }
 
+function getRandomColor() {
+    let colors = Object.keys(defs.colors).length;
+    return defs.colors[Math.floor(Math.random() * colors)]
+}
+
 function selectRandomColorBg() {
-    var colors = Object.keys(defs.colors).length;
-    var color_bg = defs.colors[Math.floor(Math.random() * colors)];
-    $("#bg-color").val(color_bg);
+    $("#bg-color").val(getRandomColor());
 
     drawResult();
 }
 
 function selectRandomColorFg() {
-    var colors = Object.keys(defs.colors).length;
-    var color_fg_0 = defs.colors[Math.floor(Math.random() * colors)];
-    var color_fg_1 = defs.colors[Math.floor(Math.random() * colors)];
+    var color_fg_0 = getRandomColor();
+    var color_fg_1 = getRandomColor();
     $("#fg0-color").val(color_fg_0);
     $("#fg1-color").val(color_fg_1);
 
