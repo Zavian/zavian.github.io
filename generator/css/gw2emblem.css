@@ -105,6 +105,14 @@ body {
     z-index: 5;
 }
 
+.modal label {
+    margin-top: 0.5em;
+}
+
+#hint-editor {
+    opacity: 0;
+}
+
 
 /* #result-container {
     position: relative;

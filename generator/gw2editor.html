@@ -105,6 +105,13 @@
                                     </button>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="background-scale-range" class="col-sm-3 control-label">SCALE</label>
+                                    <div class="col-sm-8">
+                                        <input type="range" id="background-scale-range" class="form-range form-control" step="0.01" value="1" min="0" max="2.5">
+                                    </div>
+                                    <label id="background-scale-value" class="col-sm-1">1</label>
+                                </div>
                                 <hr>
                                 <!-- FOREGROUND START -->
                                 <h3>Foreground</h3>
@@ -152,13 +159,27 @@
                                     </button>
                                     </div>
                                 </div>
-
+                                <div class="form-group">
+                                    <label for="foreground-scale-range" class="col-sm-3 control-label">SCALE</label>
+                                    <div class="col-sm-8">
+                                        <input type="range" id="foreground-scale-range" class="form-range form-control" step="0.01" value="1" min="0" max="2.5">
+                                    </div>
+                                    <label id="foreground-scale-value" class="col-sm-1">1</label>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button id="editor-reset" type="button" class="btn btn-warning">Reset</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <div class="form-group">
+                            <div id="hint-editor">
+                                <div class="col-sm-1"><button class="btn btn-square">💡</button></div>
+                                <div class="col-sm-6 text-left">Making things too big might make the UI unresponsive.</div>
+                            </div>
+                            <div class="col-sm-5">
+                                <button id="editor-reset" type="button" class="btn btn-warning">Reset</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -180,7 +201,7 @@
                                     <div class="col-sm-8">
                                         <input type="range" id="shadow-h-offset-range" class="form-range form-control" value="0" min="-50" max="50">
                                     </div>
-                                    <div id="shadow-h-offset-value" class="col-sm-1" style="margin-top: 0.5em">0</div>
+                                    <label id="shadow-h-offset-value" class="col-sm-1">0</label>
                                 </div>
                                 <!-- VERTICAL OFFSET -->
                                 <div class="form-group">
@@ -188,7 +209,7 @@
                                     <div class="col-sm-8">
                                         <input type="range" id="shadow-v-offset-range" class="form-range form-control" value="0" min="-50" max="50">
                                     </div>
-                                    <div id="shadow-v-offset-value" class="col-sm-1" style="margin-top: 0.5em">0</div>
+                                    <label id="shadow-v-offset-value" class="col-sm-1">0</label>
                                 </div>
                                 <!-- BLUR -->
                                 <div class="form-group">
@@ -196,7 +217,7 @@
                                     <div class="col-sm-8">
                                         <input type="range" id="shadow-blur-range" class="form-range form-control" value="0" min="0" max="50">
                                     </div>
-                                    <div id="shadow-blur-value" class="col-sm-1" style="margin-top: 0.5em">0</div>
+                                    <label id="shadow-blur-value" class="col-sm-1">0</label>
                                 </div>
                                 <!-- OPACITY -->
                                 <div class="form-group">
@@ -204,7 +225,7 @@
                                     <div class="col-sm-8">
                                         <input type="range" id="shadow-opacity-range" class="form-range form-control" step="0.01" value="1" min="0" max="1">
                                     </div>
-                                    <div id="shadow-opacity-value" class="col-sm-1" style="margin-top: 0.5em">1</div>
+                                    <label id="shadow-opacity-value" class="col-sm-1">1</label>
                                 </div>
                                 <!-- COLOR -->
                                 <div class="form-group">

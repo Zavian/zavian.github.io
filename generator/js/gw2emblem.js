@@ -100,12 +100,18 @@ $(document).ready(function() {
 
         inputs = [
             "background-left-margin", "background-top-margin",
-            "foreground-left-margin", "foreground-top-margin"
+            "foreground-left-margin", "foreground-top-margin",
         ]
         for (var i = 0; i < inputs.length; i++) {
             $("#" + inputs[i]).val("0")
             $("#" + inputs[i]).trigger("change");
         }
+
+        $("#foreground-scale-range").val(1).trigger("input")
+        $("#background-scale-range").val(1).trigger("input")
+        $("#hint-editor").css("opacity", 0)
+
+
     })
 
     $("#background-top-margin").change(function(e) {
@@ -123,6 +129,17 @@ $(document).ready(function() {
         $("#result-fg-0").css("margin-left", $(this).val() + "px");
         $("#result-fg-1").css("margin-left", $(this).val() + "px");
     });
+
+    $("#foreground-scale-range").on("input", function() {
+        $("#hint-editor").css("opacity", 1);
+        $("#foreground-scale-value").html($(this).val());
+        $("#result-foreground").css("font-size", $(this).val() + "em")
+    })
+    $("#background-scale-range").on("input", function() {
+        $("#hint-editor").css("opacity", 1);
+        $("#background-scale-value").html($(this).val());
+        $("#result-bg").css("font-size", $(this).val() + "em")
+    })
 
 
     let $modal = $("#offsets-modal");
