@@ -4,7 +4,7 @@ $(document).ready(function() {
     let links = {
         "generate.html": {
             "name": "🎴 RPG Cards Generator",
-            "desc": "Based on <a class='text-success' href='https://crobi.github.io/rpg-cards/generator/generate.html'>crobi</a>'s work"
+            "desc": "Based on <a class='text-success' href='https://rpg-cards.vercel.app/'>crobi</a>'s work"
         },
         "epic-generator.html": {
             "name": "Epic💯Boons",
@@ -17,7 +17,7 @@ $(document).ready(function() {
         "potion-maker.html": { "name": "💦 Potion Maker" },
         "gw2editor.html": {
             "name": "🐲 Guild Wars 2 Logo Editor",
-            "desc": "Thanks to <a class='text-success' href='http://nailek.net/gw2/emblemeditor/'>nailek</a> and <a class='text-success' href='https://gw2.properdave.com/'>properdave</a> for their awesome resources."
+            "desc": "Thanks to <a class='text-success' href='https://nailek.net/'>nailek</a> and <a class='text-success' href='https://gw2.properdave.com/'>properdave</a> for their awesome resources."
         }
     };
     let navbar = $("<nav style='height:50px' class='navbar navbar-expand-lg navbar-dark bg-dark'></nav>");
