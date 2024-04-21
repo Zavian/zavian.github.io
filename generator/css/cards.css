@@ -1,3 +1,25 @@
+:root {
+    --card-color: #747474;
+}
+
+input[type=color] {
+    border-radius: 4px;
+    overflow: hidden;
+    padding:0;
+}
+
+input[type=color]::-webkit-color-swatch {
+  border: none;
+  border-radius: 4px;
+  padding: 0;
+}
+
+input[type=color]::-webkit-color-swatch-wrapper {
+    border: none;
+    border-radius: 4px;
+    padding: 0;
+}
+
 .card {
     border: 2mm solid;
     box-sizing: border-box;
@@ -10,6 +32,10 @@
 }
 
 .card.rounded-corners {
+    border-color: rgb(var(--card-color));
+    color: rgb(var(--card-color));
+    background-color: rgb(var(--card-color));
+    
     border-radius: 4px;
 }
 
@@ -24,10 +50,20 @@
     flex-direction: column;
     flex: 1;
     font-size: inherit;
+    background: white;
+    /* background: linear-gradient(0deg, rgb(var(--card-color) / 0.15) 0%, white 10%); */
+
+    /* -webkit-box-shadow: inset 0px 0px 3px 3px rgb(var(--card-color) / 0.15);
+    -moz-box-shadow: inset 0px 0px 3px 3px rgb(var(--card-color) / 0.15);
+    box-shadow: inset 0px 0px 3px 3px rgb(var(--card-color) / 0.15); */
+
+    & h4, strong, b, em {
+        color: rgb(var(--card-color));
+    }   
+    
 }
 
 .card-back {
-    /*     background-color: white; */
     border-radius: 4mm;
     border-color: inherit;
     margin: 3mm;
@@ -102,7 +138,7 @@
     font-family: Lora, "Calisto MT", "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
     font-variant: small-caps;
     font-weight: bold;
-    background-color: inherit;
+    background-color: rgb(var(--card-color));
     color: white;
 }
 

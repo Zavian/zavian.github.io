@@ -288,9 +288,15 @@ function ui_setup_color_selector() {
     //    $('#card-color-rgb').val($('#card-color').val());
     //    $('#card-color-rgb').trigger('change');
     //});
+
+    $("#car-color-front").click(function(event) {
+        $("#card-color-rgb").click();
+    });
+
     $('#card-color-rgb').on('input', function(e) {
         $('#card-color').val($('#card-color-rgb').val());
-        $('#card-color').trigger('change')
+        $('#card-color').trigger('change');
+        $('#car-color-front').css('background-color', $('#card-color-rgb').val());
     });
 
     const length = 100 / Object.entries(default_color_palette).length
@@ -367,6 +373,14 @@ function ui_update_card_color_selector(color, input, selector) {
 function ui_change_card_color() {
     var input = $(this);
     var color = input.val();
+
+    var rgbColor = hex2rgb(color);
+
+    var customColor = `${rgbColor.r} ${rgbColor.g} ${rgbColor.b}`
+
+
+    // change the var --card-color to color found in :root
+    document.documentElement.style.setProperty('--card-color', customColor);
 
     ui_update_card_color_selector(color, input, '#card-color-rgb');
     ui_set_card_color(color);
