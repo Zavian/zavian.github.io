@@ -29,13 +29,13 @@ input[type=color]::-webkit-color-swatch-wrapper {
     font-family: "Noto Sans", "Myriad Pro", Calibri, Helvetica, Arial, sans-serif;
     font-size: 8pt;
     overflow: hidden;
+    box-shadow: 0 0 10px black;
 }
 
 .card.rounded-corners {
     border-color: rgb(var(--card-color));
     color: rgb(var(--card-color));
-    background-color: rgb(var(--card-color));
-    
+    background-color: rgb(var(--card-color));    
     border-radius: 4px;
 }
 
