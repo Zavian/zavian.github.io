@@ -374,7 +374,19 @@ function ui_change_card_color() {
     var input = $(this);
     var color = input.val();
 
+    if (color[0] != '#') {
+        color = sanitizeColor(color);
+
+        if (color[0] == null) {
+            console.warn('Color not found', color);
+            color = '#000000';
+        }
+    }
+
+    $(this).val(color);
+
     var rgbColor = hex2rgb(color);
+
 
     var customColor = `${rgbColor.r} ${rgbColor.g} ${rgbColor.b}`
 
@@ -637,7 +649,9 @@ $('#copyAll').click(function() {
     var front = $('#imgur-front').val();
     var back = $('#imgur-back').val();
     var color = $('#card-color').val();
-    var tc = colorCheck(color.toLowerCase());
+    var tc = sanitizeColor(color.toLowerCase());
+
+    if (!tc) tc = "-w"
 
 
     let oldText = $('#clipboardManipulator').text()
@@ -686,7 +700,7 @@ function uploadToImgur(canvas, side) {
     canvas.remove();
 }
 
-function colorCheck(color) {
+function sanitizeColor(color) {
     if (color[0] == '#') return color;
     else {
         var colors = {
@@ -833,7 +847,7 @@ function colorCheck(color) {
             yellowgreen: '#9acd32'
         };
         if (colors[color]) return colors[color];
-        else return '-w';
+        else return null;
     }
 }
 
@@ -1262,6 +1276,8 @@ function rgb2hex(rgb) {
 }
 
 function hex2rgb(hex) {
+    hex = sanitizeColor(hex);
+
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
         r: parseInt(result[1], 16),
