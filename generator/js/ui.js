@@ -971,6 +971,48 @@ $(document).ready(function() {
         $(this).css("background-color", hex);
     })
 
+    // Handle custom size inputs visibility
+    $('#card-size').change(function() {
+        if ($(this).val() === 'custom') {
+            $('#custom-size-inputs').show();
+            // Set default values to 2.9x2.9
+            $('#custom-width').val(2.9);
+            $('#custom-height').val(2.9);
+            // Trigger the size update
+            updateCustomSize();
+        } else {
+            $('#custom-size-inputs').hide();
+            // Remove custom size class when switching back to predefined sizes
+            $('.card').removeClass('card-size-custom');
+        }
+    });
+
+    // Function to update custom size
+    function updateCustomSize() {
+        var width = $('#custom-width').val();
+        var height = $('#custom-height').val();
+
+        if (width && height && width > 0 && height > 0) {
+            // Set CSS custom properties
+            document.documentElement.style.setProperty('--custom-width', width + 'in');
+            document.documentElement.style.setProperty('--custom-height', height + 'in');
+            
+            // Apply the custom class
+            $('.card').removeClass('card-size-225x35 card-size-25x35 card-size-35x50 card-size-75x50 card-size-29x29')
+                     .addClass('card-size-custom');
+
+            // Force refresh the preview
+            ui_render_selected_card();
+        }
+    }
+
+    // Handle width and height input changes
+    $('#custom-width, #custom-height').on('input change', function() {
+        if ($('#card-size').val() === 'custom') {
+            updateCustomSize();
+        }
+    });
+
     $('#color-palette button').click(function() {
 
         let color = rgb2hex($(this).css('background-color'));

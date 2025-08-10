@@ -36,6 +36,13 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    &:has(.card-size-custom) {
+        flex-wrap: wrap;
+        gap: 1em;
+        margin: 0;
+        justify-content: start;
+    }
 }
 
 #canvas-container {

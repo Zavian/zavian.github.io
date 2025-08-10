@@ -126,7 +126,15 @@
                                 <option value="35x50">3.5&quot; x 5.0&quot;</option>
                                 <option value="75x50" selected>7.5&quot; x 5.0&quot;</option>
                                 <option value="29x29">2.9&quot; x 2.9&quot;</option>
+                                <option value="custom">Custom size</option>
                             </select>
+                            <div id="custom-size-inputs" class="mt-2" style="display:none;">
+                                <div class="input-group mb-2 col-sm-12">
+                                    <div class="col-sm-6 p-0"><input type="number" step="0.1" class="form-control" id="custom-width" placeholder="Width (inches)" /></div>
+                                    <div class="col-sm-6 p-0"><input type="number" step="0.1" class="form-control" id="custom-height" placeholder="Height (inches)" /></div>
+                                </div>
+                                <div class="alert alert-warning">Custom size is not supported on mobile devices and is experimental</div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">

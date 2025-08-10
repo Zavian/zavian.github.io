@@ -99,6 +99,26 @@ page[size="25x35"] {
 	height: 1.5in;
 }
 
+/* Custom card size */
+.card-size-custom {
+    width: var(--custom-width);
+    height: var(--custom-height);
+}
+
+.card-size-custom .card-back-icon {
+    width: calc(min(var(--custom-width), var(--custom-height)) * 0.4);
+    height: calc(min(var(--custom-width), var(--custom-height)) * 0.4);
+}
+
+/* Custom size input styling */
+#custom-size-inputs {
+    margin-top: 0.5rem;
+}
+
+#custom-size-inputs .input-group {
+    margin-bottom: 0.5rem;
+}
+
 /* Card sizes that fill out the entire sheet of paper (minimal margins) */
 .page[size="A4"] .card-size-full3x3 {
 	width: 69mm;
