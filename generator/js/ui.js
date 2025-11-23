@@ -673,27 +673,30 @@ $("#clearAll").click(function(e) {
 });
 
 function uploadToImgur(canvas, side) {
+    // Extract Base64 image data
     try {
         var img = canvas.toDataURL('image/jpeg').split(',')[1];
     } catch (e) {
         var img = canvas.toDataURL().split(',')[1];
     }
+
     $.ajax({
-        url: 'https://api.imgur.com/3/image',
-        type: 'post',
-        headers: {
-            Authorization: 'Client-ID f71d1c5e1627800'
-        },
+        url: 'https://api.imgbb.com/1/upload',
+        type: 'POST',
         data: {
+            key: 'a10818892eab6dcc372baa73e41ec14f',
             image: img
         },
         dataType: 'json',
         success: function(response) {
             if (response.success) {
-                //window.location = response.data.link;
                 console.log(response);
-                $('#imgur-' + side).val(response.data.link).change();
+                // ImgBB returns the direct URL in 'url'
+                $('#imgur-' + side).val(response.data.url).change();
             }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error("Upload failed: ", textStatus, errorThrown);
         }
     });
 
